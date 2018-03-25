@@ -1,0 +1,19 @@
+//
+//  Debug.xcconfig
+//  detuf8
+//
+//  Created by Seth on 2017/12/22.
+//  Copyright © 2017年 detu. All rights reserved.
+//
+
+//
+
+// 导入公共 config
+#include "Common.xcconfig"
+#include "Pods/Target Support Files/Pods-detuf8/Pods-detuf8.release.xcconfig"
+
+APP_DISPLAY_NAME = Detu Max D
+CONFIG_FLAG = DEBUG
+BUNDLE_IDENTIFIER = com.detu.detuf8
+APP_JSON_DATA = @"Debug";
+

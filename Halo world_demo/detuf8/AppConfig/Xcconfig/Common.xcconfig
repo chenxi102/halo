@@ -1,0 +1,13 @@
+
+//
+//  Common.xcconfig
+//  detuf8
+//
+//  Created by Seth on 2017/12/22.
+//  Copyright © 2017年 detu. All rights reserved.
+//
+
+APP_DISPLAY_NAME = Detu Max
+BUILD_VERSION = 1.0.0;
+APP_JSON_DATA = 1;
+
