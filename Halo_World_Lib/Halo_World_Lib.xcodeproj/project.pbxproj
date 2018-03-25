@@ -1,0 +1,337 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5DD2BDDF20668F8500571B94 /* HWDrawLotteryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2BDD920668F8400571B94 /* HWDrawLotteryViewController.m */; };
+		5DD2BDE020668F8500571B94 /* HWStealFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2BDDA20668F8400571B94 /* HWStealFieldViewController.m */; };
+		5DD2BDE120668F8500571B94 /* HWFieldOutputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2BDDD20668F8500571B94 /* HWFieldOutputViewController.m */; };
+		5DD2BDEC20679CED00571B94 /* HWHttpService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2BDEB20679CED00571B94 /* HWHttpService.m */; };
+		5DD2BDEF20679DBE00571B94 /* HWHttpBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2BDEE20679DBE00571B94 /* HWHttpBase.m */; };
+		5DD2BDF220679FA700571B94 /* HWHttpModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2BDF120679FA700571B94 /* HWHttpModel.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5DD2BDB220662C2D00571B94 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		5DD2BDB420662C2D00571B94 /* libHalo_World_Lib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHalo_World_Lib.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DD2BDD920668F8400571B94 /* HWDrawLotteryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWDrawLotteryViewController.m; sourceTree = "<group>"; };
+		5DD2BDDA20668F8400571B94 /* HWStealFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWStealFieldViewController.m; sourceTree = "<group>"; };
+		5DD2BDDB20668F8500571B94 /* HWFieldOutputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWFieldOutputViewController.h; sourceTree = "<group>"; };
+		5DD2BDDC20668F8500571B94 /* HWDrawLotteryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWDrawLotteryViewController.h; sourceTree = "<group>"; };
+		5DD2BDDD20668F8500571B94 /* HWFieldOutputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWFieldOutputViewController.m; sourceTree = "<group>"; };
+		5DD2BDDE20668F8500571B94 /* HWStealFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWStealFieldViewController.h; sourceTree = "<group>"; };
+		5DD2BDEA20679CED00571B94 /* HWHttpService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWHttpService.h; sourceTree = "<group>"; };
+		5DD2BDEB20679CED00571B94 /* HWHttpService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWHttpService.m; sourceTree = "<group>"; };
+		5DD2BDED20679DBE00571B94 /* HWHttpBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWHttpBase.h; sourceTree = "<group>"; };
+		5DD2BDEE20679DBE00571B94 /* HWHttpBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWHttpBase.m; sourceTree = "<group>"; };
+		5DD2BDF020679FA700571B94 /* HWHttpModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWHttpModel.h; sourceTree = "<group>"; };
+		5DD2BDF120679FA700571B94 /* HWHttpModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWHttpModel.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5DD2BDB120662C2D00571B94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5DD2BDAB20662C2D00571B94 = {
+			isa = PBXGroup;
+			children = (
+				5DD2BDB620662C2D00571B94 /* Halo_World_Lib */,
+				5DD2BDB520662C2D00571B94 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5DD2BDB520662C2D00571B94 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5DD2BDB420662C2D00571B94 /* libHalo_World_Lib.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5DD2BDB620662C2D00571B94 /* Halo_World_Lib */ = {
+			isa = PBXGroup;
+			children = (
+				5DD2BDE62066947700571B94 /* Resource */,
+				5DD2BDE420668FD800571B94 /* Services */,
+				5DD2BDD820668F6E00571B94 /* Class */,
+			);
+			path = Halo_World_Lib;
+			sourceTree = "<group>";
+		};
+		5DD2BDD820668F6E00571B94 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				5DD2BDDC20668F8500571B94 /* HWDrawLotteryViewController.h */,
+				5DD2BDD920668F8400571B94 /* HWDrawLotteryViewController.m */,
+				5DD2BDDB20668F8500571B94 /* HWFieldOutputViewController.h */,
+				5DD2BDDD20668F8500571B94 /* HWFieldOutputViewController.m */,
+				5DD2BDDE20668F8500571B94 /* HWStealFieldViewController.h */,
+				5DD2BDDA20668F8400571B94 /* HWStealFieldViewController.m */,
+			);
+			name = Class;
+			sourceTree = "<group>";
+		};
+		5DD2BDE420668FD800571B94 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5DD2BDEA20679CED00571B94 /* HWHttpService.h */,
+				5DD2BDEB20679CED00571B94 /* HWHttpService.m */,
+				5DD2BDED20679DBE00571B94 /* HWHttpBase.h */,
+				5DD2BDEE20679DBE00571B94 /* HWHttpBase.m */,
+				5DD2BDF020679FA700571B94 /* HWHttpModel.h */,
+				5DD2BDF120679FA700571B94 /* HWHttpModel.m */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		5DD2BDE62066947700571B94 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5DD2BDB320662C2D00571B94 /* Halo_World_Lib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5DD2BDBD20662C2D00571B94 /* Build configuration list for PBXNativeTarget "Halo_World_Lib" */;
+			buildPhases = (
+				5DD2BDB020662C2D00571B94 /* Sources */,
+				5DD2BDB120662C2D00571B94 /* Frameworks */,
+				5DD2BDB220662C2D00571B94 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Halo_World_Lib;
+			productName = Halo_World_Lib;
+			productReference = 5DD2BDB420662C2D00571B94 /* libHalo_World_Lib.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5DD2BDAC20662C2D00571B94 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = JianYiMei;
+				TargetAttributes = {
+					5DD2BDB320662C2D00571B94 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 5DD2BDAF20662C2D00571B94 /* Build configuration list for PBXProject "Halo_World_Lib" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5DD2BDAB20662C2D00571B94;
+			productRefGroup = 5DD2BDB520662C2D00571B94 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5DD2BDB320662C2D00571B94 /* Halo_World_Lib */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5DD2BDB020662C2D00571B94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DD2BDF220679FA700571B94 /* HWHttpModel.m in Sources */,
+				5DD2BDDF20668F8500571B94 /* HWDrawLotteryViewController.m in Sources */,
+				5DD2BDE020668F8500571B94 /* HWStealFieldViewController.m in Sources */,
+				5DD2BDEC20679CED00571B94 /* HWHttpService.m in Sources */,
+				5DD2BDE120668F8500571B94 /* HWFieldOutputViewController.m in Sources */,
+				5DD2BDEF20679DBE00571B94 /* HWHttpBase.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5DD2BDBB20662C2D00571B94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5DD2BDBC20662C2D00571B94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5DD2BDBE20662C2D00571B94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2WE8ZRVPFW;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5DD2BDBF20662C2D00571B94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2WE8ZRVPFW;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5DD2BDAF20662C2D00571B94 /* Build configuration list for PBXProject "Halo_World_Lib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DD2BDBB20662C2D00571B94 /* Debug */,
+				5DD2BDBC20662C2D00571B94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5DD2BDBD20662C2D00571B94 /* Build configuration list for PBXNativeTarget "Halo_World_Lib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DD2BDBE20662C2D00571B94 /* Debug */,
+				5DD2BDBF20662C2D00571B94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5DD2BDAC20662C2D00571B94 /* Project object */;
+}
