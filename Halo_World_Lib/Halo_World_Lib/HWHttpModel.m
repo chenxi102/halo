@@ -14,6 +14,8 @@ NSString * const  excavate = @"/ore/excavate";               //2.1.    用户触
 NSString * const  reap  = @"/ore/reap";                      //2.2.    采矿
 NSString * const  otherResources = @"/ore/otherResources";   //2.3.    获取偷矿资源
 NSString * const  steal = @"/ore/steal";                     //2.4.    偷取矿产
+NSString * const  record = @"/token/record";                 //2.5.    查询用户收入明细
+NSString * const  getLuck = @"/luckyBox/getLuck";            //2.6.    抽奖
 
 
 @implementation HWHttpModel

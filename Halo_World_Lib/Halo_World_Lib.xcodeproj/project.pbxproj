@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D3525E020692AD500A28CD5 /* HWModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3525DF20692AD500A28CD5 /* HWModel.m */; };
+		5D3525E620692AF800A28CD5 /* HWDataHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3525E520692AF800A28CD5 /* HWDataHandle.m */; };
 		5D3C0FCF2068D95D0014F197 /* CameraUIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3C0FCE2068D95D0014F197 /* CameraUIHelper.m */; };
 		5DD2BDDF20668F8500571B94 /* HWDrawLotteryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2BDD920668F8400571B94 /* HWDrawLotteryViewController.m */; };
 		5DD2BDE020668F8500571B94 /* HWStealFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2BDDA20668F8400571B94 /* HWStealFieldViewController.m */; };
@@ -29,6 +31,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5D3525DE20692AD500A28CD5 /* HWModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWModel.h; sourceTree = "<group>"; };
+		5D3525DF20692AD500A28CD5 /* HWModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWModel.m; sourceTree = "<group>"; };
+		5D3525E420692AF800A28CD5 /* HWDataHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWDataHandle.h; sourceTree = "<group>"; };
+		5D3525E520692AF800A28CD5 /* HWDataHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWDataHandle.m; sourceTree = "<group>"; };
 		5D3C0FCD2068D95D0014F197 /* CameraUIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraUIHelper.h; sourceTree = "<group>"; };
 		5D3C0FCE2068D95D0014F197 /* CameraUIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraUIHelper.m; sourceTree = "<group>"; };
 		5DD2BDB420662C2D00571B94 /* libHalo_World_Lib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHalo_World_Lib.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +107,10 @@
 				5DD2BDDD20668F8500571B94 /* HWFieldOutputViewController.m */,
 				5DD2BDDE20668F8500571B94 /* HWStealFieldViewController.h */,
 				5DD2BDDA20668F8400571B94 /* HWStealFieldViewController.m */,
+				5D3525DE20692AD500A28CD5 /* HWModel.h */,
+				5D3525DF20692AD500A28CD5 /* HWModel.m */,
+				5D3525E420692AF800A28CD5 /* HWDataHandle.h */,
+				5D3525E520692AF800A28CD5 /* HWDataHandle.m */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -178,7 +188,9 @@
 				5DD2BDF220679FA700571B94 /* HWHttpModel.m in Sources */,
 				5D3C0FCF2068D95D0014F197 /* CameraUIHelper.m in Sources */,
 				5DD2BDDF20668F8500571B94 /* HWDrawLotteryViewController.m in Sources */,
+				5D3525E620692AF800A28CD5 /* HWDataHandle.m in Sources */,
 				5DD2BDE020668F8500571B94 /* HWStealFieldViewController.m in Sources */,
+				5D3525E020692AD500A28CD5 /* HWModel.m in Sources */,
 				5DD2BDEC20679CED00571B94 /* HWHttpService.m in Sources */,
 				5DD2BDE120668F8500571B94 /* HWFieldOutputViewController.m in Sources */,
 				5DD2BDEF20679DBE00571B94 /* HWHttpBase.m in Sources */,
