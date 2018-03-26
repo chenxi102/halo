@@ -34,7 +34,9 @@
     model.httpType = @"POST";
     model.params = @{@"userId":self.userid};
     [self.httpOBJ sendDataWithHttpModel:model result:^(NSData * _Nullable data, NSURLResponse * _Nullable rep, NSError * _Nullable err) {
-        
+        if (res) {
+            res(data, err);
+        }
     }];
 }
 // 2.2.    采矿
@@ -44,7 +46,9 @@
     model.httpType = @"POST";
     model.params = @{@"userId":self.userid, @"oreId":oreId};
     [self.httpOBJ sendDataWithHttpModel:model result:^(NSData * _Nullable data, NSURLResponse * _Nullable rep, NSError * _Nullable err) {
-        
+        if (res) {
+            res(data, err);
+        }
     }];
 }
 // 2.3.    获取偷矿资源
@@ -54,7 +58,9 @@
     model.httpType = @"POST";
     model.params = @{@"userId":self.userid};
     [self.httpOBJ sendDataWithHttpModel:model result:^(NSData * _Nullable data, NSURLResponse * _Nullable rep, NSError * _Nullable err) {
-        
+        if (res) {
+            res(data, err);
+        }
     }];
 }
 // 2.4.    偷取矿产
@@ -64,7 +70,9 @@
     model.httpType = @"POST";
     model.params = @{@"userId":self.userid, @"oreId":oreId};
     [self.httpOBJ sendDataWithHttpModel:model result:^(NSData * _Nullable data, NSURLResponse * _Nullable rep, NSError * _Nullable err) {
-        
+        if (res) {
+            res(data, err);
+        }
     }];
 }
 //// 2.5.    抽奖

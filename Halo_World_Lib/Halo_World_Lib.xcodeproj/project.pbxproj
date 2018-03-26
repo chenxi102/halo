@@ -73,7 +73,6 @@
 		5DD2BDB620662C2D00571B94 /* Halo_World_Lib */ = {
 			isa = PBXGroup;
 			children = (
-				5DD2BDE62066947700571B94 /* Resource */,
 				5DD2BDE420668FD800571B94 /* Services */,
 				5DD2BDD820668F6E00571B94 /* Class */,
 			);
@@ -104,13 +103,6 @@
 				5DD2BDF120679FA700571B94 /* HWHttpModel.m */,
 			);
 			name = Services;
-			sourceTree = "<group>";
-		};
-		5DD2BDE62066947700571B94 /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,7 +222,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -279,7 +271,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

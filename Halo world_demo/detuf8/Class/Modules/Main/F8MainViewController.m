@@ -10,6 +10,8 @@
 #import "F8MainViewMode.h"
 #import "F8PreViewViewController.h"
 
+#import "HWFieldOutputViewController.h"
+#import "HWHttpService.h"
 
 @interface F8MainViewController ()
 @property (nonatomic, strong) UIButton * mainButton;
@@ -113,14 +115,9 @@
             @strong(self);
             DeBugLog(@"main button click ...");
             [self performBlock:^{
-                if ([F8DeviceManager sharedInstance].curConnDevice != F8WiFiType_F8) {
-                    [AppUtil openApplication_SetView];
-                } else if([F8SocketAPI shareInstance].socketType == SocketConnected ) {
-                    F8PreViewViewController * vc = [F8PreViewViewController new];
-                    [self.navigationController pushViewController:vc animated:YES];
-                } else if([F8SocketAPI shareInstance].socketType != SocketConnecting )  {
-                    [self connectCamera];
-                }
+                [HWHttpService shareInstance].userid = @"79ac16da-6c5c-4f4f-aa4a-32297dcf36c8";
+                HWFieldOutputViewController * vc = [HWFieldOutputViewController new];
+                [self.navigationController pushViewController:vc animated:YES];
             } afterDelay:.01];
         }];
     }
