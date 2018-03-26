@@ -32,7 +32,7 @@
     HWHttpModel * model = [HWHttpModel new];
     model.url = [NSString stringWithFormat:@"%@%@",HOST,excavate];
     model.httpType = @"POST";
-    model.params = @{@"userId":self.userid};
+    model.params = [NSString stringWithFormat:@"userId=%@",self.userid];
     [self.httpOBJ sendDataWithHttpModel:model result:^(NSData * _Nullable data, NSURLResponse * _Nullable rep, NSError * _Nullable err) {
         if (res) {
             res(data, err);
@@ -44,7 +44,8 @@
     HWHttpModel * model = [HWHttpModel new];
     model.url = [NSString stringWithFormat:@"%@%@",HOST,reap];
     model.httpType = @"POST";
-    model.params = @{@"userId":self.userid, @"oreId":oreId};
+//    model.params = @{@"userId":self.userid, @"oreId":oreId};
+    model.params = [NSString stringWithFormat:@"userId=%@&oreId=%@",self.userid, oreId];
     [self.httpOBJ sendDataWithHttpModel:model result:^(NSData * _Nullable data, NSURLResponse * _Nullable rep, NSError * _Nullable err) {
         if (res) {
             res(data, err);
@@ -56,7 +57,8 @@
     HWHttpModel * model = [HWHttpModel new];
     model.url = [NSString stringWithFormat:@"%@%@",HOST,otherResources];
     model.httpType = @"POST";
-    model.params = @{@"userId":self.userid};
+//    model.params = @{@"userId":self.userid};
+    model.params = [NSString stringWithFormat:@"userId=%@",self.userid];
     [self.httpOBJ sendDataWithHttpModel:model result:^(NSData * _Nullable data, NSURLResponse * _Nullable rep, NSError * _Nullable err) {
         if (res) {
             res(data, err);
@@ -68,7 +70,8 @@
     HWHttpModel * model = [HWHttpModel new];
     model.url = [NSString stringWithFormat:@"%@%@",HOST,steal];
     model.httpType = @"POST";
-    model.params = @{@"userId":self.userid, @"oreId":oreId};
+//    model.params = @{@"userId":self.userid, @"oreId":oreId};
+    model.params = [NSString stringWithFormat:@"userId=%@&oreId=%@",self.userid, oreId];
     [self.httpOBJ sendDataWithHttpModel:model result:^(NSData * _Nullable data, NSURLResponse * _Nullable rep, NSError * _Nullable err) {
         if (res) {
             res(data, err);

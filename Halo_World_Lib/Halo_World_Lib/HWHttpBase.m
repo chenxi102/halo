@@ -14,8 +14,14 @@
     
     NSURL * url = [NSURL URLWithString:httpModel.url];
     NSMutableURLRequest *requestM = [NSMutableURLRequest requestWithURL:url];
+    requestM.cachePolicy = NSURLRequestReloadIgnoringCacheData;
+//    [requestM setValue:@"application/json"forHTTPHeaderField:@"Content-Type"];
     requestM.HTTPMethod = httpModel.httpType;
-    requestM.HTTPBody = [NSJSONSerialization dataWithJSONObject:httpModel.params options:(NSJSONWritingPrettyPrinted) error:nil];
+//    NSData * data = [NSJSONSerialization dataWithJSONObject:httpModel.params options:(NSJSONWritingPrettyPrinted) error:nil];
+//    NSString * dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//    dataStr = [dataStr stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+//    dataStr = [dataStr stringByReplacingOccurrencesOfString:@" " withString:@""];
+    requestM.HTTPBody =  [httpModel.params dataUsingEncoding:NSUTF8StringEncoding];
     NSURLSession *session = [NSURLSession sharedSession];
     
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:requestM completionHandler:
@@ -26,5 +32,6 @@
                                       }];
     
     [dataTask resume];
+    
 }
 @end

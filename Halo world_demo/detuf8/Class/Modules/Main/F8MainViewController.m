@@ -29,6 +29,10 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+//    [HWHttpService shareInstance].userid = @"79ac16da-6c5c-4f4f-aa4a-32297dcf36c8";
+    [HWHttpService shareInstance].userid = @"79ac16da-6c5c-4f4f-585452565";
+    
     //MARK: UI
     {
         [self setupNav];
@@ -37,13 +41,6 @@
         self.view.backgroundColor = [UIColor grayColor];
     }
     
-    //  1.注册相机推送的消息 2.注册监听与相机连接的socket状态
-    {
-        [[F8SocketAPI shareInstance] registerTargad:self CameraNotify:@selector(cameraNotify:)];
-        [[F8SocketAPI shareInstance] registerTargad:self CameraExceptionNotify:@selector(CameraExceptionNotify:)];
-    }
-    
-    [self jugdeCameraConnectState];
 }
 
 - (void)setupPlayer {
@@ -115,7 +112,8 @@
             @strong(self);
             DeBugLog(@"main button click ...");
             [self performBlock:^{
-                [HWHttpService shareInstance].userid = @"79ac16da-6c5c-4f4f-aa4a-32297dcf36c8";
+//                [HWHttpService shareInstance].userid = @"79ac16da-6c5c-4f4f-aa4a-32297dcf36c8";
+//                [HWHttpService shareInstance].userid = @"79ac16da-6c5c-4f4f-585452565";
                 HWFieldOutputViewController * vc = [HWFieldOutputViewController new];
                 [self.navigationController pushViewController:vc animated:YES];
             } afterDelay:.01];
@@ -279,34 +277,35 @@
 }
 
 - (IBAction)disConnect:(id)sender {
-    [[F8SocketAPI shareInstance] disConnectSocket];
-}
-
-- (IBAction)takeCapture:(id)sender {
-    
-    [[F8SocketAPI shareInstance] takePhotoWithResult:^(F8SocketModel *e) {
-        if (e) {
+    [[HWHttpService shareInstance] getUserSelfFieldOutputNum:^(NSData * _Nullable data, NSError * _Nullable err) {
+        NSDictionary * json = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingMutableContainers) error:nil];
+        if (json) {
             
         }
     }];
-    //    return;
+}
+
+- (IBAction)takeCapture:(id)sender {
+    [[HWHttpService shareInstance] getOtherResourcesList:^(NSData * _Nullable data, NSError * _Nullable err) {
+        NSDictionary * json = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingMutableContainers) error:nil];
+        if (json) {
+            
+        }
+    }];
     
 }
 
 - (IBAction)takeVideo:(id)sender {
-    [[F8SocketAPI shareInstance] recordStartWithResult:^(F8SocketModel *e) {
-        if (e) {
+    [[HWHttpService shareInstance] reapFieldWithOreId:@"d319fabf-e8e8-4a4a-bd47-d2260e56bfb6" Call:^(NSData * _Nullable data, NSError * _Nullable err) {
+        NSDictionary * json = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingMutableContainers) error:nil];
+        if (json) {
             
         }
     }];
 }
 
 - (IBAction)stopVideo:(id)sender {
-    [[F8SocketAPI shareInstance] recordStopWithResult:^(F8SocketModel *e) {
-        if (e) {
-            
-        }
-    }];
+
 }
 
 @end

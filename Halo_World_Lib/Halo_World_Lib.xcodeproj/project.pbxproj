@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D3C0FCF2068D95D0014F197 /* CameraUIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3C0FCE2068D95D0014F197 /* CameraUIHelper.m */; };
 		5DD2BDDF20668F8500571B94 /* HWDrawLotteryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2BDD920668F8400571B94 /* HWDrawLotteryViewController.m */; };
 		5DD2BDE020668F8500571B94 /* HWStealFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2BDDA20668F8400571B94 /* HWStealFieldViewController.m */; };
 		5DD2BDE120668F8500571B94 /* HWFieldOutputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2BDDD20668F8500571B94 /* HWFieldOutputViewController.m */; };
@@ -28,6 +29,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5D3C0FCD2068D95D0014F197 /* CameraUIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraUIHelper.h; sourceTree = "<group>"; };
+		5D3C0FCE2068D95D0014F197 /* CameraUIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraUIHelper.m; sourceTree = "<group>"; };
 		5DD2BDB420662C2D00571B94 /* libHalo_World_Lib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHalo_World_Lib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DD2BDD920668F8400571B94 /* HWDrawLotteryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWDrawLotteryViewController.m; sourceTree = "<group>"; };
 		5DD2BDDA20668F8400571B94 /* HWStealFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWStealFieldViewController.m; sourceTree = "<group>"; };
@@ -54,6 +57,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D3C0FCC2068D94C0014F197 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				5D3C0FCD2068D95D0014F197 /* CameraUIHelper.h */,
+				5D3C0FCE2068D95D0014F197 /* CameraUIHelper.m */,
+			);
+			name = Tool;
+			sourceTree = "<group>";
+		};
 		5DD2BDAB20662C2D00571B94 = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +85,7 @@
 		5DD2BDB620662C2D00571B94 /* Halo_World_Lib */ = {
 			isa = PBXGroup;
 			children = (
+				5D3C0FCC2068D94C0014F197 /* Tool */,
 				5DD2BDE420668FD800571B94 /* Services */,
 				5DD2BDD820668F6E00571B94 /* Class */,
 			);
@@ -163,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DD2BDF220679FA700571B94 /* HWHttpModel.m in Sources */,
+				5D3C0FCF2068D95D0014F197 /* CameraUIHelper.m in Sources */,
 				5DD2BDDF20668F8500571B94 /* HWDrawLotteryViewController.m in Sources */,
 				5DD2BDE020668F8500571B94 /* HWStealFieldViewController.m in Sources */,
 				5DD2BDEC20679CED00571B94 /* HWHttpService.m in Sources */,

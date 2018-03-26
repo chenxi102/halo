@@ -29,6 +29,6 @@ extern NSString * const  steal ;            //2.4.    偷取矿产
 @property (nonatomic,copy) NSString *httpType;
 
 // params 
-@property (nonatomic,copy) NSDictionary *params;
+@property (nonatomic,copy) NSString *params;
 
 @end

@@ -2,8 +2,8 @@
 //  CameraUIHelper.m
 //  qumengTest
 //
-//  Created by 杜蒙 on 2017/3/3.
-//  Copyright © 2017年 杜蒙. All rights reserved.
+//  Created by Seth on 2017/3/3.
+//  Copyright © 2017年 Seth. All rights reserved.
 //
 
 #import "CameraUIHelper.h"
@@ -13,7 +13,7 @@
     static NSBundle *bundle;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSString *path = [[NSBundle mainBundle]pathForResource:@"cameradispatch" ofType:@"bundle"];
+        NSString *path = [[NSBundle mainBundle]pathForResource:@"halo" ofType:@"bundle"];
         bundle = [NSBundle bundleWithPath:path] ;
     });
     return bundle;

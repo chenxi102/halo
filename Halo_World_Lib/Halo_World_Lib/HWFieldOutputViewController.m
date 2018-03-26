@@ -14,13 +14,26 @@
 
 @implementation HWFieldOutputViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)extracted {
     [[HWHttpService shareInstance] getUserSelfFieldOutputNum:^(NSData * _Nullable data, NSError * _Nullable err) {
-        if (data) {
+        NSDictionary * json = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingMutableContainers) error:nil];
+        if (json) {
             
         }
     }];
+}
+
+- (void)viewDidLoad {
+    [self extracted] ;
+    
+    return;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[HWHttpService shareInstance] stealFieldWithOreId:@"" Call:^(NSData * _Nullable d, NSError * _Nullable e) {
+            if (d) {
+                
+            }
+        }];
+    });
 }
 
 
