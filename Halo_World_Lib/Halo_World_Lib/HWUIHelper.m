@@ -1,15 +1,15 @@
 //
-//  CameraUIHelper.m
+//  HWUIHelper.m
 //  qumengTest
 //
 //  Created by Seth on 2017/3/3.
 //  Copyright © 2017年 Seth. All rights reserved.
 //
 
-#import "CameraUIHelper.h"
+#import "HWUIHelper.h"
 
-@implementation CameraUIHelper
-+(NSBundle *)cameradispatchBundle{
+@implementation HWUIHelper
++(NSBundle *)haloBundle{
     static NSBundle *bundle;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -44,7 +44,7 @@
     if (txt.length == 0) {
         txt = @"png";
     }
-    NSString *path =  [[self cameradispatchBundle] pathForResource:name ofType:txt];
+    NSString *path =  [[self haloBundle] pathForResource:name ofType:txt];
     NSData *data = [NSData dataWithContentsOfFile:path];
     image = [UIImage imageWithData:data];
     cache[name] = image;
@@ -87,7 +87,7 @@
 
 + (UIAlertController *)dialogBoxShow:(NSString *)message title:(NSString *)title
 {
-    UIAlertAction * okAction = [UIAlertAction actionWithTitle:DTCameraOK style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction * okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
     }];
     UIAlertController * alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];

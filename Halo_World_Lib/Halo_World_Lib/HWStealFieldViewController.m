@@ -8,7 +8,7 @@
 
 #import "HWStealFieldViewController.h"
 #import "HWHttpService.h"
-
+#import "HWUIHelper.h"
 @interface HWStealFieldViewController ()
 
 @end
@@ -17,6 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    // UI
+    {
+        
+    }
     [[HWHttpService shareInstance] getUserSelfFieldOutputNum:^(NSData * _Nullable data, NSError * _Nullable err) {
         if (data) {
             

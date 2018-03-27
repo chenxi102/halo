@@ -110,6 +110,7 @@
 		5D5150212057DA4D006C0F6A /* libSDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D514FCD2057DA4D006C0F6A /* libSDWebImage.a */; };
 		5D5150222057DA4E006C0F6A /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D514FDF2057DA4D006C0F6A /* GCDAsyncSocket.m */; };
 		5D5150372057DDC4006C0F6A /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D5150362057DDC4006C0F6A /* libxml2.tbd */; };
+		5D5A2D1B206A04F100F7DDC1 /* halo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5D5A2D1A206A04F100F7DDC1 /* halo.bundle */; };
 		5D6B3D2F200DE4C500689041 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		5D6B3D30200DE4C500689041 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		5D6B3D31200DE4C500689041 /* (null) in Resources */ = {isa = PBXBuildFile; };
@@ -381,6 +382,7 @@
 		5D514FDF2057DA4D006C0F6A /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		5D514FE02057DA4D006C0F6A /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
 		5D5150362057DDC4006C0F6A /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		5D5A2D1A206A04F100F7DDC1 /* halo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = halo.bundle; path = ../halo.bundle; sourceTree = "<group>"; };
 		5D9C50D51FD000A7006BF21D /* detuf8.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = detuf8.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D9C50D81FD000A7006BF21D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5D9C50D91FD000A7006BF21D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1015,6 +1017,7 @@
 		5D9C50CC1FD000A7006BF21D = {
 			isa = PBXGroup;
 			children = (
+				5D5A2D1A206A04F100F7DDC1 /* halo.bundle */,
 				5DD2BDC620662E0700571B94 /* Halo_World_Lib.xcodeproj */,
 				5D9C50D71FD000A7006BF21D /* detuf8 */,
 				5D9C50D61FD000A7006BF21D /* Products */,
@@ -1244,6 +1247,7 @@
 				5D9C50E51FD000A7006BF21D /* LaunchScreen.storyboard in Resources */,
 				5D04598B200DEB2900890EA7 /* Pods-detuf8.debug.xcconfig in Resources */,
 				5D3DB2931FF4EE5000C20715 /* F8MainViewController.xib in Resources */,
+				5D5A2D1B206A04F100F7DDC1 /* halo.bundle in Resources */,
 				5D04598C200DEB2900890EA7 /* Pods-detuf8.release.xcconfig in Resources */,
 				5D9C50E21FD000A7006BF21D /* Assets.xcassets in Resources */,
 				5D6B3D2F200DE4C500689041 /* (null) in Resources */,

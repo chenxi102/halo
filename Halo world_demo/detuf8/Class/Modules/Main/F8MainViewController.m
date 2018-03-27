@@ -269,15 +269,16 @@
 }
 
 - (IBAction)connect:(id)sender {
-    [[F8SocketAPI shareInstance] connectCameraWithResult:^(SocketType type) {
-        if (type) {
+    [[HWHttpService shareInstance] getUserSelfFieldOutputNum:^(NSData * _Nullable data, NSError * _Nullable err) {
+        NSDictionary * json = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingMutableContainers) error:nil];
+        if (json) {
             
         }
     }];
 }
 
 - (IBAction)disConnect:(id)sender {
-    [[HWHttpService shareInstance] getUserSelfFieldOutputNum:^(NSData * _Nullable data, NSError * _Nullable err) {
+    [[HWHttpService shareInstance] reapFieldWithOreId:@"e5a80374-d371-4422-8664-56bf454d7e45" Call:^(NSData * _Nullable data, NSError * _Nullable err) {
         NSDictionary * json = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingMutableContainers) error:nil];
         if (json) {
             
@@ -296,7 +297,7 @@
 }
 
 - (IBAction)takeVideo:(id)sender {
-    [[HWHttpService shareInstance] reapFieldWithOreId:@"d319fabf-e8e8-4a4a-bd47-d2260e56bfb6" Call:^(NSData * _Nullable data, NSError * _Nullable err) {
+    [[HWHttpService shareInstance] stealFieldWithOreId:@"021fbbe7-5d3c-4ef7-989d-068a7142cdfb" Call:^(NSData * _Nullable data, NSError * _Nullable err) {
         NSDictionary * json = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingMutableContainers) error:nil];
         if (json) {
             
@@ -305,7 +306,12 @@
 }
 
 - (IBAction)stopVideo:(id)sender {
-
+    [[HWHttpService shareInstance] getUserSelfFieldOutputNum:^(NSData * _Nullable data, NSError * _Nullable err) {
+        NSDictionary * json = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingMutableContainers) error:nil];
+        if (json) {
+            
+        }
+    }];
 }
 
 @end

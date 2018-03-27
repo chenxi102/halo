@@ -9,7 +9,18 @@
 /* Begin PBXBuildFile section */
 		5D3525E020692AD500A28CD5 /* HWModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3525DF20692AD500A28CD5 /* HWModel.m */; };
 		5D3525E620692AF800A28CD5 /* HWDataHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3525E520692AF800A28CD5 /* HWDataHandle.m */; };
-		5D3C0FCF2068D95D0014F197 /* CameraUIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3C0FCE2068D95D0014F197 /* CameraUIHelper.m */; };
+		5D3C0FCF2068D95D0014F197 /* HWUIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3C0FCE2068D95D0014F197 /* HWUIHelper.m */; };
+		5D5A2D19206A043A00F7DDC1 /* HWBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A2D18206A043A00F7DDC1 /* HWBaseViewController.m */; };
+		5D5A2D36206A4F3E00F7DDC1 /* NSLayoutConstraint+HWMASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A2D1E206A4F3E00F7DDC1 /* NSLayoutConstraint+HWMASDebugAdditions.m */; };
+		5D5A2D37206A4F3E00F7DDC1 /* ViewController+HWMASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A2D27206A4F3E00F7DDC1 /* ViewController+HWMASAdditions.m */; };
+		5D5A2D38206A4F3E00F7DDC1 /* HWMASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A2D2B206A4F3E00F7DDC1 /* HWMASCompositeConstraint.m */; };
+		5D5A2D39206A4F3E00F7DDC1 /* HWMASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A2D2C206A4F3E00F7DDC1 /* HWMASConstraintMaker.m */; };
+		5D5A2D3A206A4F3E00F7DDC1 /* HWMASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A2D2D206A4F3E00F7DDC1 /* HWMASLayoutConstraint.m */; };
+		5D5A2D3B206A4F3E00F7DDC1 /* NSArray+HWMASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A2D2E206A4F3E00F7DDC1 /* NSArray+HWMASAdditions.m */; };
+		5D5A2D3C206A4F3E00F7DDC1 /* View+HWMASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A2D2F206A4F3E00F7DDC1 /* View+HWMASAdditions.m */; };
+		5D5A2D3D206A4F3E00F7DDC1 /* HWMASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A2D32206A4F3E00F7DDC1 /* HWMASConstraint.m */; };
+		5D5A2D3E206A4F3E00F7DDC1 /* HWMASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A2D34206A4F3E00F7DDC1 /* HWMASViewConstraint.m */; };
+		5D5A2D3F206A4F3E00F7DDC1 /* HWMASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A2D35206A4F3E00F7DDC1 /* HWMASViewAttribute.m */; };
 		5DD2BDDF20668F8500571B94 /* HWDrawLotteryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2BDD920668F8400571B94 /* HWDrawLotteryViewController.m */; };
 		5DD2BDE020668F8500571B94 /* HWStealFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2BDDA20668F8400571B94 /* HWStealFieldViewController.m */; };
 		5DD2BDE120668F8500571B94 /* HWFieldOutputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2BDDD20668F8500571B94 /* HWFieldOutputViewController.m */; };
@@ -35,8 +46,35 @@
 		5D3525DF20692AD500A28CD5 /* HWModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWModel.m; sourceTree = "<group>"; };
 		5D3525E420692AF800A28CD5 /* HWDataHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWDataHandle.h; sourceTree = "<group>"; };
 		5D3525E520692AF800A28CD5 /* HWDataHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWDataHandle.m; sourceTree = "<group>"; };
-		5D3C0FCD2068D95D0014F197 /* CameraUIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraUIHelper.h; sourceTree = "<group>"; };
-		5D3C0FCE2068D95D0014F197 /* CameraUIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraUIHelper.m; sourceTree = "<group>"; };
+		5D3C0FCD2068D95D0014F197 /* HWUIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWUIHelper.h; sourceTree = "<group>"; };
+		5D3C0FCE2068D95D0014F197 /* HWUIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWUIHelper.m; sourceTree = "<group>"; };
+		5D5A2D17206A043A00F7DDC1 /* HWBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWBaseViewController.h; sourceTree = "<group>"; };
+		5D5A2D18206A043A00F7DDC1 /* HWBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWBaseViewController.m; sourceTree = "<group>"; };
+		5D5A2D1D206A4F3E00F7DDC1 /* HWMASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWMASCompositeConstraint.h; sourceTree = "<group>"; };
+		5D5A2D1E206A4F3E00F7DDC1 /* NSLayoutConstraint+HWMASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+HWMASDebugAdditions.m"; sourceTree = "<group>"; };
+		5D5A2D1F206A4F3E00F7DDC1 /* HWMASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HWMASConstraint+Private.h"; sourceTree = "<group>"; };
+		5D5A2D20206A4F3E00F7DDC1 /* HWMASLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWMASLayoutConstraint.h; sourceTree = "<group>"; };
+		5D5A2D21206A4F3E00F7DDC1 /* NSArray+HWMASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+HWMASShorthandAdditions.h"; sourceTree = "<group>"; };
+		5D5A2D22206A4F3E00F7DDC1 /* HWMASConstraintMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWMASConstraintMaker.h; sourceTree = "<group>"; };
+		5D5A2D23206A4F3E00F7DDC1 /* View+HWMASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+HWMASAdditions.h"; sourceTree = "<group>"; };
+		5D5A2D24206A4F3E00F7DDC1 /* NSArray+HWMASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+HWMASAdditions.h"; sourceTree = "<group>"; };
+		5D5A2D25206A4F3E00F7DDC1 /* HWMASUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWMASUtilities.h; sourceTree = "<group>"; };
+		5D5A2D26206A4F3E00F7DDC1 /* HWMASViewAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWMASViewAttribute.h; sourceTree = "<group>"; };
+		5D5A2D27206A4F3E00F7DDC1 /* ViewController+HWMASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+HWMASAdditions.m"; sourceTree = "<group>"; };
+		5D5A2D28206A4F3E00F7DDC1 /* HWMASViewConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWMASViewConstraint.h; sourceTree = "<group>"; };
+		5D5A2D29206A4F3E00F7DDC1 /* HWMASConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWMASConstraint.h; sourceTree = "<group>"; };
+		5D5A2D2A206A4F3E00F7DDC1 /* NSLayoutConstraint+HWMASDebugAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+HWMASDebugAdditions.h"; sourceTree = "<group>"; };
+		5D5A2D2B206A4F3E00F7DDC1 /* HWMASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWMASCompositeConstraint.m; sourceTree = "<group>"; };
+		5D5A2D2C206A4F3E00F7DDC1 /* HWMASConstraintMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWMASConstraintMaker.m; sourceTree = "<group>"; };
+		5D5A2D2D206A4F3E00F7DDC1 /* HWMASLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWMASLayoutConstraint.m; sourceTree = "<group>"; };
+		5D5A2D2E206A4F3E00F7DDC1 /* NSArray+HWMASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+HWMASAdditions.m"; sourceTree = "<group>"; };
+		5D5A2D2F206A4F3E00F7DDC1 /* View+HWMASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+HWMASAdditions.m"; sourceTree = "<group>"; };
+		5D5A2D30206A4F3E00F7DDC1 /* View+HWMASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+HWMASShorthandAdditions.h"; sourceTree = "<group>"; };
+		5D5A2D31206A4F3E00F7DDC1 /* HWMasonry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWMasonry.h; sourceTree = "<group>"; };
+		5D5A2D32206A4F3E00F7DDC1 /* HWMASConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWMASConstraint.m; sourceTree = "<group>"; };
+		5D5A2D33206A4F3E00F7DDC1 /* ViewController+HWMASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+HWMASAdditions.h"; sourceTree = "<group>"; };
+		5D5A2D34206A4F3E00F7DDC1 /* HWMASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWMASViewConstraint.m; sourceTree = "<group>"; };
+		5D5A2D35206A4F3E00F7DDC1 /* HWMASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWMASViewAttribute.m; sourceTree = "<group>"; };
 		5DD2BDB420662C2D00571B94 /* libHalo_World_Lib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHalo_World_Lib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DD2BDD920668F8400571B94 /* HWDrawLotteryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWDrawLotteryViewController.m; sourceTree = "<group>"; };
 		5DD2BDDA20668F8400571B94 /* HWStealFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWStealFieldViewController.m; sourceTree = "<group>"; };
@@ -66,10 +104,42 @@
 		5D3C0FCC2068D94C0014F197 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
-				5D3C0FCD2068D95D0014F197 /* CameraUIHelper.h */,
-				5D3C0FCE2068D95D0014F197 /* CameraUIHelper.m */,
+				5D3C0FCD2068D95D0014F197 /* HWUIHelper.h */,
+				5D3C0FCE2068D95D0014F197 /* HWUIHelper.m */,
 			);
 			name = Tool;
+			sourceTree = "<group>";
+		};
+		5D5A2D1C206A4F3E00F7DDC1 /* HWMasonry */ = {
+			isa = PBXGroup;
+			children = (
+				5D5A2D1D206A4F3E00F7DDC1 /* HWMASCompositeConstraint.h */,
+				5D5A2D1E206A4F3E00F7DDC1 /* NSLayoutConstraint+HWMASDebugAdditions.m */,
+				5D5A2D1F206A4F3E00F7DDC1 /* HWMASConstraint+Private.h */,
+				5D5A2D20206A4F3E00F7DDC1 /* HWMASLayoutConstraint.h */,
+				5D5A2D21206A4F3E00F7DDC1 /* NSArray+HWMASShorthandAdditions.h */,
+				5D5A2D22206A4F3E00F7DDC1 /* HWMASConstraintMaker.h */,
+				5D5A2D23206A4F3E00F7DDC1 /* View+HWMASAdditions.h */,
+				5D5A2D24206A4F3E00F7DDC1 /* NSArray+HWMASAdditions.h */,
+				5D5A2D25206A4F3E00F7DDC1 /* HWMASUtilities.h */,
+				5D5A2D26206A4F3E00F7DDC1 /* HWMASViewAttribute.h */,
+				5D5A2D27206A4F3E00F7DDC1 /* ViewController+HWMASAdditions.m */,
+				5D5A2D28206A4F3E00F7DDC1 /* HWMASViewConstraint.h */,
+				5D5A2D29206A4F3E00F7DDC1 /* HWMASConstraint.h */,
+				5D5A2D2A206A4F3E00F7DDC1 /* NSLayoutConstraint+HWMASDebugAdditions.h */,
+				5D5A2D2B206A4F3E00F7DDC1 /* HWMASCompositeConstraint.m */,
+				5D5A2D2C206A4F3E00F7DDC1 /* HWMASConstraintMaker.m */,
+				5D5A2D2D206A4F3E00F7DDC1 /* HWMASLayoutConstraint.m */,
+				5D5A2D2E206A4F3E00F7DDC1 /* NSArray+HWMASAdditions.m */,
+				5D5A2D2F206A4F3E00F7DDC1 /* View+HWMASAdditions.m */,
+				5D5A2D30206A4F3E00F7DDC1 /* View+HWMASShorthandAdditions.h */,
+				5D5A2D31206A4F3E00F7DDC1 /* HWMasonry.h */,
+				5D5A2D32206A4F3E00F7DDC1 /* HWMASConstraint.m */,
+				5D5A2D33206A4F3E00F7DDC1 /* ViewController+HWMASAdditions.h */,
+				5D5A2D34206A4F3E00F7DDC1 /* HWMASViewConstraint.m */,
+				5D5A2D35206A4F3E00F7DDC1 /* HWMASViewAttribute.m */,
+			);
+			path = HWMasonry;
 			sourceTree = "<group>";
 		};
 		5DD2BDAB20662C2D00571B94 = {
@@ -91,6 +161,7 @@
 		5DD2BDB620662C2D00571B94 /* Halo_World_Lib */ = {
 			isa = PBXGroup;
 			children = (
+				5D5A2D1C206A4F3E00F7DDC1 /* HWMasonry */,
 				5D3C0FCC2068D94C0014F197 /* Tool */,
 				5DD2BDE420668FD800571B94 /* Services */,
 				5DD2BDD820668F6E00571B94 /* Class */,
@@ -107,6 +178,8 @@
 				5DD2BDDD20668F8500571B94 /* HWFieldOutputViewController.m */,
 				5DD2BDDE20668F8500571B94 /* HWStealFieldViewController.h */,
 				5DD2BDDA20668F8400571B94 /* HWStealFieldViewController.m */,
+				5D5A2D17206A043A00F7DDC1 /* HWBaseViewController.h */,
+				5D5A2D18206A043A00F7DDC1 /* HWBaseViewController.m */,
 				5D3525DE20692AD500A28CD5 /* HWModel.h */,
 				5D3525DF20692AD500A28CD5 /* HWModel.m */,
 				5D3525E420692AF800A28CD5 /* HWDataHandle.h */,
@@ -185,12 +258,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D5A2D36206A4F3E00F7DDC1 /* NSLayoutConstraint+HWMASDebugAdditions.m in Sources */,
+				5D5A2D19206A043A00F7DDC1 /* HWBaseViewController.m in Sources */,
+				5D5A2D3D206A4F3E00F7DDC1 /* HWMASConstraint.m in Sources */,
+				5D5A2D3E206A4F3E00F7DDC1 /* HWMASViewConstraint.m in Sources */,
+				5D5A2D37206A4F3E00F7DDC1 /* ViewController+HWMASAdditions.m in Sources */,
+				5D5A2D3F206A4F3E00F7DDC1 /* HWMASViewAttribute.m in Sources */,
 				5DD2BDF220679FA700571B94 /* HWHttpModel.m in Sources */,
-				5D3C0FCF2068D95D0014F197 /* CameraUIHelper.m in Sources */,
+				5D5A2D38206A4F3E00F7DDC1 /* HWMASCompositeConstraint.m in Sources */,
+				5D5A2D3C206A4F3E00F7DDC1 /* View+HWMASAdditions.m in Sources */,
+				5D3C0FCF2068D95D0014F197 /* HWUIHelper.m in Sources */,
 				5DD2BDDF20668F8500571B94 /* HWDrawLotteryViewController.m in Sources */,
+				5D5A2D3A206A4F3E00F7DDC1 /* HWMASLayoutConstraint.m in Sources */,
+				5D5A2D39206A4F3E00F7DDC1 /* HWMASConstraintMaker.m in Sources */,
 				5D3525E620692AF800A28CD5 /* HWDataHandle.m in Sources */,
 				5DD2BDE020668F8500571B94 /* HWStealFieldViewController.m in Sources */,
 				5D3525E020692AD500A28CD5 /* HWModel.m in Sources */,
+				5D5A2D3B206A4F3E00F7DDC1 /* NSArray+HWMASAdditions.m in Sources */,
 				5DD2BDEC20679CED00571B94 /* HWHttpService.m in Sources */,
 				5DD2BDE120668F8500571B94 /* HWFieldOutputViewController.m in Sources */,
 				5DD2BDEF20679DBE00571B94 /* HWHttpBase.m in Sources */,

@@ -23,20 +23,20 @@
     }];
 }
 
+
+
 - (void)viewDidLoad {
+    [super viewDidLoad];
     [self extracted] ;
-    
-    return;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [[HWHttpService shareInstance] stealFieldWithOreId:@"" Call:^(NSData * _Nullable d, NSError * _Nullable e) {
-            if (d) {
-                
-            }
-        }];
-    });
+    [self setUp];
 }
 
+- (void)setUp {
+    
+}
 
-
+- (void)safeBack{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 @end

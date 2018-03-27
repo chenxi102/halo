@@ -6,9 +6,9 @@
 //  Copyright © 2018年 JianYiMei. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "HWBaseViewController.h"
 
 ///<  矿产产出
-@interface HWFieldOutputViewController : UIViewController
+@interface HWFieldOutputViewController : HWBaseViewController
 
 @end

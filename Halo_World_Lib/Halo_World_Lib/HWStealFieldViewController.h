@@ -6,9 +6,9 @@
 //  Copyright © 2018年 JianYiMei. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "HWBaseViewController.h"
 
 ///<  偷矿
-@interface HWStealFieldViewController : UIViewController
+@interface HWStealFieldViewController : HWBaseViewController
 
 @end
