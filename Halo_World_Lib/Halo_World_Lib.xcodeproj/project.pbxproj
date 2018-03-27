@@ -27,6 +27,7 @@
 		5DD2BDEC20679CED00571B94 /* HWHttpService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2BDEB20679CED00571B94 /* HWHttpService.m */; };
 		5DD2BDEF20679DBE00571B94 /* HWHttpBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2BDEE20679DBE00571B94 /* HWHttpBase.m */; };
 		5DD2BDF220679FA700571B94 /* HWHttpModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2BDF120679FA700571B94 /* HWHttpModel.m */; };
+		5DE25E86206A7545005AFAE1 /* HWOreImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE25E85206A7545005AFAE1 /* HWOreImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -88,6 +89,8 @@
 		5DD2BDEE20679DBE00571B94 /* HWHttpBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWHttpBase.m; sourceTree = "<group>"; };
 		5DD2BDF020679FA700571B94 /* HWHttpModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWHttpModel.h; sourceTree = "<group>"; };
 		5DD2BDF120679FA700571B94 /* HWHttpModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWHttpModel.m; sourceTree = "<group>"; };
+		5DE25E84206A7545005AFAE1 /* HWOreImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWOreImageView.h; sourceTree = "<group>"; };
+		5DE25E85206A7545005AFAE1 /* HWOreImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWOreImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +175,7 @@
 		5DD2BDD820668F6E00571B94 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				5DE25E83206A741C005AFAE1 /* Views */,
 				5DD2BDDC20668F8500571B94 /* HWDrawLotteryViewController.h */,
 				5DD2BDD920668F8400571B94 /* HWDrawLotteryViewController.m */,
 				5DD2BDDB20668F8500571B94 /* HWFieldOutputViewController.h */,
@@ -199,6 +203,15 @@
 				5DD2BDF120679FA700571B94 /* HWHttpModel.m */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		5DE25E83206A741C005AFAE1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5DE25E84206A7545005AFAE1 /* HWOreImageView.h */,
+				5DE25E85206A7545005AFAE1 /* HWOreImageView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +278,7 @@
 				5D5A2D37206A4F3E00F7DDC1 /* ViewController+HWMASAdditions.m in Sources */,
 				5D5A2D3F206A4F3E00F7DDC1 /* HWMASViewAttribute.m in Sources */,
 				5DD2BDF220679FA700571B94 /* HWHttpModel.m in Sources */,
+				5DE25E86206A7545005AFAE1 /* HWOreImageView.m in Sources */,
 				5D5A2D38206A4F3E00F7DDC1 /* HWMASCompositeConstraint.m in Sources */,
 				5D5A2D3C206A4F3E00F7DDC1 /* View+HWMASAdditions.m in Sources */,
 				5D3C0FCF2068D95D0014F197 /* HWUIHelper.m in Sources */,
