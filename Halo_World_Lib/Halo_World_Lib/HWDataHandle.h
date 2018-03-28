@@ -13,5 +13,7 @@
 
 + (void)loadUserSelfFieldOutputNum:(void(^)(BOOL, HWModel*))res;
 + (void)reapOre:(oreListModel *)ore res:(void(^)(BOOL, NSString*))res;
++ (void)loadOthersResource:(void(^)(BOOL, HWModel*))res;
++ (void)stealOre:(oreListModel *)ore res:(void(^)(BOOL, NSString*))res;
 
 @end

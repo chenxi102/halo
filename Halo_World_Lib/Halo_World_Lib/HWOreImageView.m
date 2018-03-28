@@ -80,11 +80,12 @@
                 @HWstrong(self);
                 self.transform = CGAffineTransformTranslate(self.transform, 0, -5);
             } completion:^(BOOL finished) {
-                @HWweak(self);
+                @HWstrong(self);
                 if (!_isShake) {
                     [self.layer removeAllAnimations];
                     self.transform = CGAffineTransformIdentity;
                 }
+                @HWweak(self);
                 [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut|UIViewAnimationOptionAllowUserInteraction animations:^{
                     @HWstrong(self);
                     self.transform = CGAffineTransformIdentity;
@@ -100,12 +101,14 @@
 }
 
 - (void)oreClcick:(UIButton *)sender {
-//    @HWweak(self);
-    if (_oreClickBlock) {
-        _oreClickBlock(self,self.model);
+    @HWweak(self);
+    {
+        @HWstrong(self);
+        if (_oreClickBlock) {
+            _oreClickBlock(self,self.model);
+        }
+        [self animate];
     }
-    self.isShake = NO;
-    [self animate];
 }
 
 - (void)setOreNum:(float)num {
@@ -115,11 +118,22 @@
 - (void)setModel:(oreListModel *)model
 {
     _model = model;
-    if ([model.status isEqualToString:@"0"]) {
-        [self setIsShake:YES];
-    }else {
-        [self setIsShake:NO];
+    if (model.oreCellType == OreCellType_reapSelf) {
+        if ([model.status isEqualToString:@"0"]) {
+            [self setIsShake:YES];
+        }else {
+            [self setIsShake:NO];
+        }
+    } else {
+        // 偷取他人的矿  supportHandle :1.自取 2.支持可偷
+        // status :0 未收 1 已收
+        if ([model.supportHandle isEqualToString:@"2"]&&[model.status isEqualToString:@"0"]) {
+            [self setIsShake:YES];
+        }else {
+            [self setIsShake:NO];
+        }
     }
+   
     self.OreNumLab.text = [NSString stringWithFormat:@"%.1f",model.oreAmount];
 }
 

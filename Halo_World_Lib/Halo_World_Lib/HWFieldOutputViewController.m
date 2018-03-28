@@ -7,6 +7,7 @@
 //
 
 #import "HWFieldOutputViewController.h"
+#import "HWStealFieldViewController.h"
 #import "HWHttpService.h"
 #import "HWMasonry.h"
 #import "HWOreImageView.h"
@@ -18,7 +19,7 @@
 @property (nonatomic, strong) UILabel * currentSocreLAB;
 @property (nonatomic, strong) HWModel * DataModel;
 @property (nonatomic, copy) NSArray <NSNumber*>* oreCenterPoint;           // 矿石中心点
-@property (nonatomic, strong) NSMutableArray * oreMutArr;                  // 矿石UI 数组
+@property (nonatomic, strong) NSMutableArray <HWOreImageView *>* oreMutArr;                  // 矿石UI 数组
 
 @property (nonatomic, strong) HWButton * myResourceBTN;                    // 我的资产
 @property (nonatomic, strong) HWButton * myDetailedBTN;                    // 明细
@@ -38,6 +39,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.oreMutArr = [NSMutableArray array];
     self.oreCenterPoint = @[@((CGPoint){30, 220}),@((CGPoint){80, 180}),@((CGPoint){85, 270}),@((CGPoint){150, 210}),@((CGPoint){210, 165}),@((CGPoint){214.5, 255}),@((CGPoint){290, 220}),@((CGPoint){292.5, 300})];
     [self extracted] ;
     [self setUpScoreLab];
@@ -81,6 +83,10 @@
     }else if (self.DataModel.oreList.count < self.oreCenterPoint.count) {
         count = self.DataModel.oreList.count;
     }
+    if (self.DataModel.oreList.count == 0) {
+        [self showSVAlertHUDWithStatus:@"暂无数据" delay:2];
+    }
+    
     for (int i = 0; i < count; i++) {
         // MARK: 点击采矿
         HWOreImageView * ore = [[HWOreImageView alloc] initWithClickBLock:^(HWOreImageView* sender, oreListModel * model) {
@@ -92,15 +98,22 @@
                 __strong typeof(wsend)sender = wsend;
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     if (b) {
-                        [sender setOreNum:0.];
-                        [self.myResourceBTN popOutsideWithDuration:.5];
+                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                            [sender setOreNum:0.];
+                            [sender setIsShake:NO];
+                            [self.myResourceBTN popOutsideWithDuration:.5];
+                            sender.hidden = YES;
+                        });
                     } else {
+                        [sender setIsShake:YES];
+                        [self showSVAlertHUDWithStatus:m delay:2];
                         NSLog(@"%@", m);
                     }
                 });
             }];
         }];
         [self.view addSubview:ore];
+        [self.oreMutArr addObject:ore];
         [ore HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
             @HWstrong(self);
             make.size.HWMAS_equalTo((CGSize){42.5, 58});
@@ -115,6 +128,7 @@
 }
 //MARK: 我的资产、明细 UI
 - (void)setUpmiddleButton {
+    @HWweak(self);
     _myResourceBTN = [HWButton new];
     [_myResourceBTN setImage:[HWUIHelper imageWithCameradispatchName:@"我的财富"] forState:(UIControlStateNormal)];
     [self.view addSubview:_myResourceBTN];
@@ -122,19 +136,73 @@
     [_myResourceBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         make.left.equalTo(@30);
         make.width.height.equalTo(@52);
-        make.bottom.equalTo(@-120);
+        make.bottom.equalTo(@-140);
+    }];
+    
+    UILabel * _myResourceLAB = [UILabel new];
+    _myResourceLAB.font = [UIFont systemFontOfSize:12];
+    _myResourceLAB.textColor = [UIColor whiteColor];
+    _myResourceLAB.textAlignment = NSTextAlignmentCenter;
+    _myResourceLAB.text = @"我的资产";
+    [self.view addSubview:_myResourceLAB];
+    [_myResourceLAB HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
+        @HWstrong(self);
+        make.centerX.equalTo(self.myResourceBTN.HWMAS_centerX);
+        make.top.equalTo(self.myResourceBTN.HWMAS_bottom).offset(5);
+    }];
+    
+    _myDetailedBTN = [HWButton new];
+    [_myDetailedBTN setImage:[HWUIHelper imageWithCameradispatchName:@"我的财富"] forState:(UIControlStateNormal)];
+    [self.view addSubview:_myDetailedBTN];
+    [_myDetailedBTN addTarget:self action:@selector(myDetailClick:) forControlEvents:UIControlEventTouchUpInside];
+    [_myDetailedBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
+        make.left.equalTo(@100);
+        make.width.height.equalTo(@52);
+        make.bottom.equalTo(@-140);
+    }];
+    
+    UILabel * _myDetailedLAB = [UILabel new];
+    _myDetailedLAB.font = [UIFont systemFontOfSize:12];
+    _myDetailedLAB.textColor = [UIColor whiteColor];
+    _myDetailedLAB.textAlignment = NSTextAlignmentCenter;
+    _myDetailedLAB.text = @"资产明细";
+    [self.view addSubview:_myDetailedLAB];
+    [_myDetailedLAB HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
+        @HWstrong(self);
+        make.centerX.equalTo(self.myDetailedBTN.HWMAS_centerX);
+        make.top.equalTo(self.myDetailedBTN.HWMAS_bottom).offset(5);
     }];
 }
 
 //MARK: 偷矿 抽奖 UI
 - (void)setUpBottom {
+    _stealBTN = [HWButton new];
+    [_stealBTN setImage:[HWUIHelper imageWithCameradispatchName:@"偷币"] forState:(UIControlStateNormal)];
+    [self.view addSubview:_stealBTN];
+    [_stealBTN addTarget:self action:@selector(otherResourceClick:) forControlEvents:UIControlEventTouchUpInside];
+    [_stealBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
+        make.left.equalTo(@44);
+        make.width.equalTo(@73);
+        make.height.equalTo(@54);
+        make.bottom.equalTo(@-20);
+    }];
     
+    _getLuckBTN = [HWButton new];
+    [_getLuckBTN setImage:[HWUIHelper imageWithCameradispatchName:@"挖矿"] forState:(UIControlStateNormal)];
+    [self.view addSubview:_getLuckBTN];
+    [_getLuckBTN addTarget:self action:@selector(getLuckClick:) forControlEvents:UIControlEventTouchUpInside];
+    [_getLuckBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
+        make.right.equalTo(@-44);
+        make.width.equalTo(@73);
+        make.height.equalTo(@54);
+        make.bottom.equalTo(@-20);
+    }];
 }
 
 //MARK: 加载数据
 - (void)extracted {
     @HWweak(self);
-    [self showSVProgressHUDWithStatus:@"" delay:10];
+    [self showSVProgressHUDWithStatus:nil delay:20];
     [HWDataHandle loadUserSelfFieldOutputNum:^(BOOL abool, HWModel* model) {
         @HWstrong(self);
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -152,10 +220,39 @@
 }
 
 // MARK: ======ACTION===============================================================
+// MARK: 我的资产点击事件
 - (void)myResourceClick:(HWButton *)sender {
+    
     [sender popOutsideWithDuration:0.5];
+    Class cls = NSClassFromString(@"LKAssetVC");
+    UIViewController * vc = [cls new];
+    [self.navigationController pushViewController:vc animated:YES];
 }
+// MARK: 明细点击事件
+- (void)myDetailClick:(HWButton *)sender {
+    [sender popOutsideWithDuration:0.5];
+    Class cls = NSClassFromString(@"LKAssetVC");
+    UIViewController * vc = [cls new];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+// MARK: 偷币点击事件
+- (void)otherResourceClick:(HWButton *)sender {
+  
+    HWStealFieldViewController * vc = [HWStealFieldViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+// MARK: 抽奖点击事件
+- (void)getLuckClick:(HWButton *)sender {
+    [sender popOutsideWithDuration:0.5];
+    Class cls = NSClassFromString(@"LKAssetVC");
+    UIViewController * vc = [cls new];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (void)safeBack{
+    for (HWOreImageView *_ in self.oreMutArr) {
+        [_ setIsShake:NO];
+    }
     [self.navigationController popViewControllerAnimated:YES];
 }
 

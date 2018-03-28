@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 @class oreListModel;
 
+typedef NS_ENUM(NSInteger, OreCellType) {
+    OreCellType_reapSelf ,          // 自己的矿
+    OreCellType_stealOthers         // 他人的矿
+};
 // 总的矿产模型
 @interface HWModel : NSObject
 @property (nonatomic,assign) double score; // 用户算力
@@ -19,7 +23,7 @@
 
 // 单个矿产模型
 @interface oreListModel : NSObject
-
+@property (nonatomic,assign) OreCellType oreCellType;   // 来自哪里的数据 ： 1.自己的矿 2.他人的矿
 @property (nonatomic,copy) NSString *createTime;        // 创建时间
 @property (nonatomic,assign) double oreAmount;          // 数量
 @property (nonatomic,copy) NSString *oreId;             // 矿产ID

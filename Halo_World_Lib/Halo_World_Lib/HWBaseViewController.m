@@ -70,18 +70,24 @@
     
 }
 
+//  纯文本
+- (void)showSVAlertHUDWithStatus:(NSString *)str delay:(NSTimeInterval)delay {
+    [HWSVProgressHUD setDefaultMaskType:HWSVProgressHUDMaskTypeClear];
+    [HWSVProgressHUD showImage:[UIImage imageNamed:@""] status:str];
+    [HWSVProgressHUD dismissWithDelay:delay];
+}
+
 //  带菊花
 - (void)showSVProgressHUDWithStatus:(NSString *)str delay:(NSTimeInterval)delay {
     [HWSVProgressHUD setDefaultMaskType:HWSVProgressHUDMaskTypeClear];
-    [HWSVProgressHUD setBackgroundColor:[UIColor blueColor]];
-    [HWSVProgressHUD showWithStatus:str];
+    [HWSVProgressHUD setStatus:str];
     [HWSVProgressHUD dismissWithDelay:delay];
 }
 
 //  带成功图标
 - (void)showSuccess_SVHUD_WithStatus:(NSString *)str delay:(NSTimeInterval)delay {
     [HWSVProgressHUD setInfoImage:[UIImage imageNamed:@"Checkmark_ok"]];
-    [HWSVProgressHUD setBackgroundColor:[UIColor blueColor]];
+//    [HWSVProgressHUD setBackgroundColor:[UIColor redColor]];
     [HWSVProgressHUD setImageViewSize:CGSizeMake(43, 43)];
     [HWSVProgressHUD setFont:[UIFont systemFontOfSize:15]];
     [HWSVProgressHUD showInfoWithStatus:str];
@@ -91,7 +97,7 @@
 //  带失败图标
 - (void)showfailure_SVHUD_WithStatus:(NSString *)str delay:(NSTimeInterval)delay {
     [HWSVProgressHUD setInfoImage:[UIImage imageNamed:@"Checkmark_fail"]];
-    [HWSVProgressHUD setBackgroundColor:[UIColor blueColor]];
+//    [HWSVProgressHUD setBackgroundColor:[UIColor redColor]];
     [HWSVProgressHUD setImageViewSize:CGSizeMake(43, 43)];
     [HWSVProgressHUD setFont:[UIFont systemFontOfSize:15]];
     [HWSVProgressHUD showInfoWithStatus:str];
