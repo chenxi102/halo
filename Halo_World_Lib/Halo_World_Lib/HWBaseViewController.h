@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HWUIHelper.h"
+
 
 @interface HWBaseViewController : UIViewController
 

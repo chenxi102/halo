@@ -11,7 +11,7 @@
 
 // 总的矿产模型
 @interface HWModel : NSObject
-@property (nonatomic,copy) NSString *score; // 用户算力
+@property (nonatomic,assign) double score; // 用户算力
 @property (nonatomic,strong) NSMutableArray <oreListModel *>*oreList;
 
 @end

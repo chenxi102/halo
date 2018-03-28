@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HWModel.h"
 
 @interface HWDataHandle : NSObject
+
++ (void)loadUserSelfFieldOutputNum:(void(^)(BOOL, HWModel*))res;
++ (void)reapOre:(oreListModel *)ore res:(void(^)(BOOL, NSString*))res;
 
 @end

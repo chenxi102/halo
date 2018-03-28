@@ -10,4 +10,20 @@
 
 @implementation HWModel
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.oreList = [NSMutableArray array];
+    }
+    return self;
+}
+
+@end
+
+
+@implementation oreListModel 
+@end
+
+@implementation HWRecordModel
 @end
