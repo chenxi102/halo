@@ -28,8 +28,7 @@ typedef void(^_Nullable HttpCallBcak)(NSData *_Nullable, NSError *_Nullable);
 /* prams :
           tokenType 如果查询某个明确的币种的明细不能为空 tokenType=’LET’ 如果查询全部 为空或空串
           costTokenNum: 游戏每次消费额
- */
-
+*/
 - (void)getUserDetailWithTokenType:(NSString * _Nonnull)let Call:(HttpCallBcak)res;
 // 2.6.   abstract: 抽奖
 /* prams :

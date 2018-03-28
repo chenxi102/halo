@@ -103,7 +103,7 @@
  */
 - (void)getluckyBoxGetLuckWithTokenType:(NSString * _Nonnull)let costTokenNum:(NSString *_Nonnull)costN  Call:(HttpCallBcak)res {
     HWHttpModel * model = [HWHttpModel new];
-    model.url = [NSString stringWithFormat:@"%@%@",HOST,steal];
+    model.url = [NSString stringWithFormat:@"%@%@",HOST,getLuck];
     model.httpType = @"POST";
     //    model.params = @{@"userId":self.userid, @"oreId":oreId};
     model.params = [NSString stringWithFormat:@"userId=%@&tokenType=%@&costTokenNum=%@",self.userid, let, costN];

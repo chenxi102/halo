@@ -14,5 +14,9 @@
 
 @property (nonatomic, copy) NSString * title;
 
+- (void)showSVProgressHUDWithStatus:(NSString *)str delay:(NSTimeInterval)delay;
+- (void)showSuccess_SVHUD_WithStatus:(NSString *)str delay:(NSTimeInterval)delay;
+- (void)showfailure_SVHUD_WithStatus:(NSString *)str delay:(NSTimeInterval)delay;
+- (void)dissSVProgressHUD;
 - (void)safeBack ;
 @end

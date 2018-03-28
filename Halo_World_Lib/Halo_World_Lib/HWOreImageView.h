@@ -13,6 +13,6 @@
 @property (nonatomic, strong) oreListModel * model;
 @property (nonatomic, assign) BOOL isShake;
 
-- (instancetype)initWithClickBLock:(void(^)(oreListModel *))res;
-
+- (instancetype)initWithClickBLock:(void(^)(HWOreImageView *, oreListModel *))res;
+- (void)setOreNum:(float)num ;
 @end
