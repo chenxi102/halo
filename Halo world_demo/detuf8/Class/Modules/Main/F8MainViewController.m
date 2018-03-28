@@ -306,8 +306,8 @@
 }
 
 - (IBAction)stopVideo:(id)sender {
-    [[HWHttpService shareInstance] getUserSelfFieldOutputNum:^(NSData * _Nullable data, NSError * _Nullable err) {
-        NSDictionary * json = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingMutableContainers) error:nil];
+    [[HWHttpService shareInstance] getUserDetailWithTokenType:@"" Call:^(NSData * _Nullable d, NSError * _Nullable e) {
+        NSDictionary * json = [NSJSONSerialization JSONObjectWithData:d options:(NSJSONReadingMutableContainers) error:nil];
         if (json) {
             
         }

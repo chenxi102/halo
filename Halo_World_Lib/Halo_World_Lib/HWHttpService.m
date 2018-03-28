@@ -81,7 +81,6 @@
 // 2.5.   abstract: 查询用户收入明细
 /* prams :
  tokenType: 如果查询某个明确的币种的明细不能为空 tokenType=’LET’ 如果查询全部 为空或空串
- costTokenNum: 游戏每次消费额
  */
 
 - (void)getUserDetailWithTokenType:(NSString * _Nonnull)let Call:(HttpCallBcak)res {
