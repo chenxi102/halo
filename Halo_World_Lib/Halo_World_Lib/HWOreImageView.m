@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UILabel * OreNumLab;
 @property (nonatomic, copy) void(^oreClickBlock)(HWOreImageView*, oreListModel *);
 
+@property (nonatomic, strong) UILabel * stealOreNumLab;
 
 
 @property (strong, nonatomic) UIImage *particleImage;
@@ -65,6 +66,22 @@
         make.centerX.equalTo(@0);
         make.height.equalTo(@15);
     }];
+    
+//    _stealOreNumLab = [UILabel new];
+//    _stealOreNumLab.font = [UIFont systemFontOfSize:10];
+//    _stealOreNumLab.textColor = [UIColor redColor];
+//    _stealOreNumLab.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.3];
+//    _stealOreNumLab.textAlignment = NSTextAlignmentCenter;
+//    _stealOreNumLab.clipsToBounds = YES;
+//    _stealOreNumLab.layer.cornerRadius = 10;
+//    _stealOreNumLab.text = @"40";
+//    [self addSubview:_stealOreNumLab];
+//    [_stealOreNumLab HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
+//        make.top.equalTo(@0);
+//        make.right.equalTo(@10);
+//        make.height.width.equalTo(@20);
+//    }];
+    
 }
 
 
@@ -129,8 +146,12 @@
         // status :0 未收 1 已收
         if ([model.supportHandle isEqualToString:@"2"]&&[model.status isEqualToString:@"0"]) {
             [self setIsShake:YES];
+            self.OreImageView.enabled = YES;
+            self.OreNumLab.textColor = [UIColor whiteColor];
         }else {
             [self setIsShake:NO];
+            self.OreImageView.enabled = NO;
+            self.OreNumLab.textColor = [UIColor lightGrayColor];
         }
     }
    
