@@ -30,8 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [HWHttpService shareInstance].userid = @"79ac16da-6c5c-4f4f-aa4a-32297dcf36c8";
-//    [HWHttpService shareInstance].userid = @"79ac16da-6c5c-4f4f-585452565";
+//    [HWHttpService shareInstance].userid = @"79ac16da-6c5c-4f4f-aa4a-32297dcf36c8";
+    [HWHttpService shareInstance].userid = @"79ac16da-6c5c-4f4f-585452565";
     
     //MARK: UI
     {

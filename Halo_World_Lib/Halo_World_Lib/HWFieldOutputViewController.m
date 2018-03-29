@@ -15,17 +15,22 @@
 #import "HWModel.h"
 #import "HWButton.h"
 
+
+
 @interface HWFieldOutputViewController ()
 @property (nonatomic, strong) UILabel * currentSocreLAB;
 @property (nonatomic, strong) HWModel * DataModel;
-@property (nonatomic, copy) NSArray <NSNumber*>* oreCenterPoint;           // 矿石中心点
-@property (nonatomic, strong) NSMutableArray <HWOreImageView *>* oreMutArr;                  // 矿石UI 数组
+@property (nonatomic, copy) NSArray <NSNumber*>* oreCenterPoint;              // 矿石中心点
+@property (nonatomic, strong) NSMutableArray <oreListModel *>* oreModelListMutArr; // 当前需要显示矿石模型数组：  涉及到翻页。
+@property (nonatomic, strong) NSMutableArray <HWOreImageView *>* oreBtnMutArr;   // 矿石按钮 数组
 
 @property (nonatomic, strong) HWButton * myResourceBTN;                    // 我的资产
 @property (nonatomic, strong) HWButton * myDetailedBTN;                    // 明细
 
 @property (nonatomic, strong) UIButton * stealBTN;                         // 偷矿
 @property (nonatomic, strong) UIButton * getLuckBTN;                       // 抽奖
+@property (nonatomic, assign) NSInteger curentPage;                        // 八个一页 当前哪一页
+@property (nonatomic, assign) NSInteger totalPage;                         // 八个一页 总共多少页
 
 @end
 
@@ -39,8 +44,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.oreMutArr = [NSMutableArray array];
-    self.oreCenterPoint = @[@((CGPoint){30, 220}),@((CGPoint){80, 180}),@((CGPoint){85, 270}),@((CGPoint){150, 210}),@((CGPoint){210, 165}),@((CGPoint){214.5, 255}),@((CGPoint){290, 220}),@((CGPoint){292.5, 300})];
+    self.curentPage = 1;
+    self.oreBtnMutArr = [NSMutableArray array];
+    self.oreModelListMutArr = [NSMutableArray array];
+    float tap = HWSCREEN_WIDTH/10;
+    self.oreCenterPoint = @[@((CGPoint){tap, 210}),@((CGPoint){80, 180}),@((CGPoint){85, 270}),@((CGPoint){5*tap, 210}),@((CGPoint){5*tap, 165}),@((CGPoint){214.5, 255}),@((CGPoint){290, 220}),@((CGPoint){292.5, 300})];
     [self extracted] ;
     [self setUpScoreLab];
     [self setUpmiddleButton];
@@ -77,17 +85,21 @@
 - (void)setUpOre {
     
     @HWweak(self);
-    NSInteger count = 8;
-    if (self.DataModel.oreList.count > self.oreCenterPoint.count) {
-        count = self.oreCenterPoint.count;
-    }else if (self.DataModel.oreList.count < self.oreCenterPoint.count) {
-        count = self.DataModel.oreList.count;
-    }
-    if (self.DataModel.oreList.count == 0) {
-        [self showSVAlertHUDWithStatus:@"暂无数据" delay:2];
+    for (int i = 0; i<OreCountPerView; i++) {
+        NSInteger index =  i+ (self.curentPage-1) * OreCountPerView;
+        if (index >= self.DataModel.oreList.count){
+            break;
+        }
+        
+        [self.oreModelListMutArr addObject:self.DataModel.oreList[index]];
     }
     
-    for (int i = 0; i < count; i++) {
+    if (self.DataModel.oreList.count == 0) {
+        [self showSVAlertHUDWithStatus:@"暂无数据" delay:2];
+        return;
+    }
+    
+    for (int i = 0; i < OreCountPerView; i++) {
         // MARK: 点击采矿
         HWOreImageView * ore = [[HWOreImageView alloc] initWithClickBLock:^(HWOreImageView* sender, oreListModel * model) {
             @HWstrong(self);
@@ -98,29 +110,67 @@
                 __strong typeof(wsend)sender = wsend;
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     if (b) {
+                        [sender setOreNum:0.];
+                        [self.myResourceBTN popOutsideWithDuration:.5];
                         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                            [sender setOreNum:0.];
                             [sender setIsShake:NO];
-                            [self.myResourceBTN popOutsideWithDuration:.5];
                             sender.hidden = YES;
+                            
+                            // 清理数据， 判断是否需要翻页
+                            [self.oreModelListMutArr removeObject:model];
+                            if (self.oreModelListMutArr.count != 0) {
+                                return ;
+                            }
+                            if (self.curentPage < self.totalPage) {
+                                self.curentPage ++;
+                                
+                                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                    [self setUpOre];
+                                });
+                            }
                         });
                     } else {
-                        [sender setIsShake:YES];
                         [self showSVAlertHUDWithStatus:m delay:2];
                         NSLog(@"%@", m);
+                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                            
+                            sender.hidden = YES;
+                            
+                            // 清理数据， 判断是否需要翻页
+                            [self.oreModelListMutArr removeObject:model];
+                            if (self.oreModelListMutArr.count != 0) {
+                                return ;
+                            }
+                            if (self.curentPage < self.totalPage) {
+                                self.curentPage ++;
+                                
+                                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                    [self setUpOre];
+                                });
+                            }
+                        });
                     }
                 });
             }];
         }];
+        
         [self.view addSubview:ore];
-        [self.oreMutArr addObject:ore];
+        [self.oreBtnMutArr addObject:ore];
         [ore HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
             @HWstrong(self);
             make.size.HWMAS_equalTo((CGSize){42.5, 58});
             make.left.HWMAS_equalTo(self.oreCenterPoint[i].CGPointValue.x);
             make.top.HWMAS_equalTo(self.oreCenterPoint[i].CGPointValue.y);
         }];
-        ore.model = self.DataModel.oreList[i];
+        
+        // 配置数据
+        if (self.oreModelListMutArr.count>i) {
+            ore.model = self.oreModelListMutArr[i];
+        } else {
+            ore.hidden = YES;
+            [ore setIsShake:NO];
+        }
+        
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self dissSVProgressHUD];
         });
@@ -152,7 +202,7 @@
     }];
     
     _myDetailedBTN = [HWButton new];
-    [_myDetailedBTN setImage:[HWUIHelper imageWithCameradispatchName:@"我的财富"] forState:(UIControlStateNormal)];
+    [_myDetailedBTN setImage:[HWUIHelper imageWithCameradispatchName:@"资产明细"] forState:(UIControlStateNormal)];
     [self.view addSubview:_myDetailedBTN];
     [_myDetailedBTN addTarget:self action:@selector(myDetailClick:) forControlEvents:UIControlEventTouchUpInside];
     [_myDetailedBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
@@ -208,6 +258,7 @@
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             if (abool) {
                 self.DataModel = model;
+                self.totalPage = (model.oreList.count+OreCountPerView-1)/OreCountPerView;
                 _currentSocreLAB.text = [NSString stringWithFormat:@"当前算力: %.1f", model.score];
                 [self setUpOre];
             }
@@ -237,7 +288,7 @@
 }
 // MARK: 偷币点击事件
 - (void)otherResourceClick:(HWButton *)sender {
-  
+    
     HWStealFieldViewController * vc = [HWStealFieldViewController new];
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -250,7 +301,7 @@
 }
 
 - (void)safeBack{
-    for (HWOreImageView *_ in self.oreMutArr) {
+    for (HWOreImageView *_ in self.oreBtnMutArr) {
         [_ setIsShake:NO];
     }
     [self.navigationController popViewControllerAnimated:YES];

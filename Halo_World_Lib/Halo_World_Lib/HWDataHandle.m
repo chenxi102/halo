@@ -21,16 +21,16 @@
             NSArray * oerlsit =  _data[@"oreList"];
             HWModel * totalM = [HWModel new];
             totalM.score = ((NSNumber *)_data[@"score"]).doubleValue;
-            for (int i = 0 ; i< oerlsit.count; i++) {
+            for (int i = 0 ; i< 30/*oerlsit.count*/; i++) {
                 oreListModel *  oreM = [oreListModel new];
                 oreM.oreCellType = OreCellType_reapSelf;
-                oreM.oreId = oerlsit[i][@"oreId"];
-                oreM.createTime = oerlsit[i][@"createTime"];
-                oreM.oreType = oerlsit[i][@"oreType"];
-                oreM.status = oerlsit[i][@"status"];
-                oreM.supportHandle = oerlsit[i][@"supportHandle"];
-                oreM.userId = oerlsit[i][@"userId"];
-                oreM.oreAmount = ((NSNumber *)oerlsit[i][@"oreAmount"]).doubleValue;
+                oreM.oreId = oerlsit[0][@"oreId"];
+                oreM.createTime = oerlsit[0][@"createTime"];
+                oreM.oreType = oerlsit[0][@"oreType"];
+                oreM.status = oerlsit[0][@"status"];
+                oreM.supportHandle = oerlsit[0][@"supportHandle"];
+                oreM.userId = oerlsit[0][@"userId"];
+                oreM.oreAmount = ((NSNumber *)oerlsit[0][@"oreAmount"]).doubleValue;
                 
                 [totalM.oreList addObject:oreM];
             }

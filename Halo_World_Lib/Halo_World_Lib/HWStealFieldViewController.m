@@ -112,7 +112,6 @@
                             sender.hidden = YES;
                         });
                     } else {
-                        [sender setIsShake:YES];
                         [self showSVAlertHUDWithStatus:m delay:2];
                         NSLog(@"%@", m);
                     }
@@ -159,7 +158,7 @@
     }];
     
     _myDetailedBTN = [HWButton new];
-    [_myDetailedBTN setImage:[HWUIHelper imageWithCameradispatchName:@"我的财富"] forState:(UIControlStateNormal)];
+    [_myDetailedBTN setImage:[HWUIHelper imageWithCameradispatchName:@"资产明细"] forState:(UIControlStateNormal)];
     [self.view addSubview:_myDetailedBTN];
     [_myDetailedBTN addTarget:self action:@selector(myDetailClick:) forControlEvents:UIControlEventTouchUpInside];
     [_myDetailedBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {

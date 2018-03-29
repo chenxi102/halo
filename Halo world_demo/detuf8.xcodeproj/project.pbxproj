@@ -1574,7 +1574,7 @@
 					"$(PROJECT_DIR)/detuf8/Common/Verdor/Net/SDWebImage/lib",
 					"$(PROJECT_DIR)/detuf8/Common/Verdor/Company/player/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.detu.detuf8;
+				PRODUCT_BUNDLE_IDENTIFIER = com.detu.detuf9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "detuf8/detuf8-Bridging-Header.h";
@@ -1727,7 +1727,7 @@
 					"$(PROJECT_DIR)/detuf8/Common/Verdor/Net/SDWebImage/lib",
 					"$(PROJECT_DIR)/detuf8/Common/Verdor/Company/player/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.detu.detuf8;
+				PRODUCT_BUNDLE_IDENTIFIER = com.detu.detuf9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7661f6af-59e3-4843-8d33-1a577ea2159d";
 				PROVISIONING_PROFILE_SPECIFIER = 186_seth_dev;
@@ -1778,7 +1778,7 @@
 					"$(PROJECT_DIR)/detuf8/Common/Verdor/Net/SDWebImage/lib",
 					"$(PROJECT_DIR)/detuf8/Common/Verdor/Company/player/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.detu.detuf8;
+				PRODUCT_BUNDLE_IDENTIFIER = com.detu.detuf9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "detuf8/detuf8-Bridging-Header.h";
