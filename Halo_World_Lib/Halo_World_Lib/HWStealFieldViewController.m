@@ -7,6 +7,7 @@
 //
 
 #import "HWStealFieldViewController.h"
+#import "HWDrawLotteryViewController.h"
 #import "HWHttpService.h"
 #import "HWMasonry.h"
 #import "HWOreImageView.h"
@@ -251,8 +252,7 @@
 // MARK: 抽奖点击事件
 - (void)getLuckClick:(HWButton *)sender {
     [sender popOutsideWithDuration:0.5];
-    Class cls = NSClassFromString(@"LKAssetVC");
-    UIViewController * vc = [cls new];
+    HWDrawLotteryViewController * vc = [HWDrawLotteryViewController new];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

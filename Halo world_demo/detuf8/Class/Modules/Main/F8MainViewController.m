@@ -32,6 +32,15 @@
 
 //    [HWHttpService shareInstance].userid = @"79ac16da-6c5c-4f4f-aa4a-32297dcf36c8";
     [HWHttpService shareInstance].userid = @"79ac16da-6c5c-4f4f-585452565";
+    [HWHttpService shareInstance].selfOreTitle = @"财富星球";
+    [HWHttpService shareInstance].selfOre_userScoreStr = @"我的算力";
+    [HWHttpService shareInstance].selfOre_userAssetsStr = @"我的资产";
+    [HWHttpService shareInstance].selfOre_assetsRecordStr = @"资产明细";
+    [HWHttpService shareInstance].stealOreTitle = @"偷矿";
+    [HWHttpService shareInstance].stealOre_userScoreStr = @"我的算力";
+    [HWHttpService shareInstance].stealOre_userAssetsStr = @"我的资产";
+    [HWHttpService shareInstance].stealOre_assetsRecordStr = @"资产明细";
+    
     
     //MARK: UI
     {

@@ -10,9 +10,25 @@
 
 typedef void(^_Nullable HttpCallBcak)(NSData *_Nullable, NSError *_Nullable);
 @interface HWHttpService : NSObject
-
+// 文案配置
+// 用户id
 @property (nonatomic, copy) NSString * _Nullable userid;
-@property (nonatomic, copy) NSString * _Nullable usertoken;
+
+// 1.我的矿产
+@property (nonatomic, copy) NSString * _Nullable selfOreTitle;              // 我的矿产title
+@property (nonatomic, copy) NSString * _Nullable selfOre_userScoreStr;      // 我的算力title
+@property (nonatomic, copy) NSString * _Nullable selfOre_userAssetsStr;     // 我的资产title
+@property (nonatomic, copy) NSString * _Nullable selfOre_assetsRecordStr;   // 资产明细title
+// 2.偷矿
+@property (nonatomic, copy) NSString * _Nullable stealOreTitle;             // 偷矿界面title
+@property (nonatomic, copy) NSString * _Nullable stealOre_userScoreStr;     // 我的算力title
+@property (nonatomic, copy) NSString * _Nullable stealOre_userAssetsStr;    // 我的资产title
+@property (nonatomic, copy) NSString * _Nullable stealOre_assetsRecordStr;  // 资产明细title
+
+
+
+
+
 
 + (instancetype _Nullable )shareInstance;
 

@@ -8,6 +8,7 @@
 
 #import "HWFieldOutputViewController.h"
 #import "HWStealFieldViewController.h"
+#import "HWDrawLotteryViewController.h"
 #import "HWHttpService.h"
 #import "HWMasonry.h"
 #import "HWOreImageView.h"
@@ -44,6 +45,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = [HWHttpService shareInstance].selfOreTitle;
     self.curentPage = 1;
     self.oreBtnMutArr = [NSMutableArray array];
     self.oreModelListMutArr = [NSMutableArray array];
@@ -193,7 +195,7 @@
     _myResourceLAB.font = [UIFont systemFontOfSize:12];
     _myResourceLAB.textColor = [UIColor whiteColor];
     _myResourceLAB.textAlignment = NSTextAlignmentCenter;
-    _myResourceLAB.text = @"我的资产";
+    _myResourceLAB.text = [HWHttpService shareInstance].selfOre_userAssetsStr;;
     [self.view addSubview:_myResourceLAB];
     [_myResourceLAB HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         @HWstrong(self);
@@ -215,7 +217,7 @@
     _myDetailedLAB.font = [UIFont systemFontOfSize:12];
     _myDetailedLAB.textColor = [UIColor whiteColor];
     _myDetailedLAB.textAlignment = NSTextAlignmentCenter;
-    _myDetailedLAB.text = @"资产明细";
+    _myDetailedLAB.text = [HWHttpService shareInstance].selfOre_assetsRecordStr;
     [self.view addSubview:_myDetailedLAB];
     [_myDetailedLAB HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         @HWstrong(self);
@@ -295,8 +297,7 @@
 // MARK: 抽奖点击事件
 - (void)getLuckClick:(HWButton *)sender {
     [sender popOutsideWithDuration:0.5];
-    Class cls = NSClassFromString(@"LKAssetVC");
-    UIViewController * vc = [cls new];
+    HWDrawLotteryViewController * vc = [HWDrawLotteryViewController new];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
