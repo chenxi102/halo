@@ -19,6 +19,30 @@
     return bundle;
 }
 
++(UIImage *)imageWithCameradispatchGifName:(NSString *)name {
+    if (name == nil)return nil;
+    static NSMutableDictionary *cache = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        cache = [NSMutableDictionary new];
+    });
+    
+    UIImage *image;
+    image = cache[name];
+    if (image) {
+        return  image;
+    }
+    NSString *txt = name.pathExtension;
+    if (txt.length == 0) {
+        txt = @"gif";
+    }
+    NSString *path =  [[self haloBundle] pathForResource:name ofType:txt];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    image = [UIImage imageWithData:data];
+    cache[name] = image;
+    return image;
+}
+
 +(UIImage *)imageWithCameradispatchName:(NSString *)name{
     if (name == nil)return nil;
     static NSMutableDictionary *cache = nil;

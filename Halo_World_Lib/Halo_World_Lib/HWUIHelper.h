@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>  
-
+#import "UIImage+Gif.h"
 
 //强制横竖屏
 #define CameraOrientationPortrait(portrait)\
@@ -96,6 +96,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 @interface HWUIHelper : NSObject
 //加载HWUIHelper模块的图片资源包里面的图片
++ (NSBundle *)haloBundle;
++ (UIImage *)imageWithCameradispatchGifName:(NSString *)name;
 + (UIImage *)imageWithCameradispatchName:(NSString *)name;
 + (CGFloat)convertUnitWidthStand:(CGFloat)unit;
 + (CGFloat)convertUnitHeigthStand:(CGFloat)unit;

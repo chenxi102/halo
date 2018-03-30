@@ -74,6 +74,17 @@
 - (void)showSVAlertHUDWithStatus:(NSString *)str delay:(NSTimeInterval)delay {
     [HWSVProgressHUD setDefaultMaskType:HWSVProgressHUDMaskTypeNone];
     [HWSVProgressHUD showImage:[UIImage imageNamed:@""] status:str];
+    [HWSVProgressHUD setFont:[UIFont fontWithName:@"Helvetica" size:15]];
+    [HWSVProgressHUD setForegroundColor:HWRGB(0, 253, 253)];
+    [HWSVProgressHUD dismissWithDelay:delay];
+}
+
+//  自定义图片
+- (void)showSVCustomeHUDWithImage:(UIImage *)img Status:(NSString *)str delay:(NSTimeInterval)delay {
+    [HWSVProgressHUD setDefaultMaskType:HWSVProgressHUDMaskTypeClear];
+    [HWSVProgressHUD showImage:img status:str];
+    [HWSVProgressHUD setBackgroundColor:[[UIColor clearColor]colorWithAlphaComponent:0]];
+    [HWSVProgressHUD setImageViewSize:(CGSize){60, 60}];
     [HWSVProgressHUD dismissWithDelay:delay];
 }
 

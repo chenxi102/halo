@@ -15,6 +15,8 @@
 
 @property (nonatomic, copy) NSString * title;
 
+//  自定义图片
+- (void)showSVCustomeHUDWithImage:(UIImage *)img Status:(NSString *)str delay:(NSTimeInterval)delay;
 // 纯文本
 - (void)showSVAlertHUDWithStatus:(NSString *)str delay:(NSTimeInterval)delay;
 // 菊花 + 文本

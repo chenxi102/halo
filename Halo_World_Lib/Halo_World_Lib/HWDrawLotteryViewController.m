@@ -25,6 +25,7 @@
     
     self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, HWSCREEN_WIDTH, HWSCREEN_HEIGHT)];
     NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"www.baidu.com"]];
+    [request addValue:[HWHttpService shareInstance].userid forHTTPHeaderField:@"userId"];
     [_webView loadRequest:request];
     _webView.navigationDelegate = self;
     _webView.UIDelegate = self;

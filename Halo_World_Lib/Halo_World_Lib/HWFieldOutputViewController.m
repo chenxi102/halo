@@ -42,7 +42,10 @@
 - (void)didReceiveMemoryWarning {[super didReceiveMemoryWarning]; }
 - (void)dealloc { NSLog(@"dealloc"); }
 - (void)viewDidAppear:(BOOL)animated {[super viewDidAppear:animated];}
-
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+//    [self showSVCustomeHUDWithImage:[UIImage imageWithGIFNamed:@"加载页面GIF"] Status:nil delay:15];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = [HWHttpService shareInstance].selfOreTitle;
@@ -106,11 +109,15 @@
         HWOreImageView * ore = [[HWOreImageView alloc] initWithClickBLock:^(HWOreImageView* sender, oreListModel * model) {
             @HWstrong(self);
             @HWweak(self);
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self showSVCustomeHUDWithImage:[UIImage imageWithGIFNamed:@"加载页面GIF"] Status:nil delay:15];
+            });
             __weak typeof(sender)wsend = sender;
             [HWDataHandle reapOre:model res:^(BOOL b, NSString * m) {
                 @HWstrong(self);
                 __strong typeof(wsend)sender = wsend;
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [self dissSVProgressHUD];
                     if (b) {
                         [sender setOreNum:0.];
                         [self.myResourceBTN popOutsideWithDuration:.5];
@@ -126,7 +133,7 @@
                             if (self.curentPage < self.totalPage) {
                                 self.curentPage ++;
                                 
-                                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                                     [self setUpOre];
                                 });
                             }
@@ -146,7 +153,7 @@
                             if (self.curentPage < self.totalPage) {
                                 self.curentPage ++;
                                 
-                                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                                     [self setUpOre];
                                 });
                             }
@@ -172,11 +179,10 @@
             ore.hidden = YES;
             [ore setIsShake:NO];
         }
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            [self dissSVProgressHUD];
-        });
     }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self dissSVProgressHUD];
+    });
 }
 //MARK: 我的资产、明细 UI
 - (void)setUpmiddleButton {
@@ -193,7 +199,7 @@
     }];
     
     UILabel * _myResourceLAB = [UILabel new];
-    _myResourceLAB.font = [UIFont systemFontOfSize:12];
+    _myResourceLAB.font = [UIFont fontWithName:@"Helvetica" size:12];
     _myResourceLAB.textColor = [UIColor whiteColor];
     _myResourceLAB.textAlignment = NSTextAlignmentCenter;
     _myResourceLAB.text = [HWHttpService shareInstance].selfOre_userAssetsStr;;
@@ -216,7 +222,7 @@
     }];
     
     UILabel * _myDetailedLAB = [UILabel new];
-    _myDetailedLAB.font = [UIFont systemFontOfSize:12];
+    _myDetailedLAB.font = [UIFont fontWithName:@"Helvetica" size:12];
     _myDetailedLAB.textColor = [UIColor whiteColor];
     _myDetailedLAB.textAlignment = NSTextAlignmentCenter;
     _myDetailedLAB.text = [HWHttpService shareInstance].selfOre_assetsRecordStr;
@@ -230,15 +236,28 @@
 
 //MARK: 偷矿 抽奖 UI
 - (void)setUpBottom {
+    @HWweak(self)
     _stealBTN = [HWButton new];
     [_stealBTN setImage:[HWUIHelper imageWithCameradispatchName:@"偷币"] forState:(UIControlStateNormal)];
     [self.view addSubview:_stealBTN];
     [_stealBTN addTarget:self action:@selector(otherResourceClick:) forControlEvents:UIControlEventTouchUpInside];
     [_stealBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         make.left.equalTo(@44);
-        make.width.equalTo(@73);
-        make.height.equalTo(@54);
-        make.bottom.equalTo(@-20);
+        make.width.equalTo(@50);
+        make.height.equalTo(@50);
+        make.bottom.equalTo(@-36);
+    }];
+    
+    UILabel * _stealLAB = [UILabel new];
+    _stealLAB.font = [UIFont fontWithName:@"Helvetica" size:12];
+    _stealLAB.textColor = [UIColor whiteColor];
+    _stealLAB.textAlignment = NSTextAlignmentCenter;
+    _stealLAB.text = [HWHttpService shareInstance].stealOreTitle;
+    [self.view addSubview:_stealLAB];
+    [_stealLAB HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
+        @HWstrong(self);
+        make.centerX.equalTo(self.stealBTN.HWMAS_centerX);
+        make.top.equalTo(self.stealBTN.HWMAS_bottom).offset(5);
     }];
     
     _getLuckBTN = [HWButton new];
@@ -247,16 +266,28 @@
     [_getLuckBTN addTarget:self action:@selector(getLuckClick:) forControlEvents:UIControlEventTouchUpInside];
     [_getLuckBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         make.right.equalTo(@-44);
-        make.width.equalTo(@73);
-        make.height.equalTo(@54);
-        make.bottom.equalTo(@-20);
+        make.width.equalTo(@50);
+        make.height.equalTo(@50);
+        make.bottom.equalTo(@-36);
+    }];
+    
+    UILabel * _getLuckLAB = [UILabel new];
+    _getLuckLAB.font = [UIFont fontWithName:@"Helvetica" size:12];
+    _getLuckLAB.textColor = [UIColor whiteColor];
+    _getLuckLAB.textAlignment = NSTextAlignmentCenter;
+    _getLuckLAB.text = [HWHttpService shareInstance].luckOreTitle;
+    [self.view addSubview:_getLuckLAB];
+    [_getLuckLAB HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
+        @HWstrong(self);
+        make.centerX.equalTo(self.getLuckBTN.HWMAS_centerX);
+        make.top.equalTo(self.getLuckBTN.HWMAS_bottom).offset(5);
     }];
 }
 
 //MARK: 加载数据
 - (void)extracted {
     @HWweak(self);
-    [self showSVProgressHUDWithStatus:nil delay:20];
+    [self showSVCustomeHUDWithImage:[UIImage imageWithGIFNamed:@"加载页面GIF"] Status:nil delay:15];
     [HWDataHandle loadUserSelfFieldOutputNum:^(BOOL abool, HWModel* model) {
         @HWstrong(self);
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

@@ -40,7 +40,7 @@
     [HWHttpService shareInstance].stealOre_userScoreStr = @"我的算力";
     [HWHttpService shareInstance].stealOre_userAssetsStr = @"我的资产";
     [HWHttpService shareInstance].stealOre_assetsRecordStr = @"资产明细";
-    
+    [HWHttpService shareInstance].luckOreTitle = @"挖矿";
     
     //MARK: UI
     {

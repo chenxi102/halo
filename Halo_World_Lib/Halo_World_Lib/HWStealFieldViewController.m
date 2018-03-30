@@ -98,6 +98,9 @@
         HWOreImageView * ore = [[HWOreImageView alloc] initWithClickBLock:^(HWOreImageView* sender, oreListModel * model) {
             @HWstrong(self);
             @HWweak(self);
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self showSVCustomeHUDWithImage:[UIImage imageWithGIFNamed:@"加载页面GIF"] Status:nil delay:15];
+            });
             __weak typeof(sender)wsend = sender;
             if (![model.supportHandle isEqualToString:@"2"]) {
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -108,7 +111,8 @@
             [HWDataHandle stealOre:model res:^(BOOL b, NSString * m) {
                 @HWstrong(self);
                 __strong typeof(wsend)sender = wsend;
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [self dissSVProgressHUD];
                     if (b) {
                         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                             [sender setOreNum:0.];
@@ -133,10 +137,10 @@
             make.centerY.HWMAS_equalTo(self.oreCenterPoint[i].CGPointValue.y - HWSCREEN_HEIGHT/2);
         }];
         ore.model = self.DataModel.ownOreList[i];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self dissSVProgressHUD];
-        });
     }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self dissSVProgressHUD];
+    });
 }
 //MARK: 我的资产、明细 UI
 - (void)setUpmiddleButton {
@@ -153,7 +157,7 @@
     }];
     
     UILabel * _myResourceLAB = [UILabel new];
-    _myResourceLAB.font = [UIFont systemFontOfSize:12];
+    _myResourceLAB.font = [UIFont fontWithName:@"Helvetica" size:12];
     _myResourceLAB.textColor = [UIColor whiteColor];
     _myResourceLAB.textAlignment = NSTextAlignmentCenter;
     _myResourceLAB.text = @"我的资产";
@@ -176,7 +180,7 @@
     }];
     
     UILabel * _myDetailedLAB = [UILabel new];
-    _myDetailedLAB.font = [UIFont systemFontOfSize:12];
+    _myDetailedLAB.font = [UIFont fontWithName:@"Helvetica" size:12];
     _myDetailedLAB.textColor = [UIColor whiteColor];
     _myDetailedLAB.textAlignment = NSTextAlignmentCenter;
     _myDetailedLAB.text = @"资产明细";
@@ -194,7 +198,7 @@
     [_searchResourceBTN addTarget:self action:@selector(otherResourceClick:) forControlEvents:UIControlEventTouchUpInside];
     [_searchResourceBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         @HWstrong(self);
-        make.left.equalTo(@25);
+        make.left.equalTo(@44);
         make.width.height.equalTo(@52);
         make.bottom.equalTo(@-140);
     }];
@@ -202,15 +206,28 @@
 
 //MARK: 偷矿 抽奖 UI
 - (void)setUpBottom {
+    @HWweak(self)
     _stealBTN = [HWButton new];
-    [_stealBTN setImage:[HWUIHelper imageWithCameradispatchName:@"偷币"] forState:(UIControlStateNormal)];
+    [_stealBTN setImage:[HWUIHelper imageWithCameradispatchName:@"我的矿山"] forState:(UIControlStateNormal)];
     [self.view addSubview:_stealBTN];
-    [_stealBTN addTarget:self action:@selector(otherResourceClick:) forControlEvents:UIControlEventTouchUpInside];
+    [_stealBTN addTarget:self action:@selector(myOreArealClick:) forControlEvents:UIControlEventTouchUpInside];
     [_stealBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         make.left.equalTo(@44);
-        make.width.equalTo(@73);
-        make.height.equalTo(@54);
-        make.bottom.equalTo(@-20);
+        make.width.equalTo(@50);
+        make.height.equalTo(@50);
+        make.bottom.equalTo(@-40);
+    }];
+    
+    UILabel * _stealLAB = [UILabel new];
+    _stealLAB.font = [UIFont fontWithName:@"Helvetica" size:12];
+    _stealLAB.textColor = [UIColor whiteColor];
+    _stealLAB.textAlignment = NSTextAlignmentCenter;
+    _stealLAB.text = [HWHttpService shareInstance].selfOreTitle;
+    [self.view addSubview:_stealLAB];
+    [_stealLAB HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
+        @HWstrong(self);
+        make.centerX.equalTo(self.stealBTN.HWMAS_centerX);
+        make.top.equalTo(self.stealBTN.HWMAS_bottom).offset(5);
     }];
     
     _getLuckBTN = [HWButton new];
@@ -219,16 +236,28 @@
     [_getLuckBTN addTarget:self action:@selector(getLuckClick:) forControlEvents:UIControlEventTouchUpInside];
     [_getLuckBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         make.right.equalTo(@-44);
-        make.width.equalTo(@73);
-        make.height.equalTo(@54);
-        make.bottom.equalTo(@-20);
+        make.width.equalTo(@50);
+        make.height.equalTo(@50);
+        make.bottom.equalTo(@-40);
+    }];
+    
+    UILabel * _getLuckLAB = [UILabel new];
+    _getLuckLAB.font = [UIFont fontWithName:@"Helvetica" size:12];
+    _getLuckLAB.textColor = [UIColor whiteColor];
+    _getLuckLAB.textAlignment = NSTextAlignmentCenter;
+    _getLuckLAB.text = [HWHttpService shareInstance].luckOreTitle;
+    [self.view addSubview:_getLuckLAB];
+    [_getLuckLAB HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
+        @HWstrong(self);
+        make.centerX.equalTo(self.getLuckBTN.HWMAS_centerX);
+        make.top.equalTo(self.getLuckBTN.HWMAS_bottom).offset(5);
     }];
 }
 
 //MARK: 加载数据
 - (void)extracted {
     @HWweak(self);
-    [self showSVProgressHUDWithStatus:nil delay:20];
+    [self showSVCustomeHUDWithImage:[UIImage imageWithGIFNamed:@"加载页面GIF"] Status:nil delay:15];
     [HWDataHandle loadOthersResource:^(BOOL abool, HWModel* model) {
         @HWstrong(self);
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -271,6 +300,10 @@
         [self.oreMutArr removeAllObjects];
     }
     [self extracted];
+}
+
+- (void)myOreArealClick:(HWButton *)sender {
+    [self safeBack];
 }
 // MARK: 抽奖点击事件
 - (void)getLuckClick:(HWButton *)sender {
