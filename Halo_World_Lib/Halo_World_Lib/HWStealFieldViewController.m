@@ -14,6 +14,7 @@
 #import "HWDataHandle.h"
 #import "HWModel.h"
 #import "HWButton.h"
+#import "HWAssetsDetailedView.h"
 
 @interface HWStealFieldViewController ()
 
@@ -41,10 +42,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view.layer setContents:(id)[HWUIHelper imageWithCameradispatchName:@"第二页面底图"].CGImage];
     self.oreMutArr = [NSMutableArray array];
     self.title = @"偷矿";
     float tap = HWSCREEN_WIDTH/10;
-    self.oreCenterPoint = @[@((CGPoint){tap, 300}),@((CGPoint){3*tap, 300-tap}),@((CGPoint){3*tap, 300+tap}),@((CGPoint){5*tap,  300-2*tap}),@((CGPoint){5*tap, 300}),@((CGPoint){7*tap, 300-tap}),@((CGPoint){7*tap, 300+tap}),@((CGPoint){9*tap, 300})];
+    self.oreCenterPoint = @[@((CGPoint){tap+10, 200}),@((CGPoint){tap, 200+2*tap}),@((CGPoint){3*tap+10, 200+0.8*tap}),@((CGPoint){3*tap,  200+2.7*tap}),@((CGPoint){5*tap+20, 200}),@((CGPoint){5*tap, 200+1.8*tap}),@((CGPoint){7*tap, 200+3*tap}),@((CGPoint){8.5*tap, 200+1.3*tap})];
     [self extracted] ;
     [self setUpScoreLab];
     [self setUpmiddleButton];
@@ -57,10 +59,10 @@
     imgv.image = [HWUIHelper imageWithCameradispatchName:@"算力值框"];
     [self.view addSubview:imgv];
     [imgv HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
-        make.right.equalTo(@-10);
+        make.right.equalTo(@0);
         make.top.equalTo(@(isIPhoneX?85:74));
         make.height.equalTo(@30);
-        make.width.equalTo(@110);
+        make.width.equalTo(@125);
     }];
     
     _currentSocreLAB = [UILabel new];
@@ -111,7 +113,7 @@
             [HWDataHandle stealOre:model res:^(BOOL b, NSString * m) {
                 @HWstrong(self);
                 __strong typeof(wsend)sender = wsend;
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     [self dissSVProgressHUD];
                     if (b) {
                         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -132,13 +134,13 @@
         
         [ore HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
             @HWstrong(self);
-            make.size.HWMAS_equalTo((CGSize){42.5, 58});
+            make.size.HWMAS_equalTo((CGSize){50, 58});
             make.centerX.HWMAS_equalTo(self.oreCenterPoint[i].CGPointValue.x - HWSCREEN_WIDTH/2);
             make.centerY.HWMAS_equalTo(self.oreCenterPoint[i].CGPointValue.y - HWSCREEN_HEIGHT/2);
         }];
         ore.model = self.DataModel.ownOreList[i];
     }
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self dissSVProgressHUD];
     });
 }
@@ -191,16 +193,27 @@
         make.top.equalTo(self.myDetailedBTN.HWMAS_bottom).offset(5);
     }];
     
-    
+    // MARK: 搜索他人
     _searchResourceBTN = [HWButton new];
     [_searchResourceBTN setImage:[HWUIHelper imageWithCameradispatchName:@"搜索附近矿产"] forState:(UIControlStateNormal)];
     [self.view addSubview:_searchResourceBTN];
     [_searchResourceBTN addTarget:self action:@selector(otherResourceClick:) forControlEvents:UIControlEventTouchUpInside];
     [_searchResourceBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
-        @HWstrong(self);
-        make.left.equalTo(@44);
+        make.right.equalTo(@-12.5);
         make.width.height.equalTo(@52);
-        make.bottom.equalTo(@-140);
+        make.bottom.equalTo(@-200);
+    }];
+    
+    UILabel * _searchResourceLAB = [UILabel new];
+    _searchResourceLAB.font = [UIFont fontWithName:@"Helvetica" size:12];
+    _searchResourceLAB.textColor = [UIColor whiteColor];
+    _searchResourceLAB.textAlignment = NSTextAlignmentCenter;
+    _searchResourceLAB.text = @"搜索矿山";
+    [self.view addSubview:_searchResourceLAB];
+    [_searchResourceLAB HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
+        @HWstrong(self);
+        make.centerX.equalTo(self.searchResourceBTN.HWMAS_centerX);
+        make.top.equalTo(self.searchResourceBTN.HWMAS_bottom).offset(5);
     }];
 }
 
@@ -212,7 +225,7 @@
     [self.view addSubview:_stealBTN];
     [_stealBTN addTarget:self action:@selector(myOreArealClick:) forControlEvents:UIControlEventTouchUpInside];
     [_stealBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
-        make.left.equalTo(@44);
+        make.left.equalTo(@50);
         make.width.equalTo(@50);
         make.height.equalTo(@50);
         make.bottom.equalTo(@-40);
@@ -235,7 +248,7 @@
     [self.view addSubview:_getLuckBTN];
     [_getLuckBTN addTarget:self action:@selector(getLuckClick:) forControlEvents:UIControlEventTouchUpInside];
     [_getLuckBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
-        make.right.equalTo(@-44);
+        make.right.equalTo(@-50);
         make.width.equalTo(@50);
         make.height.equalTo(@50);
         make.bottom.equalTo(@-40);
@@ -257,6 +270,7 @@
 //MARK: 加载数据
 - (void)extracted {
     @HWweak(self);
+    [self showSVCustomeHUDWithImage:[HWUIHelper imageWithCameradispatchName:@"timg"] Status:nil delay:15];
     [self showSVCustomeHUDWithImage:[UIImage imageWithGIFNamed:@"加载页面GIF"] Status:nil delay:15];
     [HWDataHandle loadOthersResource:^(BOOL abool, HWModel* model) {
         @HWstrong(self);
@@ -286,9 +300,15 @@
 // MARK: 明细点击事件
 - (void)myDetailClick:(HWButton *)sender {
     [sender popOutsideWithDuration:0.5];
-    Class cls = NSClassFromString(@"LKAssetVC");
-    UIViewController * vc = [cls new];
-    [self.navigationController pushViewController:vc animated:YES];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self showSVCustomeHUDWithImage:[HWUIHelper imageWithCameradispatchName:@"timg"] Status:nil delay:15];
+        [self showSVCustomeHUDWithImage:[UIImage imageWithGIFNamed:@"加载页面GIF"] Status:nil delay:15];
+    });
+    HWAssetsDetailedView * assetsDetaileV = [HWAssetsDetailedView new];
+    [self.view addSubview:assetsDetaileV];
+    [assetsDetaileV HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
+        make.edges.equalTo(@0);
+    }];
 }
 // MARK: 偷币点击事件
 - (void)otherResourceClick:(HWButton *)sender {

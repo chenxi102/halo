@@ -159,4 +159,44 @@
     }];
 }
 
++ (void)loadUserSelfRecord:(void(^)(BOOL, NSString*,NSMutableArray<HWRecordModel*>*))res {
+    [[HWHttpService shareInstance] getUserDetailWithTokenType:nil Call:^(NSData * _Nullable data, NSError * _Nullable err) {
+        if (!data) {
+            if (res) res(NO, nil, nil);return ;
+        }
+        NSMutableArray <HWRecordModel *>* mutArr = [NSMutableArray array];
+        
+        NSDictionary * json = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingMutableContainers) error:nil];
+        NSString * ret = json[@"retCode"];
+        NSString * retMsg = json[@"retMsg"];
+        NSDictionary * _data = (NSDictionary *)json[@"data"];
+        
+        if (ret.intValue == 0) {
+            NSArray * oerlsit =  _data[@"tokenList"];
+        
+            for (int i = 0 ; i< oerlsit.count; i++) {
+                
+                HWRecordModel *  oreM = [HWRecordModel new];
+                oreM.recordId = oerlsit[i][@"recordId"];
+                oreM.createTime = oerlsit[i][@"createTime"];
+                oreM.token_number = ((NSNumber *)oerlsit[i][@"token_number"]).doubleValue;
+                oreM.token_type = oerlsit[i][@"token_type"];
+                oreM.operationType = oerlsit[i][@"operationType"];
+                oreM.userId = [HWHttpService shareInstance].userid;
+                
+                
+                [mutArr addObject:oreM];
+            }
+            
+            if (res) {
+                res(YES, retMsg,mutArr);
+            }
+        } else {
+            if (res) {
+                res(NO, retMsg,mutArr);
+            }
+        }
+    }];
+}
+
 @end

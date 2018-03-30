@@ -34,6 +34,8 @@
 		5DD2BDEC20679CED00571B94 /* HWHttpService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2BDEB20679CED00571B94 /* HWHttpService.m */; };
 		5DD2BDEF20679DBE00571B94 /* HWHttpBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2BDEE20679DBE00571B94 /* HWHttpBase.m */; };
 		5DD2BDF220679FA700571B94 /* HWHttpModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2BDF120679FA700571B94 /* HWHttpModel.m */; };
+		5DE101BF206E818000F22667 /* HWAssetsDetailedTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE101BE206E818000F22667 /* HWAssetsDetailedTableView.m */; };
+		5DE101C2206E8AFB00F22667 /* HWAssetsDetailedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE101C1206E8AFB00F22667 /* HWAssetsDetailedTableViewCell.m */; };
 		5DE25E86206A7545005AFAE1 /* HWOreImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE25E85206A7545005AFAE1 /* HWOreImageView.m */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +114,10 @@
 		5DD2BDEE20679DBE00571B94 /* HWHttpBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWHttpBase.m; sourceTree = "<group>"; };
 		5DD2BDF020679FA700571B94 /* HWHttpModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWHttpModel.h; sourceTree = "<group>"; };
 		5DD2BDF120679FA700571B94 /* HWHttpModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWHttpModel.m; sourceTree = "<group>"; };
+		5DE101BD206E818000F22667 /* HWAssetsDetailedTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWAssetsDetailedTableView.h; sourceTree = "<group>"; };
+		5DE101BE206E818000F22667 /* HWAssetsDetailedTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWAssetsDetailedTableView.m; sourceTree = "<group>"; };
+		5DE101C0206E8AFB00F22667 /* HWAssetsDetailedTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWAssetsDetailedTableViewCell.h; sourceTree = "<group>"; };
+		5DE101C1206E8AFB00F22667 /* HWAssetsDetailedTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWAssetsDetailedTableViewCell.m; sourceTree = "<group>"; };
 		5DE25E84206A7545005AFAE1 /* HWOreImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWOreImageView.h; sourceTree = "<group>"; };
 		5DE25E85206A7545005AFAE1 /* HWOreImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWOreImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -265,6 +271,10 @@
 				5DAAB665206B8B97006D95A4 /* HWButton.m */,
 				5D7B69DC206E10410070D2D8 /* HWAssetsDetailedView.h */,
 				5D7B69DD206E10410070D2D8 /* HWAssetsDetailedView.m */,
+				5DE101BD206E818000F22667 /* HWAssetsDetailedTableView.h */,
+				5DE101BE206E818000F22667 /* HWAssetsDetailedTableView.m */,
+				5DE101C0206E8AFB00F22667 /* HWAssetsDetailedTableViewCell.h */,
+				5DE101C1206E8AFB00F22667 /* HWAssetsDetailedTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -279,7 +289,6 @@
 				5DD2BDB020662C2D00571B94 /* Sources */,
 				5DD2BDB120662C2D00571B94 /* Frameworks */,
 				5DD2BDB220662C2D00571B94 /* CopyFiles */,
-				5D7B69E3206E5CBC0070D2D8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -322,22 +331,6 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		5D7B69E3206E5CBC0070D2D8 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "SRCPANO=\"${PROJECT_DIR}/cameradispatchservicelib\" #源代码路径\nIOSPANO=\"${PROJECT_DIR}/../../main/modules/Camera\" #生成的文件路径\nDSTPANOLIB=\"${IOSPANO}/header\"\n\nif [ ! -x \"${DSTPANOLIB}\" ]; then\nmkdir ${DSTPANOLIB}/CameraPreview\nmkdir ${DSTPANOLIB}/CameraConnectView\nfi\n\n\ncp ${BUILD_DIR}/${CONFIGURATION}-iphoneos/lib${PRODUCT_NAME}.a ${IOSPANO}/lib/\n#cp -rp ${BUILD_DIR}/${CONFIGURATION}-iphoneos/usr/local/include/ ${DSTPANOLIB}\n\ncp ${SRCPANO}/*.h ${DSTPANOLIB}\n              cp ${SRCPANO}/CameraModel/*.h ${DSTPANOLIB}\n              cp ${SRCPANO}/CameraModel/CameraSetModel/*.h ${DSTPANOLIB}\n              cp ${SRCPANO}/CameraController/*.h ${DSTPANOLIB}\n              cp ${SRCPANO}/CameraController/FwUpdate/1.0.4/*.h ${DSTPANOLIB}\n              cp ${SRCPANO}/CameraController/FwUpdate/1.0.6/*.h ${DSTPANOLIB}\n              \n              cp ${SRCPANO}/CameraView/*.h ${DSTPANOLIB}\n              cp ${SRCPANO}/CameraView/CameraSetView/*.h ${DSTPANOLIB}\n              \n              cp ${SRCPANO}/CameraTools/*.h ${DSTPANOLIB}\n              cp ${SRCPANO}/CameraPlayer/*.h ${DSTPANOLIB}";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		5DD2BDB020662C2D00571B94 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -345,6 +338,7 @@
 			files = (
 				5D5A2D36206A4F3E00F7DDC1 /* NSLayoutConstraint+HWMASDebugAdditions.m in Sources */,
 				5D5A2D19206A043A00F7DDC1 /* HWBaseViewController.m in Sources */,
+				5DE101BF206E818000F22667 /* HWAssetsDetailedTableView.m in Sources */,
 				5D5A2D3D206A4F3E00F7DDC1 /* HWMASConstraint.m in Sources */,
 				5D5A2D3E206A4F3E00F7DDC1 /* HWMASViewConstraint.m in Sources */,
 				5DAAB67A206B952D006D95A4 /* HWSVIndefiniteAnimatedView.m in Sources */,
@@ -369,6 +363,7 @@
 				5D3525E020692AD500A28CD5 /* HWModel.m in Sources */,
 				5D5A2D3B206A4F3E00F7DDC1 /* NSArray+HWMASAdditions.m in Sources */,
 				5DD2BDEC20679CED00571B94 /* HWHttpService.m in Sources */,
+				5DE101C2206E8AFB00F22667 /* HWAssetsDetailedTableViewCell.m in Sources */,
 				5DD2BDE120668F8500571B94 /* HWFieldOutputViewController.m in Sources */,
 				5DD2BDEF20679DBE00571B94 /* HWHttpBase.m in Sources */,
 			);

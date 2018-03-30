@@ -20,12 +20,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "detuf8/Class/Modules/Main/F8MainViewController.m"
-            timestampString = "544001235.861285"
+            timestampString = "544122161.689237"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "283"
-            endingLineNumber = "283"
-            landmarkName = "-disConnect:"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
+            landmarkName = "-connect:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -36,28 +36,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "detuf8/Class/Modules/Main/F8MainViewController.m"
-            timestampString = "544001235.861354"
+            timestampString = "544122161.689311"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "292"
             endingLineNumber = "292"
-            landmarkName = "-takeCapture:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "detuf8/Class/Modules/Main/F8MainViewController.m"
-            timestampString = "544001235.861402"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "274"
-            endingLineNumber = "274"
-            landmarkName = "-connect:"
+            landmarkName = "-disConnect:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

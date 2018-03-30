@@ -15,7 +15,7 @@
 #import "HWDataHandle.h"
 #import "HWModel.h"
 #import "HWButton.h"
-
+#import "HWAssetsDetailedView.h"
 
 
 @interface HWFieldOutputViewController ()
@@ -48,6 +48,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view.layer setContents:(id)[HWUIHelper imageWithCameradispatchName:@"底图"].CGImage];
     self.title = [HWHttpService shareInstance].selfOreTitle;
     self.curentPage = 1;
     self.oreBtnMutArr = [NSMutableArray array];
@@ -67,10 +68,10 @@
     imgv.image = [HWUIHelper imageWithCameradispatchName:@"算力值框"];
     [self.view addSubview:imgv];
     [imgv HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
-        make.right.equalTo(@-10);
+        make.right.equalTo(@0);
         make.top.equalTo(@(isIPhoneX?85:74));
         make.height.equalTo(@30);
-        make.width.equalTo(@110);
+        make.width.equalTo(@125);
     }];
     
     _currentSocreLAB = [UILabel new];
@@ -117,7 +118,7 @@
             [HWDataHandle reapOre:model res:^(BOOL b, NSString * m) {
                 @HWstrong(self);
                 __strong typeof(wsend)sender = wsend;
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                         [self dissSVProgressHUD];
                     if (b) {
                         [sender setOreNum:0.];
@@ -168,7 +169,7 @@
         [self.oreBtnMutArr addObject:ore];
         [ore HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
             @HWstrong(self);
-            make.size.HWMAS_equalTo((CGSize){42.5, 58});
+            make.size.HWMAS_equalTo((CGSize){50, 58});
             make.centerX.HWMAS_equalTo(self.oreCenterPoint[i].CGPointValue.x - HWSCREEN_WIDTH/2);
             make.centerY.HWMAS_equalTo(self.oreCenterPoint[i].CGPointValue.y - HWSCREEN_HEIGHT/2);
         }];
@@ -181,8 +182,8 @@
             [ore setIsShake:NO];
         }
     }
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [self dissSVProgressHUD];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self dissSVProgressHUD];
     });
 }
 //MARK: 我的资产、明细 UI
@@ -243,7 +244,7 @@
     [self.view addSubview:_stealBTN];
     [_stealBTN addTarget:self action:@selector(otherResourceClick:) forControlEvents:UIControlEventTouchUpInside];
     [_stealBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
-        make.left.equalTo(@44);
+        make.left.equalTo(@50);
         make.width.equalTo(@50);
         make.height.equalTo(@50);
         make.bottom.equalTo(@-36);
@@ -266,7 +267,7 @@
     [self.view addSubview:_getLuckBTN];
     [_getLuckBTN addTarget:self action:@selector(getLuckClick:) forControlEvents:UIControlEventTouchUpInside];
     [_getLuckBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
-        make.right.equalTo(@-44);
+        make.right.equalTo(@-50);
         make.width.equalTo(@50);
         make.height.equalTo(@50);
         make.bottom.equalTo(@-36);
@@ -319,9 +320,15 @@
 // MARK: 明细点击事件
 - (void)myDetailClick:(HWButton *)sender {
     [sender popOutsideWithDuration:0.5];
-    Class cls = NSClassFromString(@"LKAssetVC");
-    UIViewController * vc = [cls new];
-    [self.navigationController pushViewController:vc animated:YES];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self showSVCustomeHUDWithImage:[HWUIHelper imageWithCameradispatchName:@"timg"] Status:nil delay:15];
+        [self showSVCustomeHUDWithImage:[UIImage imageWithGIFNamed:@"加载页面GIF"] Status:nil delay:15];
+    });
+    HWAssetsDetailedView * assetsDetaileV = [HWAssetsDetailedView new];
+    [self.view addSubview:assetsDetaileV];
+    [assetsDetaileV HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
+        make.edges.equalTo(@0);
+    }];
 }
 // MARK: 偷币点击事件
 - (void)otherResourceClick:(HWButton *)sender {

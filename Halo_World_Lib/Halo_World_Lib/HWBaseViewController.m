@@ -21,7 +21,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.view.layer setContents:(id)[HWUIHelper imageWithCameradispatchName:@"底图"].CGImage];
     [self initNavBar];
     if (!self.navigationController.navigationBarHidden) {
         [self.navigationController setNavigationBarHidden:NO];
@@ -39,15 +38,27 @@
     }];
     
     UIButton * NavbackBTN = [UIButton new];
-    [NavbackBTN setImage:[HWUIHelper imageWithCameradispatchName:@"返回键"] forState:(UIControlStateNormal)];
+    UIImage * img = [HWUIHelper imageWithCameradispatchName:@"返回键"];
+    [NavbackBTN setImage:img forState:(UIControlStateNormal)];
     [NavbackV addSubview:NavbackBTN];
     [NavbackBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         make.left.equalTo(@20);
         make.centerY.equalTo(@0).offset(10);
-        make.size.HWMAS_equalTo((CGSize){15.5, 20.5});
+        make.size.HWMAS_equalTo((CGSize){15, 20});
     }];
     self.NavbackBTN = NavbackBTN;
-    [NavbackBTN addTarget:self action:@selector(safeBack) forControlEvents:(UIControlEventTouchUpInside)];
+    
+    @HWweak(self)
+    UIControl * backC = [UIControl new];
+    [NavbackV addSubview: backC];
+    backC.backgroundColor = [UIColor clearColor];
+    [backC HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
+        @HWstrong(self)
+        make.centerX.equalTo(self.NavbackBTN.HWMAS_centerX);
+        make.centerY.equalTo(self.NavbackBTN.HWMAS_centerY);
+        make.size.HWMAS_equalTo((CGSize){44, 44});
+    }];
+    [backC addTarget:self action:@selector(safeBack) forControlEvents:(UIControlEventTouchUpInside)];
     
     UILabel * NavLAB = [UILabel new];
     NavLAB.text = @"财富星球";
@@ -67,7 +78,7 @@
 }
 
 - (void)safeBack{
-    
+    [self.NavbackBTN sendActionsForControlEvents:UIControlEventTouchUpInside];
 }
 
 //  纯文本
