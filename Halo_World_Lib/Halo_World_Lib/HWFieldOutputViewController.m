@@ -54,6 +54,7 @@
     self.oreModelListMutArr = [NSMutableArray array];
     float tap = HWSCREEN_WIDTH/10;
     self.oreCenterPoint = @[@((CGPoint){tap, 300}),@((CGPoint){3*tap, 300-tap}),@((CGPoint){3*tap, 300+tap}),@((CGPoint){5*tap,  300-2*tap}),@((CGPoint){5*tap, 300}),@((CGPoint){7*tap, 300-tap}),@((CGPoint){7*tap, 300+tap}),@((CGPoint){9*tap, 300})];
+
     [self extracted] ;
     [self setUpScoreLab];
     [self setUpmiddleButton];
@@ -181,7 +182,7 @@
         }
     }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self dissSVProgressHUD];
+//        [self dissSVProgressHUD];
     });
 }
 //MARK: 我的资产、明细 UI
@@ -287,6 +288,7 @@
 //MARK: 加载数据
 - (void)extracted {
     @HWweak(self);
+    [self showSVCustomeHUDWithImage:[HWUIHelper imageWithCameradispatchName:@"timg"] Status:nil delay:15];
     [self showSVCustomeHUDWithImage:[UIImage imageWithGIFNamed:@"加载页面GIF"] Status:nil delay:15];
     [HWDataHandle loadUserSelfFieldOutputNum:^(BOOL abool, HWModel* model) {
         @HWstrong(self);

@@ -279,6 +279,7 @@
 				5DD2BDB020662C2D00571B94 /* Sources */,
 				5DD2BDB120662C2D00571B94 /* Frameworks */,
 				5DD2BDB220662C2D00571B94 /* CopyFiles */,
+				5D7B69E3206E5CBC0070D2D8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -320,6 +321,22 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5D7B69E3206E5CBC0070D2D8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "SRCPANO=\"${PROJECT_DIR}/cameradispatchservicelib\" #源代码路径\nIOSPANO=\"${PROJECT_DIR}/../../main/modules/Camera\" #生成的文件路径\nDSTPANOLIB=\"${IOSPANO}/header\"\n\nif [ ! -x \"${DSTPANOLIB}\" ]; then\nmkdir ${DSTPANOLIB}/CameraPreview\nmkdir ${DSTPANOLIB}/CameraConnectView\nfi\n\n\ncp ${BUILD_DIR}/${CONFIGURATION}-iphoneos/lib${PRODUCT_NAME}.a ${IOSPANO}/lib/\n#cp -rp ${BUILD_DIR}/${CONFIGURATION}-iphoneos/usr/local/include/ ${DSTPANOLIB}\n\ncp ${SRCPANO}/*.h ${DSTPANOLIB}\n              cp ${SRCPANO}/CameraModel/*.h ${DSTPANOLIB}\n              cp ${SRCPANO}/CameraModel/CameraSetModel/*.h ${DSTPANOLIB}\n              cp ${SRCPANO}/CameraController/*.h ${DSTPANOLIB}\n              cp ${SRCPANO}/CameraController/FwUpdate/1.0.4/*.h ${DSTPANOLIB}\n              cp ${SRCPANO}/CameraController/FwUpdate/1.0.6/*.h ${DSTPANOLIB}\n              \n              cp ${SRCPANO}/CameraView/*.h ${DSTPANOLIB}\n              cp ${SRCPANO}/CameraView/CameraSetView/*.h ${DSTPANOLIB}\n              \n              cp ${SRCPANO}/CameraTools/*.h ${DSTPANOLIB}\n              cp ${SRCPANO}/CameraPlayer/*.h ${DSTPANOLIB}";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5DD2BDB020662C2D00571B94 /* Sources */ = {
