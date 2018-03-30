@@ -24,6 +24,7 @@
 
 @property (nonatomic, strong) HWButton * myResourceBTN;                    // 我的资产
 @property (nonatomic, strong) HWButton * myDetailedBTN;                    // 明细
+@property (nonatomic, strong) HWButton * searchResourceBTN;                // 搜索资源
 
 @property (nonatomic, strong) UIButton * stealBTN;                         // 偷矿
 @property (nonatomic, strong) UIButton * getLuckBTN;                       // 抽奖
@@ -42,7 +43,8 @@
     [super viewDidLoad];
     self.oreMutArr = [NSMutableArray array];
     self.title = @"偷矿";
-    self.oreCenterPoint = @[@((CGPoint){30, 220}),@((CGPoint){80, 180}),@((CGPoint){85, 270}),@((CGPoint){150, 210}),@((CGPoint){210, 165}),@((CGPoint){214.5, 255}),@((CGPoint){290, 220}),@((CGPoint){292.5, 300})];
+    float tap = HWSCREEN_WIDTH/10;
+    self.oreCenterPoint = @[@((CGPoint){tap, 300}),@((CGPoint){3*tap, 300-tap}),@((CGPoint){3*tap, 300+tap}),@((CGPoint){5*tap,  300-2*tap}),@((CGPoint){5*tap, 300}),@((CGPoint){7*tap, 300-tap}),@((CGPoint){7*tap, 300+tap}),@((CGPoint){9*tap, 300})];
     [self extracted] ;
     [self setUpScoreLab];
     [self setUpmiddleButton];
@@ -64,7 +66,7 @@
     _currentSocreLAB = [UILabel new];
     _currentSocreLAB.text = @"当前算力: 0";
     _currentSocreLAB.textAlignment = NSTextAlignmentCenter;
-    _currentSocreLAB.textColor = [UIColor whiteColor];
+    _currentSocreLAB.textColor = HWRGB(0, 253, 253);
     _currentSocreLAB.backgroundColor = [[UIColor clearColor] colorWithAlphaComponent:0];
     _currentSocreLAB.font = [UIFont systemFontOfSize:12];
     [_currentSocreLAB.layer setContents:(id)[HWUIHelper imageWithCameradispatchName:@"算力值框"].CGImage];
@@ -79,14 +81,16 @@
 - (void)setUpOre {
     
     @HWweak(self);
-    NSInteger count = 8;
-    if (self.DataModel.oreList.count > self.oreCenterPoint.count) {
-        count = self.oreCenterPoint.count;
-    }else if (self.DataModel.oreList.count < self.oreCenterPoint.count) {
-        count = self.DataModel.oreList.count;
+    NSInteger count = OreCountPerView;
+    if (self.DataModel.ownOreList.count > OreCountPerView) {
+        count = OreCountPerView;
+    }else if (self.DataModel.ownOreList.count < OreCountPerView) {
+        count = self.DataModel.ownOreList.count;
     }
-    if (self.DataModel.oreList.count == 0) {
-        [self showSVAlertHUDWithStatus:@"暂无数据" delay:2];
+    
+    if (self.DataModel.ownOreList.count == 0) {
+        [self showSVAlertHUDWithStatus:@"暂无数据" delay:1.5];
+        return;
     }
     
     for (int i = 0; i < count; i++) {
@@ -95,12 +99,12 @@
             @HWstrong(self);
             @HWweak(self);
             __weak typeof(sender)wsend = sender;
-//            if (![model.supportHandle isEqualToString:@"2"]) {
-//                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//                   [self showSVProgressHUDWithStatus:@"这个矿不能动！" delay:2];
-//                });
-//                return ;
-//            }
+            if (![model.supportHandle isEqualToString:@"2"]) {
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                   [self showSVAlertHUDWithStatus:@"这个矿偷不了！" delay:1.5];
+                });
+                return ;
+            }
             [HWDataHandle stealOre:model res:^(BOOL b, NSString * m) {
                 @HWstrong(self);
                 __strong typeof(wsend)sender = wsend;
@@ -121,14 +125,15 @@
         }];
         [self.view addSubview:ore];
         [self.oreMutArr addObject:ore];
+        
         [ore HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
             @HWstrong(self);
             make.size.HWMAS_equalTo((CGSize){42.5, 58});
-            make.left.HWMAS_equalTo(self.oreCenterPoint[i].CGPointValue.x);
-            make.top.HWMAS_equalTo(self.oreCenterPoint[i].CGPointValue.y);
+            make.centerX.HWMAS_equalTo(self.oreCenterPoint[i].CGPointValue.x - HWSCREEN_WIDTH/2);
+            make.centerY.HWMAS_equalTo(self.oreCenterPoint[i].CGPointValue.y - HWSCREEN_HEIGHT/2);
         }];
-        ore.model = self.DataModel.oreList[i];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        ore.model = self.DataModel.ownOreList[i];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self dissSVProgressHUD];
         });
     }
@@ -141,9 +146,10 @@
     [self.view addSubview:_myResourceBTN];
     [_myResourceBTN addTarget:self action:@selector(myResourceClick:) forControlEvents:UIControlEventTouchUpInside];
     [_myResourceBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
-        make.left.equalTo(@30);
-        make.width.height.equalTo(@52);
-        make.bottom.equalTo(@-140);
+        @HWstrong(self);
+        make.right.equalTo(@-72);
+        make.width.height.equalTo(@50);
+        make.top.equalTo(self.currentSocreLAB.HWMAS_bottom).offset(10);
     }];
     
     UILabel * _myResourceLAB = [UILabel new];
@@ -163,9 +169,10 @@
     [self.view addSubview:_myDetailedBTN];
     [_myDetailedBTN addTarget:self action:@selector(myDetailClick:) forControlEvents:UIControlEventTouchUpInside];
     [_myDetailedBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
-        make.left.equalTo(@100);
-        make.width.height.equalTo(@52);
-        make.bottom.equalTo(@-140);
+        @HWstrong(self);
+        make.right.equalTo(@-10);
+        make.width.height.equalTo(@50);
+        make.top.equalTo(self.currentSocreLAB.HWMAS_bottom).offset(10);
     }];
     
     UILabel * _myDetailedLAB = [UILabel new];
@@ -178,6 +185,18 @@
         @HWstrong(self);
         make.centerX.equalTo(self.myDetailedBTN.HWMAS_centerX);
         make.top.equalTo(self.myDetailedBTN.HWMAS_bottom).offset(5);
+    }];
+    
+    
+    _searchResourceBTN = [HWButton new];
+    [_searchResourceBTN setImage:[HWUIHelper imageWithCameradispatchName:@"搜索附近矿产"] forState:(UIControlStateNormal)];
+    [self.view addSubview:_searchResourceBTN];
+    [_searchResourceBTN addTarget:self action:@selector(otherResourceClick:) forControlEvents:UIControlEventTouchUpInside];
+    [_searchResourceBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
+        @HWstrong(self);
+        make.left.equalTo(@25);
+        make.width.height.equalTo(@52);
+        make.bottom.equalTo(@-140);
     }];
 }
 
@@ -244,10 +263,14 @@
 }
 // MARK: 偷币点击事件
 - (void)otherResourceClick:(HWButton *)sender {
-    [sender popOutsideWithDuration:0.5];
-    Class cls = NSClassFromString(@"LKAssetVC");
-    UIViewController * vc = [cls new];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (self.oreMutArr.count > 0) {
+        for (HWOreImageView * m in self.oreMutArr) {
+            [m setIsShake:NO];
+            [m removeFromSuperview];
+        }
+        [self.oreMutArr removeAllObjects];
+    }
+    [self extracted];
 }
 // MARK: 抽奖点击事件
 - (void)getLuckClick:(HWButton *)sender {

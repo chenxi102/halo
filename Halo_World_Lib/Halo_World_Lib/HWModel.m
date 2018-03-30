@@ -14,7 +14,8 @@
 {
     self = [super init];
     if (self) {
-        self.oreList = [NSMutableArray array];
+        self.ownOreList = [NSMutableArray array];
+//        self.stealoreList = [NSMutableArray array];
     }
     return self;
 }
