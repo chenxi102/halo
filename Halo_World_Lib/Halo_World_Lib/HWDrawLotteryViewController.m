@@ -29,7 +29,7 @@
 - (void)initUI{
     
     self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, HWSCREEN_WIDTH, HWSCREEN_HEIGHT+20)];
-    NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://cjia.htsleep.com/index.html#/?userId=%@",[HWHttpService shareInstance].userid]]];
+    NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://cjia.htsleep.com/index.html#/?userId=%@&host=%@",[HWHttpService shareInstance].userid, [HWHttpService shareInstance].host]]];
     [request addValue:[HWHttpService shareInstance].userid forHTTPHeaderField:@"userId"];
     [_webView loadRequest:request];
     _webView.navigationDelegate = self;
