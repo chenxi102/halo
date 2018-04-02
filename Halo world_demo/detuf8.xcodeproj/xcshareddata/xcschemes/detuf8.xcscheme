@@ -17,7 +17,7 @@
                BlueprintIdentifier = "5D9C50D41FD000A7006BF21D"
                BuildableName = "detuf8.app"
                BlueprintName = "detuf8"
-               ReferencedContainer = "container:Halo world_demo.xcodeproj">
+               ReferencedContainer = "container:detuf8.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -36,7 +36,7 @@
                BlueprintIdentifier = "5D9C50EC1FD000A8006BF21D"
                BuildableName = "detuf8Tests.xctest"
                BlueprintName = "detuf8Tests"
-               ReferencedContainer = "container:Halo world_demo.xcodeproj">
+               ReferencedContainer = "container:detuf8.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -46,7 +46,7 @@
                BlueprintIdentifier = "5D9C50F71FD000A8006BF21D"
                BuildableName = "detuf8UITests.xctest"
                BlueprintName = "detuf8UITests"
-               ReferencedContainer = "container:Halo world_demo.xcodeproj">
+               ReferencedContainer = "container:detuf8.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -56,7 +56,7 @@
             BlueprintIdentifier = "5D9C50D41FD000A7006BF21D"
             BuildableName = "detuf8.app"
             BlueprintName = "detuf8"
-            ReferencedContainer = "container:Halo world_demo.xcodeproj">
+            ReferencedContainer = "container:detuf8.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -80,7 +80,7 @@
             BlueprintIdentifier = "5D9C50D41FD000A7006BF21D"
             BuildableName = "detuf8.app"
             BlueprintName = "detuf8"
-            ReferencedContainer = "container:Halo world_demo.xcodeproj">
+            ReferencedContainer = "container:detuf8.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -99,7 +99,7 @@
             BlueprintIdentifier = "5D9C50D41FD000A7006BF21D"
             BuildableName = "detuf8.app"
             BlueprintName = "detuf8"
-            ReferencedContainer = "container:Halo world_demo.xcodeproj">
+            ReferencedContainer = "container:detuf8.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

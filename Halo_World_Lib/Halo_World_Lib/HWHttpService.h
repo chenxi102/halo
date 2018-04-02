@@ -10,6 +10,7 @@
 
 typedef void(^_Nullable HttpCallBcak)(NSData *_Nullable, NSError *_Nullable);
 @interface HWHttpService : NSObject
+@property (nonatomic, copy) NSString * _Nullable host;
 // 文案配置
 // 用户id
 @property (nonatomic, copy) NSString * _Nullable userid;

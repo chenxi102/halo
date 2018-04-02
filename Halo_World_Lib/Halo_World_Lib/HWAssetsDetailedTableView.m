@@ -44,7 +44,7 @@
         table.backgroundColor = [[UIColor clearColor] colorWithAlphaComponent:0];
         table.alpha = 1;
         table.tableFooterView = [UIView new];
-        //        table.tableHeaderView = self.paramSetNavView;
+        table.tableHeaderView = [UIView new];
         table;
     });
     [self addSubview:_tabView];
@@ -92,10 +92,6 @@
 - (void)setDatas_mut:(NSMutableArray<HWRecordModel *> *)datas_mut {
     _datas_mut = datas_mut;
     [self.tabView reloadData];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 44;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

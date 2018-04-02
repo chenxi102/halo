@@ -17,13 +17,13 @@
                BlueprintIdentifier = "5D9C50D41FD000A7006BF21D"
                BuildableName = "detuf8.app"
                BlueprintName = "detuf8"
-               ReferencedContainer = "container:Halo world_demo.xcodeproj">
+               ReferencedContainer = "container:detuf8.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Release"
+      buildConfiguration = "EnterPrise"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       language = ""
@@ -36,14 +36,14 @@
             BlueprintIdentifier = "5D9C50D41FD000A7006BF21D"
             BuildableName = "detuf8.app"
             BlueprintName = "detuf8"
-            ReferencedContainer = "container:Halo world_demo.xcodeproj">
+            ReferencedContainer = "container:detuf8.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Release"
+      buildConfiguration = "EnterPrise"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       language = ""
@@ -60,14 +60,14 @@
             BlueprintIdentifier = "5D9C50D41FD000A7006BF21D"
             BuildableName = "detuf8.app"
             BlueprintName = "detuf8"
-            ReferencedContainer = "container:Halo world_demo.xcodeproj">
+            ReferencedContainer = "container:detuf8.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Release"
+      buildConfiguration = "EnterPrise"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
@@ -79,15 +79,15 @@
             BlueprintIdentifier = "5D9C50D41FD000A7006BF21D"
             BuildableName = "detuf8.app"
             BlueprintName = "detuf8"
-            ReferencedContainer = "container:Halo world_demo.xcodeproj">
+            ReferencedContainer = "container:detuf8.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Release">
+      buildConfiguration = "EnterPrise">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Release"
+      buildConfiguration = "EnterPrise"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

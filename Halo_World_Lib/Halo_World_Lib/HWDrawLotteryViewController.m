@@ -28,7 +28,7 @@
 
 - (void)initUI{
     
-    self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, -20, HWSCREEN_WIDTH, HWSCREEN_HEIGHT+20)];
+    self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, HWSCREEN_WIDTH, HWSCREEN_HEIGHT+20)];
     NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://cjia.htsleep.com/index.html#/?userId=%@",[HWHttpService shareInstance].userid]]];
     [request addValue:[HWHttpService shareInstance].userid forHTTPHeaderField:@"userId"];
     [_webView loadRequest:request];
@@ -238,9 +238,7 @@
 
 // 导航失败时会回调
 - (void)webView:(WKWebView *)webView didFailNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self dissSVProgressHUD];
-    });
+   
 }
 
 // 对于HTTPS的都会触发此代理，如果不要求验证，传默认就行

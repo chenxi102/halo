@@ -51,6 +51,11 @@
     [self setUpScoreLab];
     [self setUpmiddleButton];
     [self setUpBottom];
+    {
+        NSLog(@"userId:%@, 财富星球标题:%@, ",[HWHttpService shareInstance].userid,[HWHttpService shareInstance].selfOreTitle);
+        
+    }
+    
 }
 // MARK: =====UI Set Up================================================================
 // MARK: 算力

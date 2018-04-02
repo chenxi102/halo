@@ -17,13 +17,20 @@
 @end
 
 @implementation HWBaseViewController
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (!self.navigationController.navigationBarHidden) {
+        [self.navigationController setNavigationBarHidden:YES];
+    }
+}
+
 - (void)viewWillDisappear:(BOOL)animated {[super viewWillDisappear:animated];}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self initNavBar];
     if (!self.navigationController.navigationBarHidden) {
-        [self.navigationController setNavigationBarHidden:NO];
+        [self.navigationController setNavigationBarHidden:YES];
     }
 }
 

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HWUIHelper.h"
-
+#import "HWMasonry.h"
 #define OreCountPerView      8    // 每个页面显示几个矿
 
 @interface HWBaseViewController : UIViewController

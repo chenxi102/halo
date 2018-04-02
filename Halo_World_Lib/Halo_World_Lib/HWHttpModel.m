@@ -9,7 +9,7 @@
 
 #import "HWHttpModel.h"
 
-NSString * const  HOST = @"http://118.26.132.162:8011";                   //@"http://wttianxubo.imwork.net:10380";      url
+//NSString * const  HOST = @"http://118.26.132.162:8011";                   //@"http://wttianxubo.imwork.net:10380";      url
 NSString * const  excavate = @"/ore/excavate";               //2.1.    用户触发产矿
 NSString * const  reap  = @"/ore/reap";                      //2.2.    采矿
 NSString * const  otherResources = @"/ore/otherResources";   //2.3.    获取偷矿资源

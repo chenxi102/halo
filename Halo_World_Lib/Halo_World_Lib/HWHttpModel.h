@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString * const  HOST ;             //        url
+//extern NSString * const  HOST ;             //        url
 extern NSString * const  excavate ;         //2.1.    用户触发产矿
 extern NSString * const  reap ;             //2.2.    采矿
 extern NSString * const  otherResources ;   //2.3.    获取偷矿资源

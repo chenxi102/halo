@@ -23,7 +23,7 @@
 //    dataStr = [dataStr stringByReplacingOccurrencesOfString:@" " withString:@""];
     requestM.HTTPBody =  [httpModel.params dataUsingEncoding:NSUTF8StringEncoding];
     NSURLSession *session = [NSURLSession sharedSession];
-    
+//    NSLog(@"发起请求: url:%@ params:%@ ", httpModel.url, httpModel.params);
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:requestM completionHandler:
                                       ^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
                                           if (res) {

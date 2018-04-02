@@ -113,6 +113,7 @@
 		5D6B3D2F200DE4C500689041 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		5D6B3D30200DE4C500689041 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		5D6B3D31200DE4C500689041 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		5D7AE9942072136600B82AF0 /* libHalo_World_Lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7AE9492071D58500B82AF0 /* libHalo_World_Lib.a */; };
 		5D9C50DA1FD000A7006BF21D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C50D91FD000A7006BF21D /* AppDelegate.m */; };
 		5D9C50E01FD000A7006BF21D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C50DE1FD000A7006BF21D /* Main.storyboard */; };
 		5D9C50E21FD000A7006BF21D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C50E11FD000A7006BF21D /* Assets.xcassets */; };
@@ -140,20 +141,19 @@
 		5D9CB06B1FF0EB2400FCDF07 /* F8SocketBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9CB0681FF0EB2400FCDF07 /* F8SocketBase.m */; };
 		5D9CB0801FF0F2BC00FCDF07 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5D9CB07A1FF0F2BB00FCDF07 /* Localizable.strings */; };
 		5DAAB67C206B99A9006D95A4 /* HWSVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5DAAB67B206B99A8006D95A4 /* HWSVProgressHUD.bundle */; };
-		5DB15E6C2070992B00188EB8 /* libHalo_World_Lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB15E6B2070992B00188EB8 /* libHalo_World_Lib.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5DD2BDCA20662E0700571B94 /* PBXContainerItemProxy */ = {
+		5D7AE9992072189E00B82AF0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 5DD2BDC620662E0700571B94 /* Halo_World_Lib.xcodeproj */;
+			containerPortal = 5D7AE9952072189E00B82AF0 /* Halo_World_Lib.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 5DD2BDB420662C2D00571B94;
 			remoteInfo = Halo_World_Lib;
 		};
-		5DD2BDCC20662E1800571B94 /* PBXContainerItemProxy */ = {
+		5D7AE99B207218AC00B82AF0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 5DD2BDC620662E0700571B94 /* Halo_World_Lib.xcodeproj */;
+			containerPortal = 5D7AE9952072189E00B82AF0 /* Halo_World_Lib.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 5DD2BDB320662C2D00571B94;
 			remoteInfo = Halo_World_Lib;
@@ -384,6 +384,8 @@
 		5D514FE02057DA4D006C0F6A /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
 		5D5150362057DDC4006C0F6A /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		5D5A2D1A206A04F100F7DDC1 /* halo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = halo.bundle; path = ../halo.bundle; sourceTree = "<group>"; };
+		5D7AE9492071D58500B82AF0 /* libHalo_World_Lib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libHalo_World_Lib.a; path = ../haloworldlib/libHalo_World_Lib.a; sourceTree = "<group>"; };
+		5D7AE9952072189E00B82AF0 /* Halo_World_Lib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Halo_World_Lib.xcodeproj; path = ../Halo_World_Lib/Halo_World_Lib.xcodeproj; sourceTree = "<group>"; };
 		5D9C50D51FD000A7006BF21D /* detuf8.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = detuf8.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D9C50D81FD000A7006BF21D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5D9C50D91FD000A7006BF21D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -441,8 +443,6 @@
 		5D9CB07E1FF0F2BB00FCDF07 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5D9CB07F1FF0F2BB00FCDF07 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5DAAB67B206B99A8006D95A4 /* HWSVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = HWSVProgressHUD.bundle; path = ../HWSVProgressHUD.bundle; sourceTree = "<group>"; };
-		5DB15E6B2070992B00188EB8 /* libHalo_World_Lib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libHalo_World_Lib.a; path = ../haloworldlib/libHalo_World_Lib.a; sourceTree = "<group>"; };
-		5DD2BDC620662E0700571B94 /* Halo_World_Lib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Halo_World_Lib.xcodeproj; path = ../Halo_World_Lib/Halo_World_Lib.xcodeproj; sourceTree = "<group>"; };
 		B1DD1D682CB7760AFB2F385D /* libPods-detuf8.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-detuf8.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -451,7 +451,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DB15E6C2070992B00188EB8 /* libHalo_World_Lib.a in Frameworks */,
+				5D7AE9942072136600B82AF0 /* libHalo_World_Lib.a in Frameworks */,
 				5D5150372057DDC4006C0F6A /* libxml2.tbd in Frameworks */,
 				0A292B63C41AC1613A893FF1 /* libPods-detuf8.a in Frameworks */,
 				5D5150212057DA4D006C0F6A /* libSDWebImage.a in Frameworks */,
@@ -464,7 +464,7 @@
 		2182E16AE3404CD672C5A89E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5DB15E6B2070992B00188EB8 /* libHalo_World_Lib.a */,
+				5D7AE9492071D58500B82AF0 /* libHalo_World_Lib.a */,
 				5D5150362057DDC4006C0F6A /* libxml2.tbd */,
 				B1DD1D682CB7760AFB2F385D /* libPods-detuf8.a */,
 			);
@@ -1018,12 +1018,20 @@
 			path = CocoaAsyncSocket;
 			sourceTree = "<group>";
 		};
+		5D7AE9962072189E00B82AF0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5D7AE99A2072189E00B82AF0 /* libHalo_World_Lib.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		5D9C50CC1FD000A7006BF21D = {
 			isa = PBXGroup;
 			children = (
+				5D7AE9952072189E00B82AF0 /* Halo_World_Lib.xcodeproj */,
 				5DAAB67B206B99A8006D95A4 /* HWSVProgressHUD.bundle */,
 				5D5A2D1A206A04F100F7DDC1 /* halo.bundle */,
-				5DD2BDC620662E0700571B94 /* Halo_World_Lib.xcodeproj */,
 				5D9C50D71FD000A7006BF21D /* detuf8 */,
 				5D9C50D61FD000A7006BF21D /* Products */,
 				9261488120D2555C77B905BD /* Pods */,
@@ -1149,14 +1157,6 @@
 			path = Language;
 			sourceTree = "<group>";
 		};
-		5DD2BDC720662E0700571B94 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				5DD2BDCB20662E0700571B94 /* libHalo_World_Lib.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		9261488120D2555C77B905BD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1184,7 +1184,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				5DD2BDCD20662E1800571B94 /* PBXTargetDependency */,
+				5D7AE99C207218AC00B82AF0 /* PBXTargetDependency */,
 			);
 			name = detuf8;
 			productName = detuf8;
@@ -1203,11 +1203,11 @@
 					5D9C50D41FD000A7006BF21D = {
 						CreatedOnToolsVersion = 9.0;
 						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
-			buildConfigurationList = 5D9C50D01FD000A7006BF21D /* Build configuration list for PBXProject "Halo world_demo" */;
+			buildConfigurationList = 5D9C50D01FD000A7006BF21D /* Build configuration list for PBXProject "detuf8" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -1223,8 +1223,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 5DD2BDC720662E0700571B94 /* Products */;
-					ProjectRef = 5DD2BDC620662E0700571B94 /* Halo_World_Lib.xcodeproj */;
+					ProductGroup = 5D7AE9962072189E00B82AF0 /* Products */;
+					ProjectRef = 5D7AE9952072189E00B82AF0 /* Halo_World_Lib.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1235,11 +1235,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		5DD2BDCB20662E0700571B94 /* libHalo_World_Lib.a */ = {
+		5D7AE99A2072189E00B82AF0 /* libHalo_World_Lib.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libHalo_World_Lib.a;
-			remoteRef = 5DD2BDCA20662E0700571B94 /* PBXContainerItemProxy */;
+			remoteRef = 5D7AE9992072189E00B82AF0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1443,10 +1443,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5DD2BDCD20662E1800571B94 /* PBXTargetDependency */ = {
+		5D7AE99C207218AC00B82AF0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Halo_World_Lib;
-			targetProxy = 5DD2BDCC20662E1800571B94 /* PBXContainerItemProxy */;
+			targetProxy = 5D7AE99B207218AC00B82AF0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1543,8 +1543,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2WE8ZRVPFW;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1576,10 +1576,10 @@
 					../haloworldlib,
 					"$(PROJECT_DIR)/detuf8/Common/Verdor/SDWebImage/lib",
 					"$(PROJECT_DIR)/detuf8/Common/Verdor/Net/SDWebImage/lib",
+					"$(PROJECT_DIR)/detuf8/Common/Verdor/Company/player/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Seth.detuf4plus;
+				PRODUCT_BUNDLE_IDENTIFIER = com.detu.detuf9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "detuf8/detuf8-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
@@ -1698,8 +1698,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2WE8ZRVPFW;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 2T4W7AYHBZ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1731,11 +1731,12 @@
 					../haloworldlib,
 					"$(PROJECT_DIR)/detuf8/Common/Verdor/SDWebImage/lib",
 					"$(PROJECT_DIR)/detuf8/Common/Verdor/Net/SDWebImage/lib",
+					"$(PROJECT_DIR)/detuf8/Common/Verdor/Company/player/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Seth.detuf4plus;
+				PRODUCT_BUNDLE_IDENTIFIER = com.detu.detuf9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "7661f6af-59e3-4843-8d33-1a577ea2159d";
+				PROVISIONING_PROFILE_SPECIFIER = 186_seth_dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "detuf8/detuf8-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1750,8 +1751,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2WE8ZRVPFW;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1783,10 +1784,10 @@
 					../haloworldlib,
 					"$(PROJECT_DIR)/detuf8/Common/Verdor/SDWebImage/lib",
 					"$(PROJECT_DIR)/detuf8/Common/Verdor/Net/SDWebImage/lib",
+					"$(PROJECT_DIR)/detuf8/Common/Verdor/Company/player/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Seth.detuf4plus;
+				PRODUCT_BUNDLE_IDENTIFIER = com.detu.detuf9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "detuf8/detuf8-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
@@ -1797,7 +1798,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5D9C50D01FD000A7006BF21D /* Build configuration list for PBXProject "Halo world_demo" */ = {
+		5D9C50D01FD000A7006BF21D /* Build configuration list for PBXProject "detuf8" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5D9C50FF1FD000A8006BF21D /* Debug */,

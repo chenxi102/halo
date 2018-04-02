@@ -30,7 +30,7 @@
 // 2.1.    用户触发产矿
 - (void)getUserSelfFieldOutputNum:(HttpCallBcak)res {
     HWHttpModel * model = [HWHttpModel new];
-    model.url = [NSString stringWithFormat:@"%@%@",HOST,excavate];
+    model.url = [NSString stringWithFormat:@"%@%@",self.host,excavate];
     model.httpType = @"POST";
     model.params = [NSString stringWithFormat:@"userId=%@",self.userid];
     [self.httpOBJ sendDataWithHttpModel:model result:^(NSData * _Nullable data, NSURLResponse * _Nullable rep, NSError * _Nullable err) {
@@ -42,7 +42,7 @@
 // 2.2.    采矿
 - (void)reapFieldWithOreId:(NSString* _Nullable)oreId Call:(HttpCallBcak)res {
     HWHttpModel * model = [HWHttpModel new];
-    model.url = [NSString stringWithFormat:@"%@%@",HOST,reap];
+    model.url = [NSString stringWithFormat:@"%@%@",self.host,reap];
     model.httpType = @"POST";
 //    model.params = @{@"userId":self.userid, @"oreId":oreId};
     model.params = [NSString stringWithFormat:@"userId=%@&oreId=%@",self.userid, oreId];
@@ -55,7 +55,7 @@
 // 2.3.    获取偷矿资源
 - (void)getOtherResourcesList:(HttpCallBcak)res {
     HWHttpModel * model = [HWHttpModel new];
-    model.url = [NSString stringWithFormat:@"%@%@",HOST,otherResources];
+    model.url = [NSString stringWithFormat:@"%@%@",self.host,otherResources];
     model.httpType = @"POST";
 //    model.params = @{@"userId":self.userid};
     model.params = [NSString stringWithFormat:@"userId=%@",self.userid];
@@ -68,7 +68,7 @@
 // 2.4.    偷取矿产
 - (void)stealFieldWithOreId:(NSString* _Nullable)oreId Call:(HttpCallBcak)res {
     HWHttpModel * model = [HWHttpModel new];
-    model.url = [NSString stringWithFormat:@"%@%@",HOST,steal];
+    model.url = [NSString stringWithFormat:@"%@%@",self.host,steal];
     model.httpType = @"POST";
 //    model.params = @{@"userId":self.userid, @"oreId":oreId};
     model.params = [NSString stringWithFormat:@"userId=%@&oreId=%@",self.userid, oreId];
@@ -85,7 +85,7 @@
 
 - (void)getUserDetailWithTokenType:(NSString * _Nonnull)let Call:(HttpCallBcak)res {
     HWHttpModel * model = [HWHttpModel new];
-    model.url = [NSString stringWithFormat:@"%@%@",HOST,record];
+    model.url = [NSString stringWithFormat:@"%@%@",self.host,record];
     model.httpType = @"POST";
     //    model.params = @{@"userId":self.userid, @"oreId":oreId};
     model.params = [NSString stringWithFormat:@"userId=%@&tokenType=%@",self.userid, let];
@@ -103,7 +103,7 @@
  */
 - (void)getluckyBoxGetLuckWithTokenType:(NSString * _Nonnull)let costTokenNum:(NSString *_Nonnull)costN  Call:(HttpCallBcak)res {
     HWHttpModel * model = [HWHttpModel new];
-    model.url = [NSString stringWithFormat:@"%@%@",HOST,getLuck];
+    model.url = [NSString stringWithFormat:@"%@%@",self.host,getLuck];
     model.httpType = @"POST";
     //    model.params = @{@"userId":self.userid, @"oreId":oreId};
     model.params = [NSString stringWithFormat:@"userId=%@&tokenType=%@&costTokenNum=%@",self.userid, let, costN];
