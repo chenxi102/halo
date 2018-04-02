@@ -34,7 +34,6 @@
 		5D39995D204505990088A166 /* F8ParameterConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D399959204505990088A166 /* F8ParameterConfig.m */; };
 		5D39995E204505990088A166 /* F8ActiveMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D39995A204505990088A166 /* F8ActiveMonitor.m */; };
 		5D399961204547C40088A166 /* F8MainViewMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D399960204547C40088A166 /* F8MainViewMode.m */; };
-		5D3C0FCB2068B2930014F197 /* libHalo_World_Lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DD2BDCB20662E0700571B94 /* libHalo_World_Lib.a */; };
 		5D3DB28D1FF4E16D00C20715 /* F8CameraInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3DB28C1FF4E16D00C20715 /* F8CameraInfo.m */; };
 		5D3DB2911FF4EE3B00C20715 /* F8MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3DB2901FF4EE3B00C20715 /* F8MainViewController.m */; };
 		5D3DB2931FF4EE5000C20715 /* F8MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D3DB2921FF4EE5000C20715 /* F8MainViewController.xib */; };
@@ -141,6 +140,7 @@
 		5D9CB06B1FF0EB2400FCDF07 /* F8SocketBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9CB0681FF0EB2400FCDF07 /* F8SocketBase.m */; };
 		5D9CB0801FF0F2BC00FCDF07 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5D9CB07A1FF0F2BB00FCDF07 /* Localizable.strings */; };
 		5DAAB67C206B99A9006D95A4 /* HWSVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5DAAB67B206B99A8006D95A4 /* HWSVProgressHUD.bundle */; };
+		5DB15E6C2070992B00188EB8 /* libHalo_World_Lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB15E6B2070992B00188EB8 /* libHalo_World_Lib.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -441,6 +441,7 @@
 		5D9CB07E1FF0F2BB00FCDF07 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5D9CB07F1FF0F2BB00FCDF07 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5DAAB67B206B99A8006D95A4 /* HWSVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = HWSVProgressHUD.bundle; path = ../HWSVProgressHUD.bundle; sourceTree = "<group>"; };
+		5DB15E6B2070992B00188EB8 /* libHalo_World_Lib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libHalo_World_Lib.a; path = ../haloworldlib/libHalo_World_Lib.a; sourceTree = "<group>"; };
 		5DD2BDC620662E0700571B94 /* Halo_World_Lib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Halo_World_Lib.xcodeproj; path = ../Halo_World_Lib/Halo_World_Lib.xcodeproj; sourceTree = "<group>"; };
 		B1DD1D682CB7760AFB2F385D /* libPods-detuf8.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-detuf8.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -450,7 +451,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D3C0FCB2068B2930014F197 /* libHalo_World_Lib.a in Frameworks */,
+				5DB15E6C2070992B00188EB8 /* libHalo_World_Lib.a in Frameworks */,
 				5D5150372057DDC4006C0F6A /* libxml2.tbd in Frameworks */,
 				0A292B63C41AC1613A893FF1 /* libPods-detuf8.a in Frameworks */,
 				5D5150212057DA4D006C0F6A /* libSDWebImage.a in Frameworks */,
@@ -463,6 +464,7 @@
 		2182E16AE3404CD672C5A89E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5DB15E6B2070992B00188EB8 /* libHalo_World_Lib.a */,
 				5D5150362057DDC4006C0F6A /* libxml2.tbd */,
 				B1DD1D682CB7760AFB2F385D /* libPods-detuf8.a */,
 			);
@@ -1201,11 +1203,11 @@
 					5D9C50D41FD000A7006BF21D = {
 						CreatedOnToolsVersion = 9.0;
 						LastSwiftMigration = 0900;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 5D9C50D01FD000A7006BF21D /* Build configuration list for PBXProject "detuf8" */;
+			buildConfigurationList = 5D9C50D01FD000A7006BF21D /* Build configuration list for PBXProject "Halo world_demo" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -1540,9 +1542,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = YS5EJK97LA;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2WE8ZRVPFW;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1556,6 +1558,7 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
+					../haloworldlib/header,
 					"\"${PODS_ROOT}/Headers/Public\"",
 					"\"${PODS_ROOT}/Headers/Public/Aspects\"",
 					"\"${PODS_ROOT}/Headers/Public/POP+MCAnimate\"",
@@ -1564,21 +1567,20 @@
 					"\"${PODS_ROOT}/Headers/Public/pop\"",
 					"\"$(PROJECT_DIR)/detuf8/Common/Verdor/Company/player/framework/Headers\"",
 					"\"$(PROJECT_DIR)/detuf8/Common/Verdor/Company/player/framework/PrivateHeaders\"",
-					../Halo_World_Lib/Halo_World_Lib,
 				);
 				INFOPLIST_FILE = detuf8/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					../haloworldlib,
 					"$(PROJECT_DIR)/detuf8/Common/Verdor/SDWebImage/lib",
 					"$(PROJECT_DIR)/detuf8/Common/Verdor/Net/SDWebImage/lib",
-					"$(PROJECT_DIR)/detuf8/Common/Verdor/Company/player/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.detu.detuf4plusEnterPrise;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Seth.detuf4plus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9d06e7c6-8cae-4bf6-ae8d-c999a0c9dad4";
-				PROVISIONING_PROFILE_SPECIFIER = detuf4plus;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "detuf8/detuf8-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1696,8 +1698,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2WE8ZRVPFW;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1711,6 +1713,7 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
+					../haloworldlib/header,
 					"\"${PODS_ROOT}/Headers/Public\"",
 					"\"${PODS_ROOT}/Headers/Public/Aspects\"",
 					"\"${PODS_ROOT}/Headers/Public/POP+MCAnimate\"",
@@ -1719,18 +1722,17 @@
 					"\"${PODS_ROOT}/Headers/Public/pop\"",
 					"\"$(PROJECT_DIR)/detuf8/Common/Verdor/Company/player/framework/Headers\"",
 					"\"$(PROJECT_DIR)/detuf8/Common/Verdor/Company/player/framework/PrivateHeaders\"",
-					../Halo_World_Lib/Halo_World_Lib,
 				);
 				INFOPLIST_FILE = detuf8/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					../haloworldlib,
 					"$(PROJECT_DIR)/detuf8/Common/Verdor/SDWebImage/lib",
 					"$(PROJECT_DIR)/detuf8/Common/Verdor/Net/SDWebImage/lib",
-					"$(PROJECT_DIR)/detuf8/Common/Verdor/Company/player/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.detu.detuf4plusEnterPrise;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Seth.detuf4plus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1747,9 +1749,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = YS5EJK97LA;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2WE8ZRVPFW;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1763,6 +1765,7 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
+					../haloworldlib/header,
 					"\"${PODS_ROOT}/Headers/Public\"",
 					"\"${PODS_ROOT}/Headers/Public/Aspects\"",
 					"\"${PODS_ROOT}/Headers/Public/POP+MCAnimate\"",
@@ -1771,21 +1774,20 @@
 					"\"${PODS_ROOT}/Headers/Public/pop\"",
 					"\"$(PROJECT_DIR)/detuf8/Common/Verdor/Company/player/framework/Headers\"",
 					"\"$(PROJECT_DIR)/detuf8/Common/Verdor/Company/player/framework/PrivateHeaders\"",
-					../Halo_World_Lib/Halo_World_Lib,
 				);
 				INFOPLIST_FILE = detuf8/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					../haloworldlib,
 					"$(PROJECT_DIR)/detuf8/Common/Verdor/SDWebImage/lib",
 					"$(PROJECT_DIR)/detuf8/Common/Verdor/Net/SDWebImage/lib",
-					"$(PROJECT_DIR)/detuf8/Common/Verdor/Company/player/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.detu.detuf4plusEnterPrise;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Seth.detuf4plus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9d06e7c6-8cae-4bf6-ae8d-c999a0c9dad4";
-				PROVISIONING_PROFILE_SPECIFIER = detuf4plus;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "detuf8/detuf8-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1795,7 +1797,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5D9C50D01FD000A7006BF21D /* Build configuration list for PBXProject "detuf8" */ = {
+		5D9C50D01FD000A7006BF21D /* Build configuration list for PBXProject "Halo world_demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5D9C50FF1FD000A8006BF21D /* Debug */,

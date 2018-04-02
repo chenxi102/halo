@@ -14,7 +14,7 @@
 @interface HWBaseViewController : UIViewController
 
 @property (nonatomic, copy) NSString * title;
-
+- (void)initNavBar;
 //  自定义图片
 - (void)showSVCustomeHUDWithImage:(UIImage *)img Status:(NSString *)str delay:(NSTimeInterval)delay;
 // 纯文本

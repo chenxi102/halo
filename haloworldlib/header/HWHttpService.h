@@ -26,6 +26,7 @@ typedef void(^_Nullable HttpCallBcak)(NSData *_Nullable, NSError *_Nullable);
 @property (nonatomic, copy) NSString * _Nullable stealOre_assetsRecordStr;  // 资产明细title
 // 2.挖矿
 @property (nonatomic, copy) NSString * _Nullable luckOreTitle;              // 挖矿界面title
+@property (nonatomic, copy) NSString * _Nullable reapOreTitle;              // 挖矿界面title
 //@property (nonatomic, copy) NSString * _Nullable stealOre_userScoreStr;     // 我的算力title
 //@property (nonatomic, copy) NSString * _Nullable stealOre_userAssetsStr;    // 我的资产title
 //@property (nonatomic, copy) NSString * _Nullable stealOre_assetsRecordStr;  // 资产明细title

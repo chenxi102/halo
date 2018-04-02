@@ -39,9 +39,9 @@ typedef NS_ENUM(NSInteger, OreCellType) {
 @interface HWRecordModel : NSObject
 
 @property (nonatomic,copy) NSString *recordId;          // 记录编号
-@property (nonatomic,assign) double token_number;       // 数量
+@property (nonatomic,assign) double tokenNumber;        // 数量
 @property (nonatomic,copy) NSString *createTime;        // 创建时间
-@property (nonatomic,copy) NSString *token_type;        // 币种: LET KCASH ACT
+@property (nonatomic,copy) NSString *tokenType;         // 币种: LET KCASH ACT
 @property (nonatomic,copy) NSString *operationType;     // 操作: 0 支出 1收入
 @property (nonatomic,copy) NSString *userId;
 

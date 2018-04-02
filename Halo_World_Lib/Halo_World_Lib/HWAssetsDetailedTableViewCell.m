@@ -123,9 +123,16 @@
         operationType_T = @"-";
         color = [UIColor greenColor];
     }
-    _contenLAB.text = [NSString stringWithFormat:@"%@%@",operationType, item.operationType];
-    _numLAB.text = [NSString stringWithFormat:@"%@%.1f",operationType_T, item.token_number];
-    _timeLAB.text = [NSString stringWithFormat:@"%@", item.createTime];
+    _contenLAB.text = [NSString stringWithFormat:@"%@%@",operationType, item.tokenType];
+    _numLAB.text = [NSString stringWithFormat:@"%@%.1f",operationType_T, item.tokenNumber];
+    _timeLAB.text = [NSString stringWithFormat:@"%@", [self praseTime:item.createTime]];
+}
+
+- (NSString *)praseTime:(NSString *)time
+{
+    NSString * mounth = [time substringWithRange:NSMakeRange(4, 2)];
+    NSString * day = [time substringWithRange:NSMakeRange(6, 2)];
+    return [NSString stringWithFormat:@"%d月%d日", mounth.intValue, day.intValue];
 }
 
 @end

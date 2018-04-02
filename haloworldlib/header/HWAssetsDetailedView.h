@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HWAssetsDetailedView : UIView
+@interface HWAssetsDetailedView : UIButton
 
 @end

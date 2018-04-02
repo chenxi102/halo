@@ -37,7 +37,7 @@
 
 // MARK: LIFE CYCLE
 - (void)didReceiveMemoryWarning {[super didReceiveMemoryWarning]; }
-- (void)dealloc { NSLog(@"dealloc"); }
+- (void)dealloc {NSLog(@"%@  %s", [self class], __func__);}
 - (void)viewDidAppear:(BOOL)animated {[super viewDidAppear:animated];}
 
 - (void)viewDidLoad {
@@ -258,7 +258,7 @@
     _getLuckLAB.font = [UIFont fontWithName:@"Helvetica" size:12];
     _getLuckLAB.textColor = [UIColor whiteColor];
     _getLuckLAB.textAlignment = NSTextAlignmentCenter;
-    _getLuckLAB.text = [HWHttpService shareInstance].luckOreTitle;
+    _getLuckLAB.text = [HWHttpService shareInstance].reapOreTitle;
     [self.view addSubview:_getLuckLAB];
     [_getLuckLAB HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         @HWstrong(self);

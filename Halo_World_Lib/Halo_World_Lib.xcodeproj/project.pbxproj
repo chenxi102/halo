@@ -24,10 +24,10 @@
 		5D7B69DE206E10410070D2D8 /* HWAssetsDetailedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B69DD206E10410070D2D8 /* HWAssetsDetailedView.m */; };
 		5D7B69E1206E248B0070D2D8 /* UIImage+Gif.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B69E0206E248B0070D2D8 /* UIImage+Gif.m */; };
 		5DAAB666206B8B97006D95A4 /* HWButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAAB665206B8B97006D95A4 /* HWButton.m */; };
-		5DAAB677206B952D006D95A4 /* HWSVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAAB66E206B952D006D95A4 /* HWSVProgressHUD.m */; };
-		5DAAB678206B952D006D95A4 /* HWSVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAAB670206B952D006D95A4 /* HWSVRadialGradientLayer.m */; };
-		5DAAB679206B952D006D95A4 /* HWSVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAAB671206B952D006D95A4 /* HWSVProgressAnimatedView.m */; };
-		5DAAB67A206B952D006D95A4 /* HWSVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAAB672206B952D006D95A4 /* HWSVIndefiniteAnimatedView.m */; };
+		5DB15E662070987900188EB8 /* HWSVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB15E5F2070987800188EB8 /* HWSVProgressAnimatedView.m */; };
+		5DB15E672070987900188EB8 /* HWSVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB15E622070987800188EB8 /* HWSVRadialGradientLayer.m */; };
+		5DB15E682070987900188EB8 /* HWSVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB15E632070987800188EB8 /* HWSVIndefiniteAnimatedView.m */; };
+		5DB15E692070987900188EB8 /* HWSVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB15E652070987900188EB8 /* HWSVProgressHUD.m */; };
 		5DD2BDDF20668F8500571B94 /* HWDrawLotteryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2BDD920668F8400571B94 /* HWDrawLotteryViewController.m */; };
 		5DD2BDE020668F8500571B94 /* HWStealFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2BDDA20668F8400571B94 /* HWStealFieldViewController.m */; };
 		5DD2BDE120668F8500571B94 /* HWFieldOutputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2BDDD20668F8500571B94 /* HWFieldOutputViewController.m */; };
@@ -91,16 +91,14 @@
 		5D7B69E0206E248B0070D2D8 /* UIImage+Gif.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Gif.m"; sourceTree = "<group>"; };
 		5DAAB664206B8B97006D95A4 /* HWButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWButton.h; sourceTree = "<group>"; };
 		5DAAB665206B8B97006D95A4 /* HWButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWButton.m; sourceTree = "<group>"; };
-		5DAAB66C206B952D006D95A4 /* HWSVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWSVRadialGradientLayer.h; sourceTree = "<group>"; };
-		5DAAB66D206B952D006D95A4 /* HWSVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWSVProgressAnimatedView.h; sourceTree = "<group>"; };
-		5DAAB66E206B952D006D95A4 /* HWSVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWSVProgressHUD.m; sourceTree = "<group>"; };
-		5DAAB66F206B952D006D95A4 /* HWSVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWSVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
-		5DAAB670206B952D006D95A4 /* HWSVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWSVRadialGradientLayer.m; sourceTree = "<group>"; };
-		5DAAB671206B952D006D95A4 /* HWSVProgressAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWSVProgressAnimatedView.m; sourceTree = "<group>"; };
-		5DAAB672206B952D006D95A4 /* HWSVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWSVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
-		5DAAB673206B952D006D95A4 /* HWSVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWSVProgressHUD.h; sourceTree = "<group>"; };
-		5DAAB675206B952D006D95A4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		5DAAB676206B952D006D95A4 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		5DB15E5E2070987800188EB8 /* HWSVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWSVProgressAnimatedView.h; sourceTree = "<group>"; };
+		5DB15E5F2070987800188EB8 /* HWSVProgressAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWSVProgressAnimatedView.m; sourceTree = "<group>"; };
+		5DB15E602070987800188EB8 /* HWSVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWSVRadialGradientLayer.h; sourceTree = "<group>"; };
+		5DB15E612070987800188EB8 /* HWSVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWSVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		5DB15E622070987800188EB8 /* HWSVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWSVRadialGradientLayer.m; sourceTree = "<group>"; };
+		5DB15E632070987800188EB8 /* HWSVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWSVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		5DB15E642070987900188EB8 /* HWSVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWSVProgressHUD.h; sourceTree = "<group>"; };
+		5DB15E652070987900188EB8 /* HWSVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWSVProgressHUD.m; sourceTree = "<group>"; };
 		5DD2BDB420662C2D00571B94 /* libHalo_World_Lib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHalo_World_Lib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DD2BDD920668F8400571B94 /* HWDrawLotteryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWDrawLotteryViewController.m; sourceTree = "<group>"; };
 		5DD2BDDA20668F8400571B94 /* HWStealFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWStealFieldViewController.m; sourceTree = "<group>"; };
@@ -179,24 +177,14 @@
 		5DAAB66A206B952D006D95A4 /* HWSVProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
-				5DAAB66B206B952D006D95A4 /* HWSVProgressHUD */,
-				5DAAB675206B952D006D95A4 /* README.md */,
-				5DAAB676206B952D006D95A4 /* LICENSE.txt */,
-			);
-			path = HWSVProgressHUD;
-			sourceTree = "<group>";
-		};
-		5DAAB66B206B952D006D95A4 /* HWSVProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				5DAAB66C206B952D006D95A4 /* HWSVRadialGradientLayer.h */,
-				5DAAB66D206B952D006D95A4 /* HWSVProgressAnimatedView.h */,
-				5DAAB66E206B952D006D95A4 /* HWSVProgressHUD.m */,
-				5DAAB66F206B952D006D95A4 /* HWSVIndefiniteAnimatedView.h */,
-				5DAAB670206B952D006D95A4 /* HWSVRadialGradientLayer.m */,
-				5DAAB671206B952D006D95A4 /* HWSVProgressAnimatedView.m */,
-				5DAAB672206B952D006D95A4 /* HWSVIndefiniteAnimatedView.m */,
-				5DAAB673206B952D006D95A4 /* HWSVProgressHUD.h */,
+				5DB15E612070987800188EB8 /* HWSVIndefiniteAnimatedView.h */,
+				5DB15E632070987800188EB8 /* HWSVIndefiniteAnimatedView.m */,
+				5DB15E5E2070987800188EB8 /* HWSVProgressAnimatedView.h */,
+				5DB15E5F2070987800188EB8 /* HWSVProgressAnimatedView.m */,
+				5DB15E642070987900188EB8 /* HWSVProgressHUD.h */,
+				5DB15E652070987900188EB8 /* HWSVProgressHUD.m */,
+				5DB15E602070987800188EB8 /* HWSVRadialGradientLayer.h */,
+				5DB15E622070987800188EB8 /* HWSVRadialGradientLayer.m */,
 			);
 			path = HWSVProgressHUD;
 			sourceTree = "<group>";
@@ -289,6 +277,7 @@
 				5DD2BDB020662C2D00571B94 /* Sources */,
 				5DD2BDB120662C2D00571B94 /* Frameworks */,
 				5DD2BDB220662C2D00571B94 /* CopyFiles */,
+				5DB15E5D20708CAC00188EB8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -331,6 +320,22 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5DB15E5D20708CAC00188EB8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "SRCPANO=\"${PROJECT_DIR}/Halo_World_Lib\" #源代码路径\nIOSPANO=\"${PROJECT_DIR}/../haloworldlib\" #生成的文件路\nDSTPANOLIB=\"${IOSPANO}/header\"\nif [ ! -x \"${DSTPANOLIB}\" ];\nthen mkdir ${DSTPANOLIB}/header\nfi\ncp ${BUILD_DIR}/${CONFIGURATION}-iphoneos/lib${PRODUCT_NAME}.a ${IOSPANO}/\n#cp -rp ${BUILD_DIR}/${CONFIGURATION}-iphoneos/usr/local/include/ ${DSTPANOLIB}\ncp ${SRCPANO}/*.h ${DSTPANOLIB}\ncp ${SRCPANO}/HWMasonry/*.h ${DSTPANOLIB}\ncp ${SRCPANO}/HWSVProgressHUD/*.h ${DSTPANOLIB}\n\n\n\n\n\n\n\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5DD2BDB020662C2D00571B94 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -341,9 +346,10 @@
 				5DE101BF206E818000F22667 /* HWAssetsDetailedTableView.m in Sources */,
 				5D5A2D3D206A4F3E00F7DDC1 /* HWMASConstraint.m in Sources */,
 				5D5A2D3E206A4F3E00F7DDC1 /* HWMASViewConstraint.m in Sources */,
-				5DAAB67A206B952D006D95A4 /* HWSVIndefiniteAnimatedView.m in Sources */,
+				5DB15E662070987900188EB8 /* HWSVProgressAnimatedView.m in Sources */,
 				5D5A2D37206A4F3E00F7DDC1 /* ViewController+HWMASAdditions.m in Sources */,
 				5D7B69E1206E248B0070D2D8 /* UIImage+Gif.m in Sources */,
+				5DB15E672070987900188EB8 /* HWSVRadialGradientLayer.m in Sources */,
 				5D5A2D3F206A4F3E00F7DDC1 /* HWMASViewAttribute.m in Sources */,
 				5DD2BDF220679FA700571B94 /* HWHttpModel.m in Sources */,
 				5DE25E86206A7545005AFAE1 /* HWOreImageView.m in Sources */,
@@ -352,17 +358,16 @@
 				5D7B69DE206E10410070D2D8 /* HWAssetsDetailedView.m in Sources */,
 				5D3C0FCF2068D95D0014F197 /* HWUIHelper.m in Sources */,
 				5DD2BDDF20668F8500571B94 /* HWDrawLotteryViewController.m in Sources */,
-				5DAAB678206B952D006D95A4 /* HWSVRadialGradientLayer.m in Sources */,
-				5DAAB677206B952D006D95A4 /* HWSVProgressHUD.m in Sources */,
-				5DAAB679206B952D006D95A4 /* HWSVProgressAnimatedView.m in Sources */,
 				5D5A2D3A206A4F3E00F7DDC1 /* HWMASLayoutConstraint.m in Sources */,
 				5D5A2D39206A4F3E00F7DDC1 /* HWMASConstraintMaker.m in Sources */,
 				5D3525E620692AF800A28CD5 /* HWDataHandle.m in Sources */,
 				5DD2BDE020668F8500571B94 /* HWStealFieldViewController.m in Sources */,
 				5DAAB666206B8B97006D95A4 /* HWButton.m in Sources */,
+				5DB15E692070987900188EB8 /* HWSVProgressHUD.m in Sources */,
 				5D3525E020692AD500A28CD5 /* HWModel.m in Sources */,
 				5D5A2D3B206A4F3E00F7DDC1 /* NSArray+HWMASAdditions.m in Sources */,
 				5DD2BDEC20679CED00571B94 /* HWHttpService.m in Sources */,
+				5DB15E682070987900188EB8 /* HWSVIndefiniteAnimatedView.m in Sources */,
 				5DE101C2206E8AFB00F22667 /* HWAssetsDetailedTableViewCell.m in Sources */,
 				5DD2BDE120668F8500571B94 /* HWFieldOutputViewController.m in Sources */,
 				5DD2BDEF20679DBE00571B94 /* HWHttpBase.m in Sources */,

@@ -86,7 +86,7 @@
             HWModel * orelistM = [HWModel new];
             orelistM.score = ((NSNumber *)_data[@"score"]).doubleValue;
             
-            if (![ownlListid isKindOfClass:[NSNull class]])
+            if (![stealListid isKindOfClass:[NSNull class]])
             {
                 NSArray * stealList = (NSArray *)stealListid;
                 if (stealList.count > 0) {
@@ -98,7 +98,12 @@
                     oreM.supportHandle = @"2";
                     oreM.userId = stealList[0][@"userId"];
                     for (int i = 0 ; i< stealList.count; i++) {
-                        oreM.oreId = [NSString stringWithFormat:@"%@,%@",oreM.oreId, stealList[i][@"oreId"]];
+                        if (i == 0) {
+                            oreM.oreId = stealList[i][@"oreId"];
+                        }else
+                        {
+                            oreM.oreId = [NSString stringWithFormat:@"%@,%@",oreM.oreId, stealList[i][@"oreId"]];
+                        }
                         oreM.oreAmount += ((NSNumber *)stealList[i][@"oreAmount"]).doubleValue;
                         
                     }
@@ -160,7 +165,7 @@
 }
 
 + (void)loadUserSelfRecord:(void(^)(BOOL, NSString*,NSMutableArray<HWRecordModel*>*))res {
-    [[HWHttpService shareInstance] getUserDetailWithTokenType:nil Call:^(NSData * _Nullable data, NSError * _Nullable err) {
+    [[HWHttpService shareInstance] getUserDetailWithTokenType:@"" Call:^(NSData * _Nullable data, NSError * _Nullable err) {
         if (!data) {
             if (res) res(NO, nil, nil);return ;
         }
@@ -179,8 +184,8 @@
                 HWRecordModel *  oreM = [HWRecordModel new];
                 oreM.recordId = oerlsit[i][@"recordId"];
                 oreM.createTime = oerlsit[i][@"createTime"];
-                oreM.token_number = ((NSNumber *)oerlsit[i][@"token_number"]).doubleValue;
-                oreM.token_type = oerlsit[i][@"token_type"];
+                oreM.tokenNumber = ((NSNumber *)oerlsit[i][@"tokenNumber"]).doubleValue;
+                oreM.tokenType = oerlsit[i][@"tokenType"];
                 oreM.operationType = oerlsit[i][@"operationType"];
                 oreM.userId = [HWHttpService shareInstance].userid;
                 
