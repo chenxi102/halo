@@ -124,6 +124,7 @@
         color = [UIColor greenColor];
     }
     _contenLAB.text = [NSString stringWithFormat:@"%@%@",operationType, item.tokenType];
+    _numLAB.textColor = color;
     _numLAB.text = [NSString stringWithFormat:@"%@%.1f",operationType_T, item.tokenNumber];
     _timeLAB.text = [NSString stringWithFormat:@"%@", [self praseTime:item.createTime]];
 }

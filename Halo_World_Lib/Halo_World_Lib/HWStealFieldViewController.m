@@ -47,7 +47,7 @@
     self.title = @"偷矿";
     float tap = HWSCREEN_WIDTH/10;
     self.oreCenterPoint = @[@((CGPoint){tap+10, 200}),@((CGPoint){tap, 200+2*tap}),@((CGPoint){3*tap+10, 200+0.8*tap}),@((CGPoint){3*tap,  200+2.7*tap}),@((CGPoint){5*tap+20, 200}),@((CGPoint){5*tap, 200+1.8*tap}),@((CGPoint){7*tap, 200+3*tap}),@((CGPoint){8.5*tap, 200+1.3*tap})];
-    [self extracted] ;
+    [self extracted:YES] ;
     [self setUpScoreLab];
     [self setUpmiddleButton];
     [self setUpBottom];
@@ -145,9 +145,6 @@
         }];
         ore.model = self.DataModel.ownOreList[i];
     }
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self dissSVProgressHUD];
-    });
 }
 //MARK: 我的资产、明细 UI
 - (void)setUpmiddleButton {
@@ -273,17 +270,30 @@
 }
 
 //MARK: 加载数据
-- (void)extracted {
+- (void)extracted:(BOOL)isFirstLoad {
     @HWweak(self);
     [self showSVCustomeHUDWithImage:[HWUIHelper imageWithCameradispatchName:@"timg"] Status:nil delay:15];
     [self showSVCustomeHUDWithImage:[UIImage imageWithGIFNamed:@"加载页面GIF"] Status:nil delay:15];
     [HWDataHandle loadOthersResource:^(BOOL abool, HWModel* model) {
         @HWstrong(self);
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self dissSVProgressHUD];
             if (abool) {
                 self.DataModel = model;
                 _currentSocreLAB.text = [NSString stringWithFormat:@"当前算力: %.1f", model.score];
-                [self setUpOre];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    @HWweak(self)
+                    if (isFirstLoad) {
+                        [self setUpOre];
+                    }else{
+                        [UIView transitionWithView:self.view duration:0.7 options:(UIViewAnimationOptionTransitionFlipFromRight) animations:nil completion:^(BOOL finished) {
+                            @HWstrong(self);
+                            [self setUpOre];
+                        }];
+                    }
+                });
+            }else {
+                [self showSVAlertHUDWithStatus:@"数据获取失败" delay:1.5];
             }
         });
     }];
@@ -324,7 +334,7 @@
         }
         [self.oreMutArr removeAllObjects];
     }
-    [self extracted];
+    [self extracted:NO];
 }
 
 - (void)myOreArealClick:(HWButton *)sender {

@@ -299,6 +299,8 @@
                 self.totalPage = (model.ownOreList.count+OreCountPerView-1)/OreCountPerView;
                 _currentSocreLAB.text = [NSString stringWithFormat:@"当前算力: %.1f", model.score];
                 [self setUpOre];
+            }else{
+                [self showSVAlertHUDWithStatus:@"数据获取失败" delay:1.5];
             }
         });
     }];
