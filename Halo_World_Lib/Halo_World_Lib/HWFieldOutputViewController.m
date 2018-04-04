@@ -102,7 +102,7 @@
     }
     
     if (self.DataModel.ownOreList.count == 0) {
-        [self showSVAlertHUDWithStatus:@"暂无数据" delay:2];
+        [self showSVAlertHUDWithStatus:@"原力觉醒中···" delay:2];
         return;
     }
     
