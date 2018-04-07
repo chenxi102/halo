@@ -18,10 +18,14 @@
 
 @interface HWStealFieldViewController ()
 
+@property (nonatomic, strong) UIView * backGroundView;                     // 背景图
+
 @property (nonatomic, strong) UILabel * currentSocreLAB;
 @property (nonatomic, strong) HWModel * DataModel;
 @property (nonatomic, copy) NSArray <NSNumber*>* oreCenterPoint;           // 矿石中心点
 @property (nonatomic, strong) NSMutableArray <HWOreImageView*>* oreMutArr;                  // 矿石UI 数组
+
+
 
 @property (nonatomic, strong) HWButton * myResourceBTN;                    // 我的资产
 @property (nonatomic, strong) HWButton * myDetailedBTN;                    // 明细
@@ -41,8 +45,16 @@
 - (void)viewDidAppear:(BOOL)animated {[super viewDidAppear:animated];}
 
 - (void)viewDidLoad {
+    self.backGroundView = [UIView new];
+    [self.view addSubview:self.backGroundView];
+    [self.backGroundView HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
+        make.edges.equalTo(@0);
+    }];
+    self.view.backgroundColor = [UIColor blackColor];
+    [self.backGroundView.layer setContents:(id)[HWUIHelper imageWithCameradispatchName:@"第二页面底图"].CGImage];
+    
     [super viewDidLoad];
-    [self.view.layer setContents:(id)[HWUIHelper imageWithCameradispatchName:@"第二页面底图"].CGImage];
+    
     self.oreMutArr = [NSMutableArray array];
     self.title = @"偷矿";
     float tap = HWSCREEN_WIDTH/10;
@@ -51,18 +63,13 @@
     [self setUpScoreLab];
     [self setUpmiddleButton];
     [self setUpBottom];
-    {
-        NSLog(@"userId:%@, 财富星球标题:%@, ",[HWHttpService shareInstance].userid,[HWHttpService shareInstance].selfOreTitle);
-        
-    }
-    
 }
 // MARK: =====UI Set Up================================================================
 // MARK: 算力
 - (void)setUpScoreLab {
     UIImageView * imgv = [UIImageView new];
     imgv.image = [HWUIHelper imageWithCameradispatchName:@"算力值框"];
-    [self.view addSubview:imgv];
+    [self.backGroundView addSubview:imgv];
     [imgv HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         make.right.equalTo(@0);
         make.top.equalTo(@(isIPhoneX?85:74));
@@ -134,7 +141,7 @@
                 });
             }];
         }];
-        [self.view addSubview:ore];
+        [self.backGroundView addSubview:ore];
         [self.oreMutArr addObject:ore];
         
         [ore HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
@@ -151,7 +158,7 @@
     @HWweak(self);
     _myResourceBTN = [HWButton new];
     [_myResourceBTN setImage:[HWUIHelper imageWithCameradispatchName:@"我的财富"] forState:(UIControlStateNormal)];
-    [self.view addSubview:_myResourceBTN];
+    [self.backGroundView addSubview:_myResourceBTN];
     [_myResourceBTN addTarget:self action:@selector(myResourceClick:) forControlEvents:UIControlEventTouchUpInside];
     [_myResourceBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         @HWstrong(self);
@@ -165,7 +172,7 @@
     _myResourceLAB.textColor = [UIColor whiteColor];
     _myResourceLAB.textAlignment = NSTextAlignmentCenter;
     _myResourceLAB.text = @"我的资产";
-    [self.view addSubview:_myResourceLAB];
+    [self.backGroundView addSubview:_myResourceLAB];
     [_myResourceLAB HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         @HWstrong(self);
         make.centerX.equalTo(self.myResourceBTN.HWMAS_centerX);
@@ -174,7 +181,7 @@
     
     _myDetailedBTN = [HWButton new];
     [_myDetailedBTN setImage:[HWUIHelper imageWithCameradispatchName:@"资产明细"] forState:(UIControlStateNormal)];
-    [self.view addSubview:_myDetailedBTN];
+    [self.backGroundView addSubview:_myDetailedBTN];
     [_myDetailedBTN addTarget:self action:@selector(myDetailClick:) forControlEvents:UIControlEventTouchUpInside];
     [_myDetailedBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         @HWstrong(self);
@@ -188,7 +195,7 @@
     _myDetailedLAB.textColor = [UIColor whiteColor];
     _myDetailedLAB.textAlignment = NSTextAlignmentCenter;
     _myDetailedLAB.text = @"资产明细";
-    [self.view addSubview:_myDetailedLAB];
+    [self.backGroundView addSubview:_myDetailedLAB];
     [_myDetailedLAB HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         @HWstrong(self);
         make.centerX.equalTo(self.myDetailedBTN.HWMAS_centerX);
@@ -198,7 +205,7 @@
     // MARK: 搜索他人
     _searchResourceBTN = [HWButton new];
     [_searchResourceBTN setImage:[HWUIHelper imageWithCameradispatchName:@"搜索附近矿产"] forState:(UIControlStateNormal)];
-    [self.view addSubview:_searchResourceBTN];
+    [self.backGroundView addSubview:_searchResourceBTN];
     [_searchResourceBTN addTarget:self action:@selector(otherResourceClick:) forControlEvents:UIControlEventTouchUpInside];
     [_searchResourceBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         make.right.equalTo(@-12.5);
@@ -211,7 +218,7 @@
     _searchResourceLAB.textColor = [UIColor whiteColor];
     _searchResourceLAB.textAlignment = NSTextAlignmentCenter;
     _searchResourceLAB.text = @"搜索矿山";
-    [self.view addSubview:_searchResourceLAB];
+    [self.backGroundView addSubview:_searchResourceLAB];
     [_searchResourceLAB HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         @HWstrong(self);
         make.centerX.equalTo(self.searchResourceBTN.HWMAS_centerX);
@@ -224,7 +231,7 @@
     @HWweak(self)
     _stealBTN = [HWButton new];
     [_stealBTN setImage:[HWUIHelper imageWithCameradispatchName:@"我的矿山"] forState:(UIControlStateNormal)];
-    [self.view addSubview:_stealBTN];
+    [self.backGroundView addSubview:_stealBTN];
     [_stealBTN addTarget:self action:@selector(myOreArealClick:) forControlEvents:UIControlEventTouchUpInside];
     [_stealBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         make.left.equalTo(@50);
@@ -238,7 +245,7 @@
     _stealLAB.textColor = [UIColor whiteColor];
     _stealLAB.textAlignment = NSTextAlignmentCenter;
     _stealLAB.text = [HWHttpService shareInstance].selfOreTitle;
-    [self.view addSubview:_stealLAB];
+    [self.backGroundView addSubview:_stealLAB];
     [_stealLAB HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         @HWstrong(self);
         make.centerX.equalTo(self.stealBTN.HWMAS_centerX);
@@ -247,7 +254,7 @@
     
     _getLuckBTN = [HWButton new];
     [_getLuckBTN setImage:[HWUIHelper imageWithCameradispatchName:@"挖矿"] forState:(UIControlStateNormal)];
-    [self.view addSubview:_getLuckBTN];
+    [self.backGroundView addSubview:_getLuckBTN];
     [_getLuckBTN addTarget:self action:@selector(getLuckClick:) forControlEvents:UIControlEventTouchUpInside];
     [_getLuckBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         make.right.equalTo(@-50);
@@ -261,7 +268,7 @@
     _getLuckLAB.textColor = [UIColor whiteColor];
     _getLuckLAB.textAlignment = NSTextAlignmentCenter;
     _getLuckLAB.text = [HWHttpService shareInstance].reapOreTitle;
-    [self.view addSubview:_getLuckLAB];
+    [self.backGroundView addSubview:_getLuckLAB];
     [_getLuckLAB HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         @HWstrong(self);
         make.centerX.equalTo(self.getLuckBTN.HWMAS_centerX);
@@ -286,7 +293,7 @@
                     if (isFirstLoad) {
                         [self setUpOre];
                     }else{
-                        [UIView transitionWithView:self.view duration:0.7 options:(UIViewAnimationOptionTransitionFlipFromRight) animations:nil completion:^(BOOL finished) {
+                        [UIView transitionWithView:self.backGroundView duration:0.7 options:(UIViewAnimationOptionTransitionFlipFromRight) animations:nil completion:^(BOOL finished) {
                             @HWstrong(self);
                             [self setUpOre];
                         }];
@@ -320,7 +327,7 @@
         [self showSVCustomeHUDWithImage:[UIImage imageWithGIFNamed:@"加载页面GIF"] Status:nil delay:15];
     });
     HWAssetsDetailedView * assetsDetaileV = [HWAssetsDetailedView new];
-    [self.view addSubview:assetsDetaileV];
+    [self.backGroundView addSubview:assetsDetaileV];
     [assetsDetaileV HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         make.edges.equalTo(@0);
     }];
