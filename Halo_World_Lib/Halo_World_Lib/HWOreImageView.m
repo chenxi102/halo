@@ -129,7 +129,7 @@
 }
 
 - (void)setOreNum:(float)num {
-    self.OreNumLab.text = [NSString stringWithFormat:@"%.1f",num];
+    self.OreNumLab.text = [NSString stringWithFormat:@"%.5f",num];
 }
 
 - (void)setModel:(oreListModel *)model
@@ -155,7 +155,7 @@
         }
     }
    
-    self.OreNumLab.text = [NSString stringWithFormat:@"%.1f",model.oreAmount];
+    self.OreNumLab.text = [NSString stringWithFormat:@"%.5f",model.oreAmount];
     int base = arc4random()%5+1;
     float random = 1.*M_PI/base;
     self.OreImageView.transform = CGAffineTransformRotate(self.OreImageView.transform, random);
