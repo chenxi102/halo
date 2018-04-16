@@ -51,7 +51,7 @@
     [self addSubview:_OreImageView];
     [_OreImageView HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         make.top.centerX.equalTo(@0);
-        make.size.HWMAS_equalTo((CGSize){42.5, 42.5});
+        make.size.HWMAS_equalTo((CGSize){35, 35});
     }];
     [_OreImageView addTarget:self action:@selector(oreClcick:) forControlEvents:(UIControlEventTouchUpInside)];
     
@@ -64,7 +64,7 @@
     [_OreNumLab HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         make.bottom.equalTo(@0);
         make.centerX.equalTo(@0);
-        make.height.equalTo(@15);
+        make.height.equalTo(@23);
     }];
     
 //    _stealOreNumLab = [UILabel new];
@@ -141,7 +141,14 @@
         }else {
             [self setIsShake:NO];
         }
+        self.particleImage = [HWUIHelper imageWithCameradispatchName:@"矿石"];
+        [_OreImageView setImage:[HWUIHelper imageWithCameradispatchName:@"矿石"] forState:(UIControlStateNormal)];
+        
     } else {
+        
+        self.particleImage = [HWUIHelper imageWithCameradispatchName:@"小眼睛"];
+        [_OreImageView setImage:[HWUIHelper imageWithCameradispatchName:@"小眼睛"] forState:(UIControlStateNormal)];
+        
         // 偷取他人的矿  supportHandle :1.自取 2.支持可偷
         // status :0 未收 1 已收
         if ([model.supportHandle isEqualToString:@"2"]&&[model.status isEqualToString:@"0"]) {

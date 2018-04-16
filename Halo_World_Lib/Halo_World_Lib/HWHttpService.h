@@ -19,16 +19,19 @@ typedef void(^_Nullable HttpCallBcak)(NSData *_Nullable, NSError *_Nullable);
 @property (nonatomic, copy) NSString * _Nullable selfOreTitle;              // 我的矿产title
 @property (nonatomic, copy) NSString * _Nullable selfOre_userScoreStr;      // 我的算力title
 @property (nonatomic, copy) NSString * _Nullable selfOre_userAssetsStr;     // 我的资产title
-@property (nonatomic, copy) NSString * _Nullable selfOre_assetsRecordStr;   // 资产明细title
+@property (nonatomic, copy) NSString * _Nullable selfOre_userAssetsRecordtr;// 收支明细title
+@property (nonatomic, copy) NSString * _Nullable selfOre_methodStr;         // 攻略秘籍title
+
+@property (nonatomic, copy) NSString * _Nullable selfOre_methodVCClassStr;  // 攻略秘籍类名
 // 2.偷矿
 @property (nonatomic, copy) NSString * _Nullable stealOreTitle;             // 偷矿界面title
 @property (nonatomic, copy) NSString * _Nullable stealOre_userScoreStr;     // 我的算力title
 @property (nonatomic, copy) NSString * _Nullable stealOre_userAssetsStr;    // 我的资产title
-@property (nonatomic, copy) NSString * _Nullable stealOre_assetsRecordStr;  // 资产明细title
+@property (nonatomic, copy) NSString * _Nullable stealOre_methodStr;        // 攻略秘籍title
 // 2.挖矿
 @property (nonatomic, copy) NSString * _Nullable luckOreTitle;              // 挖矿界面title
 @property (nonatomic, copy) NSString * _Nullable reapOreTitle;              // 挖矿界面title
-//@property (nonatomic, copy) NSString * _Nullable stealOre_userScoreStr;     // 我的算力title
+@property (nonatomic, copy) NSString * _Nullable reapOre_weburlStr;         // 摘星星 url
 //@property (nonatomic, copy) NSString * _Nullable stealOre_userAssetsStr;    // 我的资产title
 //@property (nonatomic, copy) NSString * _Nullable stealOre_assetsRecordStr;  // 资产明细title
 
@@ -53,6 +56,10 @@ typedef void(^_Nullable HttpCallBcak)(NSData *_Nullable, NSError *_Nullable);
           costTokenNum: 游戏每次消费额
 */
 - (void)getUserDetailWithTokenType:(NSString * _Nonnull)let Call:(HttpCallBcak)res;
+
+// 2.7.   abstract: 查询用户资产
+- (void)getUserAssetsWithCall:(HttpCallBcak)res ;
+
 // 2.6.   abstract: 抽奖
 /* prams :
           tokenType:  参与游戏时使用的币种   LET/ACT/KACSH/SSC

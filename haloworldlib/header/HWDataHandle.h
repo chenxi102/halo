@@ -16,5 +16,6 @@
 + (void)loadOthersResource:(void(^)(BOOL, HWModel*))res;
 + (void)stealOre:(oreListModel *)ore res:(void(^)(BOOL, NSString*))res;
 + (void)loadUserSelfRecord:(void(^)(BOOL, NSString*,NSMutableArray<HWRecordModel*>*))res;
++ (void)loadUserSelfDetail:(void(^)(BOOL, NSString*,NSMutableArray<HWRecordModel*>*))res;
 
 @end

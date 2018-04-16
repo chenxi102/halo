@@ -1,18 +1,18 @@
 //
-//  HWAssetsDetailedTableView.m
+//  HWAssetsRecordTableView.m
 //  Halo_World_Lib
 //
 //  Created by Seth Chen on 2018/3/30.
 //  Copyright © 2018年 JianYiMei. All rights reserved.
 //
 
-#import "HWAssetsDetailedTableView.h"
+#import "HWAssetsRecordTableView.h"
 #import "HWMasonry.h"
 #import "HWHttpService.h"
 #import "HWUIHelper.h"
-#import "HWAssetsDetailedTableViewCell.h"
+#import "HWAssetsRecordTableViewCell.h"
 
-@interface HWAssetsDetailedTableView ()<UITableViewDataSource,UITableViewDelegate>
+@interface HWAssetsRecordTableView ()<UITableViewDataSource,UITableViewDelegate>
 
 //@property (nonatomic, strong) UIView * paramSetNavView;
 
@@ -22,7 +22,7 @@
 
 @end
 
-@implementation HWAssetsDetailedTableView
+@implementation HWAssetsRecordTableView
 
 - (instancetype)init
 {
@@ -49,10 +49,10 @@
     });
     [self addSubview:_tabView];
     [_tabView HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
-        make.left.equalTo(@20);
-        make.right.equalTo(@-20);
-        make.top.equalTo(@70);
-        make.bottom.equalTo(@-110);
+        make.left.equalTo(@0);
+        make.right.equalTo(@0);
+        make.top.equalTo(@48);
+        make.bottom.equalTo(@-20);
     }];
     
     UILabel * noneDatatipLab = [UILabel new];
@@ -68,24 +68,34 @@
     }];
     
     _titleLAB = [UILabel new];
-    _titleLAB.font = [UIFont fontWithName:@"Helvetica" size:20];
-    _titleLAB.textColor = [UIColor whiteColor];
+    _titleLAB.font = [UIFont fontWithName:@"Helvetica" size:18];
+    _titleLAB.textColor = HWHexColor(0xFFE07A);
     _titleLAB.textAlignment = NSTextAlignmentCenter;
-    _titleLAB.text = [HWHttpService shareInstance].selfOre_assetsRecordStr;
+    _titleLAB.text = [HWHttpService shareInstance].selfOre_userAssetsRecordtr;
     [self addSubview:_titleLAB];
     [_titleLAB HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         make.left.right.top.equalTo(@0);
-        make.height.equalTo(@70);
+        make.height.equalTo(@47);
     }];
     
-    _backBTN = [UIButton new];
-    [_backBTN setImage:[HWUIHelper imageWithCameradispatchName:@"按钮"] forState:(UIControlStateNormal)];
-    [self addSubview:_backBTN];
-    [_backBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
-        make.centerX.equalTo(@0);
-        make.width.equalTo(@50);
-        make.height.equalTo(@50);
-        make.bottom.equalTo(@-30);
+    UILabel * topline = [UILabel new];
+    [self addSubview:topline];
+    topline.backgroundColor = HWHexColor(0x84E3E4);;
+    [topline HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
+        make.left.equalTo(@3);
+        make.right.equalTo(@-3);
+        make.top.equalTo(@0);
+        make.height.equalTo(@0.5);
+    }];
+    
+    UILabel * bottomline = [UILabel new];
+    [self addSubview:bottomline];
+    bottomline.backgroundColor = HWHexColor(0xFFE07A);;
+    [bottomline HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
+        make.left.equalTo(@23);
+        make.right.equalTo(@-23);
+        make.top.equalTo(@47.5);
+        make.height.equalTo(@0.5);
     }];
 }
 
@@ -103,16 +113,16 @@
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    HWAssetsDetailedTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"HWAssetsDetailedTableViewCell"];
+    HWAssetsRecordTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"HWAssetsRecordTableViewCell"];
     if (!cell) {
-        cell = [[HWAssetsDetailedTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HWAssetsDetailedTableViewCell"];
+        cell = [[HWAssetsRecordTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HWAssetsRecordTableViewCell"];
     }
     cell.item = _datas_mut[indexPath.row];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 48;
+    return 38;
     
 }
 

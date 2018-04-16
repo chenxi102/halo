@@ -10,4 +10,5 @@
 
 @interface HWAssetsDetailedView : UIButton
 
+
 @end

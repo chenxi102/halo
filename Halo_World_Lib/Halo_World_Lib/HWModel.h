@@ -42,6 +42,7 @@ typedef NS_ENUM(NSInteger, OreCellType) {
 @property (nonatomic,assign) double tokenNumber;        // 数量
 @property (nonatomic,copy) NSString *createTime;        // 创建时间
 @property (nonatomic,copy) NSString *tokenType;         // 币种: LET KCASH ACT
+@property (nonatomic,copy) NSString *tokenId;           // tokenId   用户资产用到
 @property (nonatomic,copy) NSString *operationType;     // 操作: 0 支出 1收入
 @property (nonatomic,copy) NSString *userId;
 

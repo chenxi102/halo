@@ -53,8 +53,8 @@
     self.curentPage = 1;
     self.oreBtnMutArr = [NSMutableArray array];
     self.oreModelListMutArr = [NSMutableArray array];
-    float tap = HWSCREEN_WIDTH/10;
-    self.oreCenterPoint = @[@((CGPoint){tap, 300}),@((CGPoint){3*tap, 300-tap}),@((CGPoint){3*tap, 300+tap}),@((CGPoint){5*tap,  300-2*tap}),@((CGPoint){5*tap, 300}),@((CGPoint){7*tap, 300-tap}),@((CGPoint){7*tap, 300+tap}),@((CGPoint){9*tap, 300})];
+//    float tap = HWSCREEN_WIDTH/10;
+    self.oreCenterPoint = @[@((CGPoint){99, 192.5}),@((CGPoint){153.5, 244}),@((CGPoint){225, 191.5}),@((CGPoint){295,  244}),@((CGPoint){79.5, 275.5}),@((CGPoint){145.5, 316}),@((CGPoint){211.5, 283}),@((CGPoint){292, 312.5})];
 
     [self extracted] ;
     [self setUpScoreLab];
@@ -64,15 +64,15 @@
 // MARK: =====UI Set Up================================================================
 // MARK: 算力
 - (void)setUpScoreLab {
-    UIImageView * imgv = [UIImageView new];
-    imgv.image = [HWUIHelper imageWithCameradispatchName:@"算力值框"];
-    [self.view addSubview:imgv];
-    [imgv HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
-        make.right.equalTo(@0);
-        make.top.equalTo(@(isIPhoneX?85:74));
-        make.height.equalTo(@30);
-        make.width.equalTo(@125);
-    }];
+//    UIImageView * imgv = [UIImageView new];
+//    imgv.image = [HWUIHelper imageWithCameradispatchName:@"算力值框"];
+//    [self.view addSubview:imgv];
+//    [imgv HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
+//        make.right.equalTo(@0);
+//        make.top.equalTo(@(isIPhoneX?85:74));
+//        make.height.equalTo(@30);
+//        make.width.equalTo(@125);
+//    }];
     
     _currentSocreLAB = [UILabel new];
     _currentSocreLAB.text = @"当前算力: 0";
@@ -80,11 +80,15 @@
     _currentSocreLAB.textColor = HWRGB(0, 253, 253);
     _currentSocreLAB.backgroundColor = [[UIColor clearColor] colorWithAlphaComponent:0];
     _currentSocreLAB.font = [UIFont systemFontOfSize:12];
-    [_currentSocreLAB.layer setContents:(id)[HWUIHelper imageWithCameradispatchName:@"算力值框"].CGImage];
+//    [_currentSocreLAB.layer setContents:(id)[HWUIHelper imageWithCameradispatchName:@"算力值框"].CGImage];
     //    _currentSocreLAB.backgroundColor = [UIColor colorWithPatternImage:[HWUIHelper imageWithCameradispatchName:@"算力值框"]];
-    [imgv addSubview:_currentSocreLAB];
+    [self.view addSubview:_currentSocreLAB];
     [_currentSocreLAB HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
-        make.edges.equalTo(@0);
+//        make.edges.equalTo(@0);
+        make.right.equalTo(@0);
+        make.top.equalTo(@(isIPhoneX?85:74));
+        make.height.equalTo(@30);
+        make.width.equalTo(@125);
     }];
 }
 
@@ -169,7 +173,7 @@
         [self.oreBtnMutArr addObject:ore];
         [ore HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
             @HWstrong(self);
-            make.size.HWMAS_equalTo((CGSize){50, 58});
+            make.size.HWMAS_equalTo((CGSize){35, 58});
             make.centerX.HWMAS_equalTo(self.oreCenterPoint[i].CGPointValue.x - HWSCREEN_WIDTH/2);
             make.centerY.HWMAS_equalTo(self.oreCenterPoint[i].CGPointValue.y - HWSCREEN_HEIGHT/2);
         }];
@@ -195,44 +199,46 @@
     [_myResourceBTN addTarget:self action:@selector(myResourceClick:) forControlEvents:UIControlEventTouchUpInside];
     [_myResourceBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         @HWstrong(self);
-        make.right.equalTo(@-72);
-        make.width.height.equalTo(@50);
-        make.top.equalTo(self.currentSocreLAB.HWMAS_bottom).offset(10);
+        make.left.equalTo(@24);
+        make.width.height.equalTo(@32);
+//        make.top.equalTo(self.currentSocreLAB.HWMAS_bottom).offset(10);
+        make.top.equalTo(@(isIPhoneX?85:74));
     }];
     
     UILabel * _myResourceLAB = [UILabel new];
     _myResourceLAB.font = [UIFont fontWithName:@"Helvetica" size:12];
-    _myResourceLAB.textColor = [UIColor whiteColor];
+    _myResourceLAB.textColor = HWHexColor(0xfedb68);
     _myResourceLAB.textAlignment = NSTextAlignmentCenter;
     _myResourceLAB.text = [HWHttpService shareInstance].selfOre_userAssetsStr;;
     [self.view addSubview:_myResourceLAB];
     [_myResourceLAB HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         @HWstrong(self);
         make.centerX.equalTo(self.myResourceBTN.HWMAS_centerX);
-        make.top.equalTo(self.myResourceBTN.HWMAS_bottom).offset(5);
+        make.top.equalTo(self.myResourceBTN.HWMAS_bottom).offset(10);
     }];
     
+    // 攻略秘籍
     _myDetailedBTN = [HWButton new];
-    [_myDetailedBTN setImage:[HWUIHelper imageWithCameradispatchName:@"资产明细"] forState:(UIControlStateNormal)];
+    [_myDetailedBTN setImage:[HWUIHelper imageWithCameradispatchName:@"攻略秘籍按钮"] forState:(UIControlStateNormal)];
     [self.view addSubview:_myDetailedBTN];
-    [_myDetailedBTN addTarget:self action:@selector(myDetailClick:) forControlEvents:UIControlEventTouchUpInside];
+    [_myDetailedBTN addTarget:self action:@selector(oreMethod:) forControlEvents:UIControlEventTouchUpInside];
     [_myDetailedBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         @HWstrong(self);
-        make.right.equalTo(@-10);
-        make.width.height.equalTo(@50);
-        make.top.equalTo(self.currentSocreLAB.HWMAS_bottom).offset(10);
+        make.left.equalTo(self.myResourceBTN.HWMAS_right).offset(28);
+        make.width.height.equalTo(@32);
+        make.top.equalTo(@(isIPhoneX?85:74));
     }];
     
     UILabel * _myDetailedLAB = [UILabel new];
     _myDetailedLAB.font = [UIFont fontWithName:@"Helvetica" size:12];
-    _myDetailedLAB.textColor = [UIColor whiteColor];
+    _myDetailedLAB.textColor = HWHexColor(0x75dedd);
     _myDetailedLAB.textAlignment = NSTextAlignmentCenter;
-    _myDetailedLAB.text = [HWHttpService shareInstance].selfOre_assetsRecordStr;
+    _myDetailedLAB.text = [HWHttpService shareInstance].selfOre_methodStr;
     [self.view addSubview:_myDetailedLAB];
     [_myDetailedLAB HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         @HWstrong(self);
         make.centerX.equalTo(self.myDetailedBTN.HWMAS_centerX);
-        make.top.equalTo(self.myDetailedBTN.HWMAS_bottom).offset(5);
+        make.top.equalTo(self.myDetailedBTN.HWMAS_bottom).offset(10);
     }];
 }
 
@@ -240,50 +246,56 @@
 - (void)setUpBottom {
     @HWweak(self)
     _stealBTN = [HWButton new];
-    [_stealBTN setImage:[HWUIHelper imageWithCameradispatchName:@"偷币"] forState:(UIControlStateNormal)];
+    [_stealBTN setBackgroundImage:[HWUIHelper imageWithCameradispatchName:@"偷星星BUTTON"] forState:(UIControlStateNormal)];
+    [_stealBTN setTitle:[HWHttpService shareInstance].stealOreTitle forState:UIControlStateNormal];
+    [_stealBTN setTitleColor:HWHexColor(0x75dedd) forState:UIControlStateNormal];
+    _stealBTN.titleLabel.font = [UIFont fontWithName:@"PingFangSC-Regular" size:16];
     [self.view addSubview:_stealBTN];
     [_stealBTN addTarget:self action:@selector(otherResourceClick:) forControlEvents:UIControlEventTouchUpInside];
     [_stealBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
-        make.left.equalTo(@50);
-        make.width.equalTo(@50);
-        make.height.equalTo(@50);
+        make.left.equalTo(@36);
+        make.width.equalTo(@114);
+        make.height.equalTo(@44);
         make.bottom.equalTo(@-36);
     }];
     
-    UILabel * _stealLAB = [UILabel new];
-    _stealLAB.font = [UIFont fontWithName:@"Helvetica" size:12];
-    _stealLAB.textColor = [UIColor whiteColor];
-    _stealLAB.textAlignment = NSTextAlignmentCenter;
-    _stealLAB.text = [HWHttpService shareInstance].stealOreTitle;
-    [self.view addSubview:_stealLAB];
-    [_stealLAB HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
-        @HWstrong(self);
-        make.centerX.equalTo(self.stealBTN.HWMAS_centerX);
-        make.top.equalTo(self.stealBTN.HWMAS_bottom).offset(5);
-    }];
+//    UILabel * _stealLAB = [UILabel new];
+//    _stealLAB.font = [UIFont fontWithName:@"Helvetica" size:12];
+//    _stealLAB.textColor = [UIColor whiteColor];
+//    _stealLAB.textAlignment = NSTextAlignmentCenter;
+//    _stealLAB.text = [HWHttpService shareInstance].stealOreTitle;
+//    [self.view addSubview:_stealLAB];
+//    [_stealLAB HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
+//        @HWstrong(self);
+//        make.centerX.equalTo(self.stealBTN.HWMAS_centerX);
+//        make.top.equalTo(self.stealBTN.HWMAS_bottom).offset(5);
+//    }];
     
     _getLuckBTN = [HWButton new];
-    [_getLuckBTN setImage:[HWUIHelper imageWithCameradispatchName:@"挖矿"] forState:(UIControlStateNormal)];
+    [_getLuckBTN setBackgroundImage:[HWUIHelper imageWithCameradispatchName:@"摘星星BUTTON"] forState:(UIControlStateNormal)];
+    [_getLuckBTN setTitle:[HWHttpService shareInstance].reapOreTitle forState:UIControlStateNormal];
+    [_getLuckBTN setTitleColor:HWHexColor(0xd09cfc) forState:UIControlStateNormal];
+    _getLuckBTN.titleLabel.font = [UIFont fontWithName:@"PingFangSC-Regular" size:16];
     [self.view addSubview:_getLuckBTN];
     [_getLuckBTN addTarget:self action:@selector(getLuckClick:) forControlEvents:UIControlEventTouchUpInside];
     [_getLuckBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
-        make.right.equalTo(@-50);
-        make.width.equalTo(@50);
-        make.height.equalTo(@50);
+        make.right.equalTo(@-36);
+        make.width.equalTo(@114);
+        make.height.equalTo(@44);
         make.bottom.equalTo(@-36);
     }];
     
-    UILabel * _getLuckLAB = [UILabel new];
-    _getLuckLAB.font = [UIFont fontWithName:@"Helvetica" size:12];
-    _getLuckLAB.textColor = [UIColor whiteColor];
-    _getLuckLAB.textAlignment = NSTextAlignmentCenter;
-    _getLuckLAB.text = [HWHttpService shareInstance].reapOreTitle;
-    [self.view addSubview:_getLuckLAB];
-    [_getLuckLAB HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
-        @HWstrong(self);
-        make.centerX.equalTo(self.getLuckBTN.HWMAS_centerX);
-        make.top.equalTo(self.getLuckBTN.HWMAS_bottom).offset(5);
-    }];
+//    UILabel * _getLuckLAB = [UILabel new];
+//    _getLuckLAB.font = [UIFont fontWithName:@"Helvetica" size:12];
+//    _getLuckLAB.textColor = [UIColor whiteColor];
+//    _getLuckLAB.textAlignment = NSTextAlignmentCenter;
+//    _getLuckLAB.text = [HWHttpService shareInstance].reapOreTitle;
+//    [self.view addSubview:_getLuckLAB];
+//    [_getLuckLAB HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
+//        @HWstrong(self);
+//        make.centerX.equalTo(self.getLuckBTN.HWMAS_centerX);
+//        make.top.equalTo(self.getLuckBTN.HWMAS_bottom).offset(5);
+//    }];
 }
 
 //MARK: 加载数据
@@ -300,7 +312,7 @@
                 _currentSocreLAB.text = [NSString stringWithFormat:@"当前算力: %.1f", model.score];
                 [self setUpOre];
             }else{
-                [self showSVAlertHUDWithStatus:@"数据获取失败" delay:1.5];
+                [self showSVAlertHUDWithStatus:@"原力觉醒中···" delay:1.5];
             }
         });
     }];
@@ -315,13 +327,6 @@
 - (void)myResourceClick:(HWButton *)sender {
     
     [sender popOutsideWithDuration:0.5];
-    Class cls = NSClassFromString(@"LKAssetVC");
-    UIViewController * vc = [cls new];
-    [self.navigationController pushViewController:vc animated:YES];
-}
-// MARK: 明细点击事件
-- (void)myDetailClick:(HWButton *)sender {
-    [sender popOutsideWithDuration:0.5];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self showSVCustomeHUDWithImage:[HWUIHelper imageWithCameradispatchName:@"timg"] Status:nil delay:15];
         [self showSVCustomeHUDWithImage:[UIImage imageWithGIFNamed:@"加载页面GIF"] Status:nil delay:15];
@@ -331,6 +336,13 @@
     [assetsDetaileV HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         make.edges.equalTo(@0);
     }];
+}
+// MARK: 攻略秘籍点击事件
+- (void)oreMethod:(HWButton *)sender {
+    [sender popOutsideWithDuration:0.5];
+    Class cls = NSClassFromString([HWHttpService shareInstance].selfOre_methodVCClassStr);
+    UIViewController * vc = [cls new];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 // MARK: 偷币点击事件
 - (void)otherResourceClick:(HWButton *)sender {

@@ -96,6 +96,22 @@
     }];
 }
 
+// 2.7.   abstract: 查询用户资产
+
+- (void)getUserAssetsWithCall:(HttpCallBcak)res {
+    HWHttpModel * model = [HWHttpModel new];
+    model.url = [NSString stringWithFormat:@"%@%@",self.host,detail];
+    model.httpType = @"POST";
+    //    model.params = @{@"userId":self.userid, @"oreId":oreId};
+    model.params = [NSString stringWithFormat:@"userId=%@",self.userid];
+    [self.httpOBJ sendDataWithHttpModel:model result:^(NSData * _Nullable data, NSURLResponse * _Nullable rep, NSError * _Nullable err) {
+        if (res) {
+            res(data, err);
+        }
+    }];
+}
+
+
 // 2.6.   abstract: 抽奖
 /* prams :
  tokenType:  参与游戏时使用的币种   LET/ACT/KACSH/SSC
