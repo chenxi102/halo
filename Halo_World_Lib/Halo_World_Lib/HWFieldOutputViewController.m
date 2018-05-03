@@ -28,6 +28,8 @@
 @property (nonatomic, strong) HWButton * myResourceBTN;                    // 我的资产
 @property (nonatomic, strong) HWButton * myDetailedBTN;                    // 明细
 
+@property (nonatomic, strong) HWOreImageView * noneStarView;               // 原力觉醒中···
+
 @property (nonatomic, strong) UIButton * stealBTN;                         // 偷矿
 @property (nonatomic, strong) UIButton * getLuckBTN;                       // 抽奖
 @property (nonatomic, assign) NSInteger curentPage;                        // 八个一页 当前哪一页
@@ -48,14 +50,20 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initNavBar];
     [self.view.layer setContents:(id)[HWUIHelper imageWithCameradispatchName:@"底图"].CGImage];
-    self.title = [HWHttpService shareInstance].selfOreTitle;
+//    self.title = [HWHttpService shareInstance].selfOreTitle;
+    
+    
+    
     self.curentPage = 1;
     self.oreBtnMutArr = [NSMutableArray array];
     self.oreModelListMutArr = [NSMutableArray array];
 //    float tap = HWSCREEN_WIDTH/10;
+    
     self.oreCenterPoint = @[@((CGPoint){99, 192.5}),@((CGPoint){153.5, 244}),@((CGPoint){225, 191.5}),@((CGPoint){295,  244}),@((CGPoint){79.5, 275.5}),@((CGPoint){145.5, 316}),@((CGPoint){211.5, 283}),@((CGPoint){292, 312.5})];
 
+    [self setUpStarView];
     [self extracted] ;
     [self setUpScoreLab];
     [self setUpmiddleButton];
@@ -75,7 +83,7 @@
 //    }];
     
     _currentSocreLAB = [UILabel new];
-    _currentSocreLAB.text = @"当前算力: 0";
+    _currentSocreLAB.text = [NSString stringWithFormat:@"%@: %.0f",[HWHttpService shareInstance].selfOre_userScoreStr, 0.];
     _currentSocreLAB.textAlignment = NSTextAlignmentCenter;
     _currentSocreLAB.textColor = HWRGB(0, 253, 253);
     _currentSocreLAB.backgroundColor = [[UIColor clearColor] colorWithAlphaComponent:0];
@@ -105,8 +113,9 @@
         [self.oreModelListMutArr addObject:self.DataModel.ownOreList[index]];
     }
     
-    if (self.DataModel.ownOreList.count == 0) {
-        [self showSVAlertHUDWithStatus:@"原力觉醒中···" delay:2];
+    if (self.oreModelListMutArr == 0 || self.DataModel.ownOreList.count == 0) {
+        [self dissSVProgressHUD];
+        self.noneStarView.hidden = NO;
         return;
     }
     
@@ -309,13 +318,25 @@
             if (abool) {
                 self.DataModel = model;
                 self.totalPage = (model.ownOreList.count+OreCountPerView-1)/OreCountPerView;
-                _currentSocreLAB.text = [NSString stringWithFormat:@"当前算力: %.1f", model.score];
+                self.currentSocreLAB.text = [NSString stringWithFormat:@"%@: %.1f",[HWHttpService shareInstance].selfOre_userScoreStr, model.score];
                 [self setUpOre];
             }else{
-                [self showSVAlertHUDWithStatus:@"原力觉醒中···" delay:1.5];
+                [self dissSVProgressHUD];
+                self.noneStarView.hidden = NO;
             }
         });
     }];
+}
+
+- (void)setUpStarView {
+    _noneStarView = [[HWOreImageView alloc] init];
+    [self.view addSubview:_noneStarView];
+    [_noneStarView HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
+        make.size.HWMAS_equalTo((CGSize){35, 58});
+        make.centerX.equalTo(@0);
+        make.centerY.equalTo(@0).offset(-30);
+    }];
+    _noneStarView.hidden = YES;
 }
 
 - (void)refreshData {
@@ -358,6 +379,7 @@
 }
 
 - (void)safeBack{
+    [self.noneStarView setIsShake:NO];
     for (HWOreImageView *_ in self.oreBtnMutArr) {
         [_ setIsShake:NO];
     }

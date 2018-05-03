@@ -82,9 +82,11 @@
         if (ret.intValue == 0) {
             id  stealListid =  _data[@"stealList"];
             id  ownlListid =  _data[@"ownlList"];
+            NSString * serialNumber =  _data[@"serialNumber"];
             
             HWModel * orelistM = [HWModel new];
             orelistM.score = ((NSNumber *)_data[@"score"]).doubleValue;
+            orelistM.serialNumber = serialNumber.length > 0?serialNumber:@"0";
             
             if (![stealListid isKindOfClass:[NSNull class]])
             {

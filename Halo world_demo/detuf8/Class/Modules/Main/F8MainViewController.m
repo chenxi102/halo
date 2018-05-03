@@ -32,12 +32,15 @@
 
     [HWHttpService shareInstance].host = @"http://118.26.132.162:8011";
 //    [HWHttpService shareInstance].userid = @"79ac16da-6c5c-4f4f-aa4a-32297dcf36c8";
-    [HWHttpService shareInstance].userid = @"79ac16da-6c5c-4f4f-585452565";
-//    [HWHttpService shareInstance].userid = @"51bcd0a4-2f1f-41ac-9664-dd164984f39e";
+//    [HWHttpService shareInstance].userid = @"79ac16da-6c5c-4f4f-585452565";
+//    [HWHttpService shareInstance].userid = @"f77ef322-f617-4c79-8df7-7e25de8cf545";
+//    [HWHttpService shareInstance].userid = @"fb7055e6-08de-4af4-94a5-324be6c9f59d";
+    [HWHttpService shareInstance].userid = @"0e03f4c0-9310-401c-9f20-37560af0ffab";
+    
     [HWHttpService shareInstance].selfOre_methodVCClassStr = @"MethodVCClassStr";
     [HWHttpService shareInstance].reapOre_weburlStr = [NSString stringWithFormat:@"http://cjia.htsleep.com/index.html#/?userId=%@&host=%@",[HWHttpService shareInstance].userid, [HWHttpService shareInstance].host];
     [HWHttpService shareInstance].selfOreTitle = @"财富星球";
-    [HWHttpService shareInstance].selfOre_userScoreStr = @"我的算力";
+    [HWHttpService shareInstance].selfOre_userScoreStr = @"原力值";
     [HWHttpService shareInstance].selfOre_userAssetsStr = @"我的资产";
     [HWHttpService shareInstance].selfOre_userAssetsRecordtr = @"收支明细";
     [HWHttpService shareInstance].selfOre_methodStr = @"攻略秘籍";

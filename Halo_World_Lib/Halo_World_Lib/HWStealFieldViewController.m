@@ -15,6 +15,7 @@
 #import "HWModel.h"
 #import "HWButton.h"
 #import "HWAssetsDetailedView.h"
+#import "UIView+Snapt.h"
 
 @interface HWStealFieldViewController ()
 
@@ -25,7 +26,9 @@
 @property (nonatomic, copy) NSArray <NSNumber*>* oreCenterPoint;           // 矿石中心点
 @property (nonatomic, strong) NSMutableArray <HWOreImageView*>* oreMutArr;                  // 矿石UI 数组
 
-
+@property (nonatomic, strong) HWOreImageView * noneStarView;               // 原力觉醒中···
+@property (nonatomic, strong) UIImageView * pushRocketIMGV;                // 推屏小火箭···
+@property (nonatomic, strong) UIImageView * pushRocketbackGroundIMGV;      // 推 屏小火箭下的view
 
 @property (nonatomic, strong) HWButton * myResourceBTN;                    // 我的资产
 @property (nonatomic, strong) HWButton * myDetailedBTN;                    // 明细
@@ -45,6 +48,7 @@
 - (void)viewDidAppear:(BOOL)animated {[super viewDidAppear:animated];}
 
 - (void)viewDidLoad {
+   
     self.backGroundView = [UIView new];
     [self.view addSubview:self.backGroundView];
     [self.backGroundView HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
@@ -53,19 +57,76 @@
     self.view.backgroundColor = [UIColor blackColor];
     [self.backGroundView.layer setContents:(id)[HWUIHelper imageWithCameradispatchName:@"偷-背景图"].CGImage];
     
+    {
+        self.NavbackBTN  = [UIButton new];
+        UIImage * img = [HWUIHelper imageWithCameradispatchName:@"返回按钮"];
+        [self.NavbackBTN  setImage:img forState:(UIControlStateNormal)];
+        [self.backGroundView addSubview:self.NavbackBTN];
+        [self.NavbackBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
+            make.left.equalTo(@20);
+            make.top.equalTo(@35);
+            make.size.HWMAS_equalTo((CGSize){25, 25});
+        }];
+        
+        @HWweak(self)
+        UIControl * backC = [UIControl new];
+        [self.backGroundView addSubview: backC];
+        backC.backgroundColor = [UIColor clearColor];
+        [backC HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
+            @HWstrong(self)
+            make.centerX.equalTo(self.NavbackBTN.HWMAS_centerX);
+            make.centerY.equalTo(self.NavbackBTN.HWMAS_centerY);
+            make.size.HWMAS_equalTo((CGSize){44, 44});
+        }];
+        [backC addTarget:self action:@selector(safeBack) forControlEvents:(UIControlEventTouchUpInside)];
+        
+        self.NavLAB = [UILabel new];
+        
+        NSMutableAttributedString * navAttributeStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"嘘...你来到了第%d号星球", 0]];
+        [navAttributeStr addAttribute:NSForegroundColorAttributeName value:(id)HWHexColor(0xcc3cc3) range:NSMakeRange(0, navAttributeStr.length)];
+        [navAttributeStr addAttribute:NSForegroundColorAttributeName value:(id)HWHexColor(0x50505A) range:NSMakeRange(0, 9)];
+        [navAttributeStr addAttribute:NSForegroundColorAttributeName value:(id)HWHexColor(0x50505A) range:NSMakeRange(navAttributeStr.length-3, 3)];
+        
+        self.NavLAB.attributedText = navAttributeStr;
+        self.NavLAB.font = [UIFont systemFontOfSize:16];
+        self.NavLAB.textAlignment = NSTextAlignmentCenter;
+        [self.backGroundView addSubview:self.NavLAB];
+        self.NavLAB.hidden = YES;
+        [self.NavLAB HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
+            make.centerX.equalTo(@0);
+            make.top.equalTo(@37);
+        }];
+    }
+    
     [super viewDidLoad];
     
     self.oreMutArr = [NSMutableArray array];
-    self.title = [HWHttpService shareInstance].stealOreTitle;
+//    self.title = [HWHttpService shareInstance].stealOreTitle;
 //    float tap = HWSCREEN_WIDTH/10;
     self.oreCenterPoint = @[@((CGPoint){99, 192.5}),@((CGPoint){153.5, 244}),@((CGPoint){225, 191.5}),@((CGPoint){295,  244}),@((CGPoint){79.5, 275.5}),@((CGPoint){145.5, 316}),@((CGPoint){211.5, 283}),@((CGPoint){292, 312.5})];
-
+    [self setUpStarView];
     [self extracted:YES] ;
 //    [self setUpScoreLab];
     [self setUpmiddleButton];
     [self setUpBottom];
+    [self setUprefreshAnimtion_pushRocket];
+    
 }
 // MARK: =====UI Set Up================================================================
+- (void)freshTitleCount {
+    NSMutableAttributedString * navAttributeStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"嘘...你来到了第%@号星球", self.DataModel.serialNumber]];
+    [navAttributeStr addAttribute:NSForegroundColorAttributeName value:(id)HWHexColor(0xcc3cc3) range:NSMakeRange(0, navAttributeStr.length)];
+    [navAttributeStr addAttribute:NSForegroundColorAttributeName value:(id)HWHexColor(0x50505A) range:NSMakeRange(0, 9)];
+    [navAttributeStr addAttribute:NSForegroundColorAttributeName value:(id)HWHexColor(0x50505A) range:NSMakeRange(navAttributeStr.length-3, 3)];
+    
+    self.NavLAB.attributedText = navAttributeStr;
+    
+    if (self.DataModel.serialNumber.intValue <= 0) {
+        self.NavLAB.hidden = YES;
+    } else {
+        self.NavLAB.hidden = NO;
+    }
+}
 // MARK: 算力
 - (void)setUpScoreLab {
     UIImageView * imgv = [UIImageView new];
@@ -104,7 +165,8 @@
     }
     
     if (self.DataModel.ownOreList.count == 0) {
-        [self showSVAlertHUDWithStatus:@"原力觉醒中···" delay:1.5];
+        [self dissSVProgressHUD];
+        self.noneStarView.hidden = NO;
         return;
     }
     
@@ -211,7 +273,7 @@
     [self.backGroundView addSubview:_searchResourceBTN];
     [_searchResourceBTN addTarget:self action:@selector(otherResourceClick:) forControlEvents:UIControlEventTouchUpInside];
     [_searchResourceBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
-        make.top.equalTo(@65);
+        make.top.equalTo(@70);
         make.width.height.equalTo(@33);
         make.right.equalTo(@-45);
     }];
@@ -297,22 +359,82 @@
             if (abool) {
                 self.DataModel = model;
                 _currentSocreLAB.text = [NSString stringWithFormat:@"当前算力: %.1f", model.score];
+                [self freshTitleCount];
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     @HWweak(self)
                     if (isFirstLoad) {
                         [self setUpOre];
                     }else{
-                        [UIView transitionWithView:self.backGroundView duration:0.7 options:(UIViewAnimationOptionTransitionFlipFromRight) animations:nil completion:^(BOOL finished) {
-                            @HWstrong(self);
-                            [self setUpOre];
-                        }];
+//                        [UIView transitionWithView:self.backGroundView duration:0.7 options:(UIViewAnimationOptionTransitionFlipFromLeft) animations:nil completion:^(BOOL finished) {
+//                            @HWstrong(self);
+//                            [self setUpOre];
+//                        }];
+                        [self transitionAnimation_custom];
                     }
                 });
             }else {
-                [self showSVAlertHUDWithStatus:@"原力觉醒中···" delay:1.5];
+                [self freshTitleCount];
+                [self dissSVProgressHUD];
+                self.noneStarView.hidden = NO;
             }
         });
     }];
+}
+
+// 自定义push动画
+- (void)transitionAnimation_custom {
+    _pushRocketbackGroundIMGV.image = [self.backGroundView snapshotImage];
+    [UIView animateWithDuration:.5 animations:^{
+        self.pushRocketIMGV.transform = CGAffineTransformMakeTranslation(0, 150);
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:1. animations:^{
+                
+                self.backGroundView.transform = CGAffineTransformMakeTranslation(0, -HWSCREEN_HEIGHT);
+                self.pushRocketbackGroundIMGV.transform = CGAffineTransformIdentity;
+                
+                [UIView animateWithDuration:0.5 animations:^{
+                    [self clearData];
+                    [self setUpOre];
+                    self.pushRocketIMGV.transform = CGAffineTransformIdentity;
+                } completion:^(BOOL finished) {
+                    self.pushRocketIMGV.transform = CGAffineTransformMakeTranslation(0, 423);
+                    self.backGroundView.transform = CGAffineTransformIdentity;
+                    self.pushRocketbackGroundIMGV.transform = CGAffineTransformMakeTranslation(0, HWSCREEN_HEIGHT);
+                }];
+            }];
+        });
+    }];
+}
+
+- (void)setUprefreshAnimtion_pushRocket {
+    UIImageView * pushRocketIMGV = [[UIImageView alloc] initWithImage:[HWUIHelper imageWithCameradispatchName:@"推屏小火箭"]];
+    [self.backGroundView addSubview:pushRocketIMGV];
+    [pushRocketIMGV HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
+        make.bottom.equalTo(@0);
+        make.left.right.equalTo(@0);
+        make.height.equalTo(@423);
+    }];
+    pushRocketIMGV.transform = CGAffineTransformMakeTranslation(0, 423);
+    _pushRocketIMGV = pushRocketIMGV;
+    
+    _pushRocketbackGroundIMGV  = [UIImageView new];
+    [self.view insertSubview:_pushRocketbackGroundIMGV belowSubview:self.backGroundView];
+    [_pushRocketbackGroundIMGV HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
+        make.edges.equalTo(@0);
+    }];
+    _pushRocketbackGroundIMGV.transform = CGAffineTransformMakeTranslation(0, HWSCREEN_HEIGHT);
+}
+
+- (void)setUpStarView {
+    _noneStarView = [[HWOreImageView alloc] init];
+    [self.backGroundView addSubview:_noneStarView];
+    [_noneStarView HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
+        make.size.HWMAS_equalTo((CGSize){35, 58});
+        make.centerX.equalTo(@0);
+        make.centerY.equalTo(@0).offset(-30);
+    }];
+    _noneStarView.hidden = YES;
 }
 
 - (void)refreshData {
@@ -342,9 +464,13 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-// MARK: 偷币点击事件
+// MARK: 搜索按钮事件
 - (void)otherResourceClick:(HWButton *)sender {
     [sender popOutsideWithDuration:0.5];
+    [self extracted:NO];
+}
+
+- (void)clearData {
     if (self.oreMutArr.count > 0) {
         for (HWOreImageView * m in self.oreMutArr) {
             [m setIsShake:NO];
@@ -352,7 +478,6 @@
         }
         [self.oreMutArr removeAllObjects];
     }
-    [self extracted:NO];
 }
 
 - (void)myOreArealClick:(HWButton *)sender {
@@ -366,9 +491,16 @@
 }
 
 - (void)safeBack{
+    [self.noneStarView setIsShake:NO];
     for (HWOreImageView *_ in self.oreMutArr) {
         [_ setIsShake:NO];
     }
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (UIView*)duplicate:(UIView*)view
+{
+    NSData * tempArchive = [NSKeyedArchiver archivedDataWithRootObject:view];
+    return [NSKeyedUnarchiver unarchiveObjectWithData:tempArchive];
 }
 @end

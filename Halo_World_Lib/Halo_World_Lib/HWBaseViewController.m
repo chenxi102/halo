@@ -12,8 +12,7 @@
 #import "HWSVProgressHUD.h"
 
 @interface HWBaseViewController ()
-@property (nonatomic, strong) UILabel * NavLAB;
-@property (nonatomic, strong) UIButton * NavbackBTN;
+
 @end
 
 @implementation HWBaseViewController
@@ -31,7 +30,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self initNavBar];
     if (!self.navigationController.navigationBarHidden) {
         [self.navigationController setNavigationBarHidden:YES];
     }
@@ -48,13 +46,13 @@
     }];
     
     UIButton * NavbackBTN = [UIButton new];
-    UIImage * img = [HWUIHelper imageWithCameradispatchName:@"返回键"];
+    UIImage * img = [HWUIHelper imageWithCameradispatchName:@"返回按钮"];
     [NavbackBTN setImage:img forState:(UIControlStateNormal)];
     [NavbackV addSubview:NavbackBTN];
     [NavbackBTN HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         make.left.equalTo(@20);
         make.centerY.equalTo(@0).offset(10);
-        make.size.HWMAS_equalTo((CGSize){15, 20});
+        make.size.HWMAS_equalTo((CGSize){25, 25});
     }];
     self.NavbackBTN = NavbackBTN;
     
@@ -71,7 +69,7 @@
     [backC addTarget:self action:@selector(safeBack) forControlEvents:(UIControlEventTouchUpInside)];
     
     UILabel * NavLAB = [UILabel new];
-    NavLAB.text = @"财富星球";
+    NavLAB.text = @"";
     NavLAB.textColor = [UIColor whiteColor];
     NavLAB.font = [UIFont systemFontOfSize:16];
     NavLAB.textAlignment = NSTextAlignmentCenter;

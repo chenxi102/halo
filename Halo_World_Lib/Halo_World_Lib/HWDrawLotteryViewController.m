@@ -29,9 +29,13 @@
 - (void)initUI{
     
     self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, HWSCREEN_WIDTH, HWSCREEN_HEIGHT+20)];
+    [self.webView.layer setContents:(id)[HWUIHelper imageWithCameradispatchName:@"web背景"].CGImage];
+    [self.view.layer setContents:(id)[HWUIHelper imageWithCameradispatchName:@"web背景"].CGImage];
     NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[HWHttpService shareInstance].reapOre_weburlStr]];
     [request addValue:[HWHttpService shareInstance].userid forHTTPHeaderField:@"userId"];
     [_webView loadRequest:request];
+    _webView.scrollView.bounces = NO;
+    _webView.opaque = NO;
     _webView.navigationDelegate = self;
     _webView.UIDelegate = self;
     [self.view addSubview:_webView];

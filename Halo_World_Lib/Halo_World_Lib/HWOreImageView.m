@@ -45,9 +45,24 @@
     return self;
 }
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [self setup];
+//        [self setupAnimation];
+        self.particleImage = [HWUIHelper imageWithCameradispatchName:@"矿石"];
+        self.particleScale = 0.05;
+        self.particleScaleRange = 0.02;
+        _OreNumLab.textColor = HWRGB(0, 253, 253);
+        [self setIsShake:YES];
+    }
+    return self;
+}
+
 - (void)setup {
     _OreImageView = [UIButton new];
-    [_OreImageView setImage:[HWUIHelper imageWithCameradispatchName:@"矿石"] forState:(UIControlStateNormal)];
+    [_OreImageView setImage:[HWUIHelper imageWithCameradispatchName:@"原力觉醒中icon"] forState:(UIControlStateNormal)];
     [self addSubview:_OreImageView];
     [_OreImageView HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         make.top.centerX.equalTo(@0);
@@ -59,7 +74,7 @@
     _OreNumLab.font = [UIFont systemFontOfSize:11];
     _OreNumLab.textColor = [UIColor whiteColor];
     _OreNumLab.textAlignment = NSTextAlignmentCenter;
-    _OreNumLab.text = @"2";
+    _OreNumLab.text = @"原力觉醒中···";
     [self addSubview:_OreNumLab];
     [_OreNumLab HWMAS_makeConstraints:^(HWMASConstraintMaker *make) {
         make.bottom.equalTo(@0);

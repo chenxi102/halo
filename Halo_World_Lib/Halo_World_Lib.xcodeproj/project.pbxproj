@@ -23,6 +23,7 @@
 		5D5A2D3D206A4F3E00F7DDC1 /* HWMASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A2D32206A4F3E00F7DDC1 /* HWMASConstraint.m */; };
 		5D5A2D3E206A4F3E00F7DDC1 /* HWMASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A2D34206A4F3E00F7DDC1 /* HWMASViewConstraint.m */; };
 		5D5A2D3F206A4F3E00F7DDC1 /* HWMASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A2D35206A4F3E00F7DDC1 /* HWMASViewAttribute.m */; };
+		5D63CC3820885A2F006B9679 /* UIView+Snapt.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D63CC3720885A2F006B9679 /* UIView+Snapt.m */; };
 		5D7B69DE206E10410070D2D8 /* HWAssetsDetailedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B69DD206E10410070D2D8 /* HWAssetsDetailedView.m */; };
 		5D7B69E1206E248B0070D2D8 /* UIImage+Gif.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B69E0206E248B0070D2D8 /* UIImage+Gif.m */; };
 		5DAAB666206B8B97006D95A4 /* HWButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAAB665206B8B97006D95A4 /* HWButton.m */; };
@@ -91,6 +92,8 @@
 		5D5A2D33206A4F3E00F7DDC1 /* ViewController+HWMASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+HWMASAdditions.h"; sourceTree = "<group>"; };
 		5D5A2D34206A4F3E00F7DDC1 /* HWMASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWMASViewConstraint.m; sourceTree = "<group>"; };
 		5D5A2D35206A4F3E00F7DDC1 /* HWMASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWMASViewAttribute.m; sourceTree = "<group>"; };
+		5D63CC3620885A2F006B9679 /* UIView+Snapt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Snapt.h"; sourceTree = "<group>"; };
+		5D63CC3720885A2F006B9679 /* UIView+Snapt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Snapt.m"; sourceTree = "<group>"; };
 		5D7B69DC206E10410070D2D8 /* HWAssetsDetailedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWAssetsDetailedView.h; sourceTree = "<group>"; };
 		5D7B69DD206E10410070D2D8 /* HWAssetsDetailedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWAssetsDetailedView.m; sourceTree = "<group>"; };
 		5D7B69DF206E248B0070D2D8 /* UIImage+Gif.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Gif.h"; sourceTree = "<group>"; };
@@ -144,6 +147,8 @@
 				5D3C0FCE2068D95D0014F197 /* HWUIHelper.m */,
 				5D7B69DF206E248B0070D2D8 /* UIImage+Gif.h */,
 				5D7B69E0206E248B0070D2D8 /* UIImage+Gif.m */,
+				5D63CC3620885A2F006B9679 /* UIView+Snapt.h */,
+				5D63CC3720885A2F006B9679 /* UIView+Snapt.m */,
 			);
 			name = Tool;
 			sourceTree = "<group>";
@@ -383,6 +388,7 @@
 				5DD2BDE120668F8500571B94 /* HWFieldOutputViewController.m in Sources */,
 				5D30AA3520848AF800E8CDEC /* HWAssetsDetailTableView.m in Sources */,
 				5DD2BDEF20679DBE00571B94 /* HWHttpBase.m in Sources */,
+				5D63CC3820885A2F006B9679 /* UIView+Snapt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

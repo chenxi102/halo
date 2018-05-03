@@ -12,8 +12,9 @@
 #define OreCountPerView      8    // 每个页面显示几个矿
 
 @interface HWBaseViewController : UIViewController
-
+@property (nonatomic, strong) UIButton * NavbackBTN;
 @property (nonatomic, copy) NSString * title;
+@property (nonatomic, strong) UILabel * NavLAB;
 - (void)initNavBar;
 //  自定义图片
 - (void)showSVCustomeHUDWithImage:(UIImage *)img Status:(NSString *)str delay:(NSTimeInterval)delay;

@@ -16,6 +16,7 @@ typedef NS_ENUM(NSInteger, OreCellType) {
 // 总的矿产模型
 @interface HWModel : NSObject
 @property (nonatomic,assign) double score; // 用户算力
+@property (nonatomic,copy) NSString * serialNumber; // 用户的排号
 @property (nonatomic,strong) NSMutableArray <oreListModel *>*ownOreList;        // 我的矿产 / 不能偷的矿
 //@property (nonatomic,strong) NSMutableArray <oreListModel *>*stealoreList;      // 可以被偷的矿
 
